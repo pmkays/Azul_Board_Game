@@ -39,6 +39,10 @@ public:
     std::shared_ptr<Tile>* findFullRow();
     bool isRowFull(unsigned const int row);
     bool isValidAdd(Type type, unsigned const int row);
+    bool isValidAddForGrey(Type type, unsigned const int row);
+    bool alreadyExistsInRow(unsigned const int row, Type type);
+    bool alreadyExistsInColumn(unsigned const int column, Type type);
+
 
     //Printers
     std::string rowToString(const int index) const;

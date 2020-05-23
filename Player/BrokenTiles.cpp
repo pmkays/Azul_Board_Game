@@ -1,4 +1,5 @@
 #include "headers/BrokenTiles.h"
+#include <iostream>
 
 BrokenTiles::BrokenTiles() {
     this->size = 0;

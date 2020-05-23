@@ -73,9 +73,32 @@ bool MosaicStorage::isValidAdd(Type type, unsigned const int row) {
         if (!isRowFull(row) && mosaic->isSpaceFree(row, column)) {
             valid = true;
         }
-    }
-   
+    }   
     return valid;
+}
+
+bool MosaicStorage::alreadyExistsInRow(unsigned const int row, Type type){
+    bool exists = false;
+    for(int column = 0; column < dimensions; column++){
+        if(grid[row][column] != nullptr){
+            if(grid[row][column]->getType() == type){
+                exists = true;
+            }
+        }
+    }
+    return exists;
+}
+
+bool MosaicStorage::alreadyExistsInColumn(unsigned const int column, Type type){
+    bool exists = false;
+    for(int row = 0; row < dimensions; row++){
+        if(grid[row][column] != nullptr){
+            if(grid[row][column]->getType() == type){
+                exists = true;
+            }
+        }
+    }
+    return exists;
 }
 
 //we move the broken tiles to discarded tiles so we can later move them to the box lid

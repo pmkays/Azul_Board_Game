@@ -439,7 +439,7 @@ std::vector<std::shared_ptr<Tile>> allTiles =  factory[factoryNumber]->getCopied
 }
 
 void GameEngine::moveTilesToBrokenTiles(Player* player, unsigned const int factoryNumber, const Type type){
-    int maxBrokenTiles = 7;
+    int maxBrokenTiles = 0;
     if(dimensions == 5){
         maxBrokenTiles = 7;
     } else{
