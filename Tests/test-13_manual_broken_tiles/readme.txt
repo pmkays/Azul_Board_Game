@@ -1,0 +1,1 @@
+This test is designed to test whether your program will reach a "dead end" if there is no choice but to manually move tiles to "Broken Tiles". The B command represents the "Broken Tiles". It will also test to see if your storage area can leave incomplete tile rows after a new round.

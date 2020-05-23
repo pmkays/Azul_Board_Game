@@ -1,0 +1,1 @@
+Test that checks the programs ability to play a single round of azul

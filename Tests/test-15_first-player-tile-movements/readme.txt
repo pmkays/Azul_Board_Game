@@ -1,0 +1,1 @@
+This test is designed to test whether the first player tile moves correctly to the broken tiles when a coloured tile is drawn from the central factory for the very first time that round. 

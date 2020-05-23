@@ -1,0 +1,1 @@
+This test was designed to ensure you can load in a game, play it fully, then start a new game and play a couple of rounds. There should be no segmentation faults throughout this test.

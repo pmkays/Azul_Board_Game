@@ -1,0 +1,2443 @@
+Welcome to Azul!
+--------------------
+
+Menu
+----
+1. New Game
+2. Load Game
+3. Credits (Show Student Information)
+4. Quit
+
+>NEW GAME STARTING POINTS PLAYER ONE: 0
+NEW GAME STARTING POINTS PLAYER TWO: 0
+Seed: 2
+>>>>>>> PRIOR TO ADD0
+>>>>>>> AFTER ADD1
+>>>>>>> PRIOR TO ADD1
+>>>>>>> AFTER ADD2
+>>>>>>> PRIOR TO ADD2
+>>>>>>> AFTER ADD3
+>>>>>>> PRIOR TO ADD3
+>>>>>>> AFTER ADD4
+>>>>>>> PRIOR TO ADD4
+>>>>>>> AFTER ADD5
+>>>>>>> PRIOR TO ADD5
+>>>>>>> AFTER ADD6
+>>>>>>> PRIOR TO ADD6
+>>>>>>> AFTER ADD7
+>>>>>>> PRIOR TO ADD7
+>>>>>>> AFTER ADD8
+>>>>>>> PRIOR TO ADD8
+>>>>>>> AFTER ADD9
+>>>>>>> PRIOR TO ADD9
+>>>>>>> AFTER ADD10
+>>>>>>> PRIOR TO ADD10
+>>>>>>> AFTER ADD11
+>>>>>>> PRIOR TO ADD11
+>>>>>>> AFTER ADD12
+>>>>>>> PRIOR TO ADD12
+>>>>>>> AFTER ADD13
+>>>>>>> PRIOR TO ADD13
+>>>>>>> AFTER ADD14
+>>>>>>> PRIOR TO ADD14
+>>>>>>> AFTER ADD15
+>>>>>>> PRIOR TO ADD15
+>>>>>>> AFTER ADD16
+>>>>>>> PRIOR TO ADD16
+>>>>>>> AFTER ADD17
+>>>>>>> PRIOR TO ADD17
+>>>>>>> AFTER ADD18
+>>>>>>> PRIOR TO ADD18
+>>>>>>> AFTER ADD19
+>>>>>>> PRIOR TO ADD19
+>>>>>>> AFTER ADD20
+>>>>>>> PRIOR TO ADD20
+>>>>>>> AFTER ADD21
+>>>>>>> PRIOR TO ADD21
+>>>>>>> AFTER ADD22
+>>>>>>> PRIOR TO ADD22
+>>>>>>> AFTER ADD23
+>>>>>>> PRIOR TO ADD23
+>>>>>>> AFTER ADD24
+>>>>>>> PRIOR TO ADD24
+>>>>>>> AFTER ADD25
+>>>>>>> PRIOR TO ADD25
+>>>>>>> AFTER ADD26
+>>>>>>> PRIOR TO ADD26
+>>>>>>> AFTER ADD27
+>>>>>>> PRIOR TO ADD27
+>>>>>>> AFTER ADD28
+>>>>>>> PRIOR TO ADD28
+>>>>>>> AFTER ADD29
+>>>>>>> PRIOR TO ADD29
+>>>>>>> AFTER ADD30
+>>>>>>> PRIOR TO ADD30
+>>>>>>> AFTER ADD31
+>>>>>>> PRIOR TO ADD31
+>>>>>>> AFTER ADD32
+>>>>>>> PRIOR TO ADD32
+>>>>>>> AFTER ADD33
+>>>>>>> PRIOR TO ADD33
+>>>>>>> AFTER ADD34
+>>>>>>> PRIOR TO ADD34
+>>>>>>> AFTER ADD35
+>>>>>>> PRIOR TO ADD35
+>>>>>>> AFTER ADD36
+>>>>>>> PRIOR TO ADD36
+>>>>>>> AFTER ADD37
+>>>>>>> PRIOR TO ADD37
+>>>>>>> AFTER ADD38
+>>>>>>> PRIOR TO ADD38
+>>>>>>> AFTER ADD39
+>>>>>>> PRIOR TO ADD39
+>>>>>>> AFTER ADD40
+>>>>>>> PRIOR TO ADD40
+>>>>>>> AFTER ADD41
+>>>>>>> PRIOR TO ADD41
+>>>>>>> AFTER ADD42
+>>>>>>> PRIOR TO ADD42
+>>>>>>> AFTER ADD43
+>>>>>>> PRIOR TO ADD43
+>>>>>>> AFTER ADD44
+>>>>>>> PRIOR TO ADD44
+>>>>>>> AFTER ADD45
+>>>>>>> PRIOR TO ADD45
+>>>>>>> AFTER ADD46
+>>>>>>> PRIOR TO ADD46
+>>>>>>> AFTER ADD47
+>>>>>>> PRIOR TO ADD47
+>>>>>>> AFTER ADD48
+>>>>>>> PRIOR TO ADD48
+>>>>>>> AFTER ADD49
+>>>>>>> PRIOR TO ADD49
+>>>>>>> AFTER ADD50
+>>>>>>> PRIOR TO ADD50
+>>>>>>> AFTER ADD51
+>>>>>>> PRIOR TO ADD51
+>>>>>>> AFTER ADD52
+>>>>>>> PRIOR TO ADD52
+>>>>>>> AFTER ADD53
+>>>>>>> PRIOR TO ADD53
+>>>>>>> AFTER ADD54
+>>>>>>> PRIOR TO ADD54
+>>>>>>> AFTER ADD55
+>>>>>>> PRIOR TO ADD55
+>>>>>>> AFTER ADD56
+>>>>>>> PRIOR TO ADD56
+>>>>>>> AFTER ADD57
+>>>>>>> PRIOR TO ADD57
+>>>>>>> AFTER ADD58
+>>>>>>> PRIOR TO ADD58
+>>>>>>> AFTER ADD59
+>>>>>>> PRIOR TO ADD59
+>>>>>>> AFTER ADD60
+>>>>>>> PRIOR TO ADD60
+>>>>>>> AFTER ADD61
+>>>>>>> PRIOR TO ADD61
+>>>>>>> AFTER ADD62
+>>>>>>> PRIOR TO ADD62
+>>>>>>> AFTER ADD63
+>>>>>>> PRIOR TO ADD63
+>>>>>>> AFTER ADD64
+>>>>>>> PRIOR TO ADD64
+>>>>>>> AFTER ADD65
+>>>>>>> PRIOR TO ADD65
+>>>>>>> AFTER ADD66
+>>>>>>> PRIOR TO ADD66
+>>>>>>> AFTER ADD67
+>>>>>>> PRIOR TO ADD67
+>>>>>>> AFTER ADD68
+>>>>>>> PRIOR TO ADD68
+>>>>>>> AFTER ADD69
+>>>>>>> PRIOR TO ADD69
+>>>>>>> AFTER ADD70
+>>>>>>> PRIOR TO ADD70
+>>>>>>> AFTER ADD71
+>>>>>>> PRIOR TO ADD71
+>>>>>>> AFTER ADD72
+>>>>>>> PRIOR TO ADD72
+>>>>>>> AFTER ADD73
+>>>>>>> PRIOR TO ADD73
+>>>>>>> AFTER ADD74
+>>>>>>> PRIOR TO ADD74
+>>>>>>> AFTER ADD75
+>>>>>>> PRIOR TO ADD75
+>>>>>>> AFTER ADD76
+>>>>>>> PRIOR TO ADD76
+>>>>>>> AFTER ADD77
+>>>>>>> PRIOR TO ADD77
+>>>>>>> AFTER ADD78
+>>>>>>> PRIOR TO ADD78
+>>>>>>> AFTER ADD79
+>>>>>>> PRIOR TO ADD79
+>>>>>>> AFTER ADD80
+>>>>>>> PRIOR TO ADD80
+>>>>>>> AFTER ADD81
+>>>>>>> PRIOR TO ADD81
+>>>>>>> AFTER ADD82
+>>>>>>> PRIOR TO ADD82
+>>>>>>> AFTER ADD83
+>>>>>>> PRIOR TO ADD83
+>>>>>>> AFTER ADD84
+>>>>>>> PRIOR TO ADD84
+>>>>>>> AFTER ADD85
+>>>>>>> PRIOR TO ADD85
+>>>>>>> AFTER ADD86
+>>>>>>> PRIOR TO ADD86
+>>>>>>> AFTER ADD87
+>>>>>>> PRIOR TO ADD87
+>>>>>>> AFTER ADD88
+>>>>>>> PRIOR TO ADD88
+>>>>>>> AFTER ADD89
+>>>>>>> PRIOR TO ADD89
+>>>>>>> AFTER ADD90
+>>>>>>> PRIOR TO ADD90
+>>>>>>> AFTER ADD91
+>>>>>>> PRIOR TO ADD91
+>>>>>>> AFTER ADD92
+>>>>>>> PRIOR TO ADD92
+>>>>>>> AFTER ADD93
+>>>>>>> PRIOR TO ADD93
+>>>>>>> AFTER ADD94
+>>>>>>> PRIOR TO ADD94
+>>>>>>> AFTER ADD95
+>>>>>>> PRIOR TO ADD95
+>>>>>>> AFTER ADD96
+>>>>>>> PRIOR TO ADD96
+>>>>>>> AFTER ADD97
+>>>>>>> PRIOR TO ADD97
+>>>>>>> AFTER ADD98
+>>>>>>> PRIOR TO ADD98
+>>>>>>> AFTER ADD99
+>>>>>>> PRIOR TO ADD99
+>>>>>>> AFTER ADD100
+BAG: U B L Y U L U B B R R U L Y U U B U R U R B U Y L U R B L Y L B B Y B L U Y R L R L B R R U U L Y R Y L R Y Y L R B L R Y Y Y B R Y U Y L R B L U R B R B U U B R B R R B Y L B B Y L U Y U L Y Y L L U 
+>>>>>>>100
+>>>>>>> PRIOR TO REMOVE100
+>>>>>>> AFTER REMOVE99
+>>>>>>> PRIOR TO REMOVE99
+>>>>>>> AFTER REMOVE98
+>>>>>>> PRIOR TO REMOVE98
+>>>>>>> AFTER REMOVE97
+>>>>>>> PRIOR TO REMOVE97
+>>>>>>> AFTER REMOVE96
+>>>>>>> PRIOR TO REMOVE96
+>>>>>>> AFTER REMOVE95
+>>>>>>> PRIOR TO REMOVE95
+>>>>>>> AFTER REMOVE94
+>>>>>>> PRIOR TO REMOVE94
+>>>>>>> AFTER REMOVE93
+>>>>>>> PRIOR TO REMOVE93
+>>>>>>> AFTER REMOVE92
+>>>>>>> PRIOR TO REMOVE92
+>>>>>>> AFTER REMOVE91
+>>>>>>> PRIOR TO REMOVE91
+>>>>>>> AFTER REMOVE90
+>>>>>>> PRIOR TO REMOVE90
+>>>>>>> AFTER REMOVE89
+>>>>>>> PRIOR TO REMOVE89
+>>>>>>> AFTER REMOVE88
+>>>>>>> PRIOR TO REMOVE88
+>>>>>>> AFTER REMOVE87
+>>>>>>> PRIOR TO REMOVE87
+>>>>>>> AFTER REMOVE86
+>>>>>>> PRIOR TO REMOVE86
+>>>>>>> AFTER REMOVE85
+>>>>>>> PRIOR TO REMOVE85
+>>>>>>> AFTER REMOVE84
+>>>>>>> PRIOR TO REMOVE84
+>>>>>>> AFTER REMOVE83
+>>>>>>> PRIOR TO REMOVE83
+>>>>>>> AFTER REMOVE82
+>>>>>>> PRIOR TO REMOVE82
+>>>>>>> AFTER REMOVE81
+>>>>>>> PRIOR TO REMOVE81
+>>>>>>> AFTER REMOVE80
+========80
+Factory0: F 
+Factory1: U B L Y 
+Factory2: U L U B 
+Factory3: B R R U 
+Factory4: L Y U U 
+Factory5: B U R U 
+
+Mosaic for Joe
+1:         . || b y r u l 
+2:       . . || l b y r u 
+3:     . . . || u l b y r 
+4:   . . . . || r u l b y 
+5: . . . . . || y r u l b 
+Broken: 
+
+Mosaic for Moe
+1:         . || b y r u l 
+2:       . . || l b y r u 
+3:     . . . || u l b y r 
+4:   . . . . || r u l b y 
+5: . . . . . || y r u l b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: F B U 
+Factory1: U B L Y 
+Factory2: U L U B 
+Factory3: 
+Factory4: L Y U U 
+Factory5: B U R U 
+
+Mosaic for Joe
+1:         . || b y r u l 
+2:       R R || l b y r u 
+3:     . . . || u l b y r 
+4:   . . . . || r u l b y 
+5: . . . . . || y r u l b 
+Broken: 
+
+Mosaic for Moe
+1:         . || b y r u l 
+2:       . . || l b y r u 
+3:     . . . || u l b y r 
+4:   . . . . || r u l b y 
+5: . . . . . || y r u l b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: F B U B R 
+Factory1: U B L Y 
+Factory2: U L U B 
+Factory3: 
+Factory4: L Y U U 
+Factory5: 
+
+Mosaic for Joe
+1:         . || b y r u l 
+2:       R R || l b y r u 
+3:     . . . || u l b y r 
+4:   . . . . || r u l b y 
+5: . . . . . || y r u l b 
+Broken: 
+
+Mosaic for Moe
+1:         . || b y r u l 
+2:       U U || l b y r u 
+3:     . . . || u l b y r 
+4:   . . . . || r u l b y 
+5: . . . . . || y r u l b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: F B U B R U B L 
+Factory1: 
+Factory2: U L U B 
+Factory3: 
+Factory4: L Y U U 
+Factory5: 
+
+Mosaic for Joe
+1:         Y || b y r u l 
+2:       R R || l b y r u 
+3:     . . . || u l b y r 
+4:   . . . . || r u l b y 
+5: . . . . . || y r u l b 
+Broken: 
+
+Mosaic for Moe
+1:         . || b y r u l 
+2:       U U || l b y r u 
+3:     . . . || u l b y r 
+4:   . . . . || r u l b y 
+5: . . . . . || y r u l b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: F B U B R U B L U L U 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: L Y U U 
+Factory5: 
+
+Mosaic for Joe
+1:         Y || b y r u l 
+2:       R R || l b y r u 
+3:     . . . || u l b y r 
+4:   . . . . || r u l b y 
+5: . . . . . || y r u l b 
+Broken: 
+
+Mosaic for Moe
+1:         B || b y r u l 
+2:       U U || l b y r u 
+3:     . . . || u l b y r 
+4:   . . . . || r u l b y 
+5: . . . . . || y r u l b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: U R U L U L U 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: L Y U U 
+Factory5: 
+
+Mosaic for Joe
+1:         Y || b y r u l 
+2:       R R || l b y r u 
+3:     B B B || u l b y r 
+4:   . . . . || r u l b y 
+5: . . . . . || y r u l b 
+Broken: F 
+
+Mosaic for Moe
+1:         B || b y r u l 
+2:       U U || l b y r u 
+3:     . . . || u l b y r 
+4:   . . . . || r u l b y 
+5: . . . . . || y r u l b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: R L L 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: L Y U U 
+Factory5: 
+
+Mosaic for Joe
+1:         Y || b y r u l 
+2:       R R || l b y r u 
+3:     B B B || u l b y r 
+4:   . . . . || r u l b y 
+5: . . . . . || y r u l b 
+Broken: F 
+
+Mosaic for Moe
+1:         B || b y r u l 
+2:       U U || l b y r u 
+3:     . . . || u l b y r 
+4:   U U U U || r u l b y 
+5: . . . . . || y r u l b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: L L 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: L Y U U 
+Factory5: 
+
+Mosaic for Joe
+1:         Y || b y r u l 
+2:       R R || l b y r u 
+3:     B B B || u l b y r 
+4:   . . . R || r u l b y 
+5: . . . . . || y r u l b 
+Broken: F 
+
+Mosaic for Moe
+1:         B || b y r u l 
+2:       U U || l b y r u 
+3:     . . . || u l b y r 
+4:   U U U U || r u l b y 
+5: . . . . . || y r u l b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: L L L Y 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         Y || b y r u l 
+2:       R R || l b y r u 
+3:     B B B || u l b y r 
+4:   . . . R || r u l b y 
+5: . . . . . || y r u l b 
+Broken: F 
+
+Mosaic for Moe
+1:         B || b y r u l 
+2:       U U || l b y r u 
+3:     . U U || u l b y r 
+4:   U U U U || r u l b y 
+5: . . . . . || y r u l b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: Y 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         Y || b y r u l 
+2:       R R || l b y r u 
+3:     B B B || u l b y r 
+4:   . . . R || r u l b y 
+5: . . L L L || y r u l b 
+Broken: F 
+
+Mosaic for Moe
+1:         B || b y r u l 
+2:       U U || l b y r u 
+3:     . U U || u l b y r 
+4:   U U U U || r u l b y 
+5: . . . . . || y r u l b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+start of eof
+adding 0 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic Y
+adding 0 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic R
+---------------> discarding R
+adding 0 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic B
+---------------> discarding B
+---------------> discarding B
+adding 0 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic B
+adding 0 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic U
+---------------> discarding U
+adding 0 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic U
+---------------> discarding U
+---------------> discarding U
+---------------> discarding U
+player one broken tiles points lost: 1
+player two broken tiles points lost: 0
+PLAYER ONE END ROUND POINTS:2
+PLAYER TWO END ROUND POINTS:3
+PLAYER ONE POINTS BEFORE SETTING POINTS:0
+PLAYER TWO POINTS BEFORE SETTING POINTS:0
+PLAYER ONE POINTS AFTER SETTING POINTS:2
+PLAYER TWO POINTS AFTER SETTING POINTS:3
+1- Reset points should be 0: 0
+2- Reset points should be 0: 0
+Joe Points: 2
+Moe Points: 3
+End of round. Beginning next round.
+BoxLid: 
+TileBag: R B U Y L U R B L Y L B B Y B L U Y R L R L B R R U U L Y R Y L R Y Y L R B L R Y Y Y B R Y U Y L R B L U R B R B U U B R B R R B Y L B B Y L U Y U L Y Y L L U 
+Moving tiles from player 1 to lid
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD0
+>>>>>>> LID AFTER ADD1
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD1
+>>>>>>> LID AFTER ADD2
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD2
+>>>>>>> LID AFTER ADD3
+++++++++++++DISCARDED ABOUT TO BE CLEAR3
+++++++++++++DISCARDED CLEAR CALLED3
+Moving tiles from player 2 to lid
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD3
+>>>>>>> LID AFTER ADD4
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD4
+>>>>>>> LID AFTER ADD5
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD5
+>>>>>>> LID AFTER ADD6
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD6
+>>>>>>> LID AFTER ADD7
+++++++++++++DISCARDED ABOUT TO BE CLEAR4
+++++++++++++DISCARDED CLEAR CALLED4
+end of round preparations done
+>>>>>>>80
+>>>>>>> PRIOR TO REMOVE80
+>>>>>>> AFTER REMOVE79
+>>>>>>> PRIOR TO REMOVE79
+>>>>>>> AFTER REMOVE78
+>>>>>>> PRIOR TO REMOVE78
+>>>>>>> AFTER REMOVE77
+>>>>>>> PRIOR TO REMOVE77
+>>>>>>> AFTER REMOVE76
+>>>>>>> PRIOR TO REMOVE76
+>>>>>>> AFTER REMOVE75
+>>>>>>> PRIOR TO REMOVE75
+>>>>>>> AFTER REMOVE74
+>>>>>>> PRIOR TO REMOVE74
+>>>>>>> AFTER REMOVE73
+>>>>>>> PRIOR TO REMOVE73
+>>>>>>> AFTER REMOVE72
+>>>>>>> PRIOR TO REMOVE72
+>>>>>>> AFTER REMOVE71
+>>>>>>> PRIOR TO REMOVE71
+>>>>>>> AFTER REMOVE70
+>>>>>>> PRIOR TO REMOVE70
+>>>>>>> AFTER REMOVE69
+>>>>>>> PRIOR TO REMOVE69
+>>>>>>> AFTER REMOVE68
+>>>>>>> PRIOR TO REMOVE68
+>>>>>>> AFTER REMOVE67
+>>>>>>> PRIOR TO REMOVE67
+>>>>>>> AFTER REMOVE66
+>>>>>>> PRIOR TO REMOVE66
+>>>>>>> AFTER REMOVE65
+>>>>>>> PRIOR TO REMOVE65
+>>>>>>> AFTER REMOVE64
+>>>>>>> PRIOR TO REMOVE64
+>>>>>>> AFTER REMOVE63
+>>>>>>> PRIOR TO REMOVE63
+>>>>>>> AFTER REMOVE62
+>>>>>>> PRIOR TO REMOVE62
+>>>>>>> AFTER REMOVE61
+>>>>>>> PRIOR TO REMOVE61
+>>>>>>> AFTER REMOVE60
+========60
+end of populate Factories
+setc current turn
+end of eof
+Factory0: F 
+Factory1: R B U Y 
+Factory2: L U R B 
+Factory3: L Y L B 
+Factory4: B Y B L 
+Factory5: U Y R L 
+
+Mosaic for Joe
+1:         . || b Y r u l 
+2:       . . || l b y R u 
+3:     . . . || u l B y r 
+4:   . . . R || r u l b y 
+5: . . L L L || y r u l b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r u l 
+2:       . . || l b y r U 
+3:     . U U || u l b y r 
+4:   . . . . || r U l b y 
+5: . . . . Y || y r u l b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: F Y L 
+Factory1: R B U Y 
+Factory2: L U R B 
+Factory3: L Y L B 
+Factory4: 
+Factory5: U Y R L 
+
+Mosaic for Joe
+1:         . || b Y r u l 
+2:       B B || l b y R u 
+3:     . . . || u l B y r 
+4:   . . . R || r u l b y 
+5: . . L L L || y r u l b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r u l 
+2:       . . || l b y r U 
+3:     . U U || u l b y r 
+4:   . . . . || r U l b y 
+5: . . . . Y || y r u l b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: F Y L Y B 
+Factory1: R B U Y 
+Factory2: L U R B 
+Factory3: 
+Factory4: 
+Factory5: U Y R L 
+
+Mosaic for Joe
+1:         . || b Y r u l 
+2:       B B || l b y R u 
+3:     . . . || u l B y r 
+4:   . . . R || r u l b y 
+5: . . L L L || y r u l b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r u l 
+2:       L L || l b y r U 
+3:     . U U || u l b y r 
+4:   . . . . || r U l b y 
+5: . . . . Y || y r u l b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: F Y L Y B Y R L 
+Factory1: R B U Y 
+Factory2: L U R B 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         . || b Y r u l 
+2:       B B || l b y R u 
+3:     . . U || u l B y r 
+4:   . . . R || r u l b y 
+5: . . L L L || y r u l b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r u l 
+2:       L L || l b y r U 
+3:     . U U || u l b y r 
+4:   . . . . || r U l b y 
+5: . . . . Y || y r u l b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: F Y L Y B Y R L L R B 
+Factory1: R B U Y 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         . || b Y r u l 
+2:       B B || l b y R u 
+3:     . . U || u l B y r 
+4:   . . . R || r u l b y 
+5: . . L L L || y r u l b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r u l 
+2:       L L || l b y r U 
+3:     U U U || u l b y r 
+4:   . . . . || r U l b y 
+5: . . . . Y || y r u l b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: F Y L Y B Y R L L R B R U Y 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         B || b Y r u l 
+2:       B B || l b y R u 
+3:     . . U || u l B y r 
+4:   . . . R || r u l b y 
+5: . . L L L || y r u l b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r u l 
+2:       L L || l b y r U 
+3:     U U U || u l b y r 
+4:   . . . . || r U l b y 
+5: . . . . Y || y r u l b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: L B R L L R B R U 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         B || b Y r u l 
+2:       B B || l b y R u 
+3:     . . U || u l B y r 
+4:   . . . R || r u l b y 
+5: . . L L L || y r u l b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r u l 
+2:       L L || l b y r U 
+3:     U U U || u l b y r 
+4:   . . . . || r U l b y 
+5: Y Y Y Y Y || y r u l b 
+Broken: F 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: L B L L B U 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         B || b Y r u l 
+2:       B B || l b y R u 
+3:     . . U || u l B y r 
+4:   R R R R || r u l b y 
+5: . . L L L || y r u l b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r u l 
+2:       L L || l b y r U 
+3:     U U U || u l b y r 
+4:   . . . . || r U l b y 
+5: Y Y Y Y Y || y r u l b 
+Broken: F 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: L B L L B 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         B || b Y r u l 
+2:       B B || l b y R u 
+3:     . . U || u l B y r 
+4:   R R R R || r u l b y 
+5: . . L L L || y r u l b 
+Broken: 
+
+Mosaic for Moe
+1:         U || B y r u l 
+2:       L L || l b y r U 
+3:     U U U || u l b y r 
+4:   . . . . || r U l b y 
+5: Y Y Y Y Y || y r u l b 
+Broken: F 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: B B 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         B || b Y r u l 
+2:       B B || l b y R u 
+3:     . . U || u l B y r 
+4:   R R R R || r u l b y 
+5: L L L L L || y r u l b 
+Broken: L 
+
+Mosaic for Moe
+1:         U || B y r u l 
+2:       L L || l b y r U 
+3:     U U U || u l b y r 
+4:   . . . . || r U l b y 
+5: Y Y Y Y Y || y r u l b 
+Broken: F 
+
+It is now Moe's turn. 
+>Turn successful
+start of eof
+adding 1 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic B
+adding 0 points for sequential cols
+adding 1 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic B
+---------------> discarding B
+adding 0 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic R
+---------------> discarding R
+---------------> discarding R
+---------------> discarding R
+adding 0 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic L
+---------------> discarding L
+---------------> discarding L
+---------------> discarding L
+---------------> discarding L
+adding 0 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic U
+adding 0 points for sequential cols
+adding 1 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic L
+---------------> discarding L
+adding 0 points for sequential cols
+adding 2 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic U
+---------------> discarding U
+---------------> discarding U
+adding 0 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic Y
+---------------> discarding Y
+---------------> discarding Y
+---------------> discarding Y
+---------------> discarding Y
+player one broken tiles points lost: 1
+player two broken tiles points lost: 1
+PLAYER ONE END ROUND POINTS:7
+PLAYER TWO END ROUND POINTS:9
+PLAYER ONE POINTS BEFORE SETTING POINTS:2
+PLAYER TWO POINTS BEFORE SETTING POINTS:3
+PLAYER ONE POINTS AFTER SETTING POINTS:7
+PLAYER TWO POINTS AFTER SETTING POINTS:9
+1- Reset points should be 0: 0
+2- Reset points should be 0: 0
+Joe Points: 7
+Moe Points: 9
+End of round. Beginning next round.
+BoxLid: U U U U B B R 
+TileBag: R L B R R U U L Y R Y L R Y Y L R B L R Y Y Y B R Y U Y L R B L U R B R B U U B R B R R B Y L B B Y L U Y U L Y Y L L U 
+Moving tiles from player 1 to lid
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD7
+>>>>>>> LID AFTER ADD8
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD8
+>>>>>>> LID AFTER ADD9
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD9
+>>>>>>> LID AFTER ADD10
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD10
+>>>>>>> LID AFTER ADD11
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD11
+>>>>>>> LID AFTER ADD12
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD12
+>>>>>>> LID AFTER ADD13
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD13
+>>>>>>> LID AFTER ADD14
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD14
+>>>>>>> LID AFTER ADD15
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD15
+>>>>>>> LID AFTER ADD16
+++++++++++++DISCARDED ABOUT TO BE CLEAR9
+++++++++++++DISCARDED CLEAR CALLED9
+Moving tiles from player 2 to lid
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD16
+>>>>>>> LID AFTER ADD17
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD17
+>>>>>>> LID AFTER ADD18
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD18
+>>>>>>> LID AFTER ADD19
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD19
+>>>>>>> LID AFTER ADD20
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD20
+>>>>>>> LID AFTER ADD21
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD21
+>>>>>>> LID AFTER ADD22
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD22
+>>>>>>> LID AFTER ADD23
+++++++++++++DISCARDED ABOUT TO BE CLEAR7
+++++++++++++DISCARDED CLEAR CALLED7
+end of round preparations done
+>>>>>>>60
+>>>>>>> PRIOR TO REMOVE60
+>>>>>>> AFTER REMOVE59
+>>>>>>> PRIOR TO REMOVE59
+>>>>>>> AFTER REMOVE58
+>>>>>>> PRIOR TO REMOVE58
+>>>>>>> AFTER REMOVE57
+>>>>>>> PRIOR TO REMOVE57
+>>>>>>> AFTER REMOVE56
+>>>>>>> PRIOR TO REMOVE56
+>>>>>>> AFTER REMOVE55
+>>>>>>> PRIOR TO REMOVE55
+>>>>>>> AFTER REMOVE54
+>>>>>>> PRIOR TO REMOVE54
+>>>>>>> AFTER REMOVE53
+>>>>>>> PRIOR TO REMOVE53
+>>>>>>> AFTER REMOVE52
+>>>>>>> PRIOR TO REMOVE52
+>>>>>>> AFTER REMOVE51
+>>>>>>> PRIOR TO REMOVE51
+>>>>>>> AFTER REMOVE50
+>>>>>>> PRIOR TO REMOVE50
+>>>>>>> AFTER REMOVE49
+>>>>>>> PRIOR TO REMOVE49
+>>>>>>> AFTER REMOVE48
+>>>>>>> PRIOR TO REMOVE48
+>>>>>>> AFTER REMOVE47
+>>>>>>> PRIOR TO REMOVE47
+>>>>>>> AFTER REMOVE46
+>>>>>>> PRIOR TO REMOVE46
+>>>>>>> AFTER REMOVE45
+>>>>>>> PRIOR TO REMOVE45
+>>>>>>> AFTER REMOVE44
+>>>>>>> PRIOR TO REMOVE44
+>>>>>>> AFTER REMOVE43
+>>>>>>> PRIOR TO REMOVE43
+>>>>>>> AFTER REMOVE42
+>>>>>>> PRIOR TO REMOVE42
+>>>>>>> AFTER REMOVE41
+>>>>>>> PRIOR TO REMOVE41
+>>>>>>> AFTER REMOVE40
+========40
+end of populate Factories
+setc current turn
+end of eof
+Factory0: F 
+Factory1: R L B R 
+Factory2: R U U L 
+Factory3: Y R Y L 
+Factory4: R Y Y L 
+Factory5: R B L R 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       . . || l B y R u 
+3:     . . U || u l B y r 
+4:   . . . . || R u l b y 
+5: . . . . . || y r u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       . . || L b y r U 
+3:     . . . || U l b y r 
+4:   . . B B || r U l b y 
+5: . . . . . || Y r u l b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: F R L R 
+Factory1: 
+Factory2: R U U L 
+Factory3: Y R Y L 
+Factory4: R Y Y L 
+Factory5: R B L R 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       . . || l B y R u 
+3:     . . U || u l B y r 
+4:   . . . . || R u l b y 
+5: . . . . . || y r u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       . . || L b y r U 
+3:     . . . || U l b y r 
+4:   . B B B || r U l b y 
+5: . . . . . || Y r u l b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: F R L R R L 
+Factory1: 
+Factory2: 
+Factory3: Y R Y L 
+Factory4: R Y Y L 
+Factory5: R B L R 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       . . || l B y R u 
+3:     U U U || u l B y r 
+4:   . . . . || R u l b y 
+5: . . . . . || y r u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       . . || L b y r U 
+3:     . . . || U l b y r 
+4:   . B B B || r U l b y 
+5: . . . . . || Y r u l b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: F R L R R L R L R 
+Factory1: 
+Factory2: 
+Factory3: Y R Y L 
+Factory4: R Y Y L 
+Factory5: 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       . . || l B y R u 
+3:     U U U || u l B y r 
+4:   . . . . || R u l b y 
+5: . . . . . || y r u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       . . || L b y r U 
+3:     . . . || U l b y r 
+4:   B B B B || r U l b y 
+5: . . . . . || Y r u l b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: F R L R R L R L R R L 
+Factory1: 
+Factory2: 
+Factory3: Y R Y L 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       Y Y || l B y R u 
+3:     U U U || u l B y r 
+4:   . . . . || R u l b y 
+5: . . . . . || y r u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       . . || L b y r U 
+3:     . . . || U l b y r 
+4:   B B B B || r U l b y 
+5: . . . . . || Y r u l b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: F R L R R L R L R R L R L 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       Y Y || l B y R u 
+3:     U U U || u l B y r 
+4:   . . . . || R u l b y 
+5: . . . . . || y r u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       Y Y || L b y r U 
+3:     . . . || U l b y r 
+4:   B B B B || r U l b y 
+5: . . . . . || Y r u l b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: L L L L L 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       Y Y || l B y R u 
+3:     U U U || u l B y r 
+4:   . . . . || R u l b y 
+5: R R R R R || y r u L b 
+Broken: F R R 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       Y Y || L b y r U 
+3:     . . . || U l b y r 
+4:   B B B B || r U l b y 
+5: . . . . . || Y r u l b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+start of eof
+adding 2 points for sequential cols
+adding 1 points for sequential rows
+adding 2 for sequential cols and row
+---------------> move to mosaic Y
+---------------> discarding Y
+adding 0 points for sequential cols
+adding 1 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic U
+---------------> discarding U
+---------------> discarding U
+adding 0 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic R
+---------------> discarding R
+---------------> discarding R
+---------------> discarding R
+---------------> discarding R
+adding 0 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic Y
+---------------> discarding Y
+adding 0 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic B
+---------------> discarding B
+---------------> discarding B
+---------------> discarding B
+adding 0 points for sequential cols
+adding 1 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic L
+---------------> discarding L
+---------------> discarding L
+---------------> discarding L
+---------------> discarding L
+player one broken tiles points lost: 4
+player two broken tiles points lost: 0
+PLAYER ONE END ROUND POINTS:11
+PLAYER TWO END ROUND POINTS:13
+PLAYER ONE POINTS BEFORE SETTING POINTS:7
+PLAYER TWO POINTS BEFORE SETTING POINTS:9
+PLAYER ONE POINTS AFTER SETTING POINTS:11
+PLAYER TWO POINTS AFTER SETTING POINTS:13
+1- Reset points should be 0: 0
+2- Reset points should be 0: 0
+Joe Points: 11
+Moe Points: 13
+End of round. Beginning next round.
+BoxLid: Y Y Y Y U U L L L L L L R R R B U U U U B B R 
+TileBag: Y Y Y B R Y U Y L R B L U R B R B U U B R B R R B Y L B B Y L U Y U L Y Y L L U 
+Moving tiles from player 1 to lid
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD23
+>>>>>>> LID AFTER ADD24
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD24
+>>>>>>> LID AFTER ADD25
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD25
+>>>>>>> LID AFTER ADD26
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD26
+>>>>>>> LID AFTER ADD27
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD27
+>>>>>>> LID AFTER ADD28
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD28
+>>>>>>> LID AFTER ADD29
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD29
+>>>>>>> LID AFTER ADD30
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD30
+>>>>>>> LID AFTER ADD31
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD31
+>>>>>>> LID AFTER ADD32
+++++++++++++DISCARDED ABOUT TO BE CLEAR9
+++++++++++++DISCARDED CLEAR CALLED9
+Moving tiles from player 2 to lid
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD32
+>>>>>>> LID AFTER ADD33
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD33
+>>>>>>> LID AFTER ADD34
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD34
+>>>>>>> LID AFTER ADD35
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD35
+>>>>>>> LID AFTER ADD36
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD36
+>>>>>>> LID AFTER ADD37
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD37
+>>>>>>> LID AFTER ADD38
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD38
+>>>>>>> LID AFTER ADD39
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD39
+>>>>>>> LID AFTER ADD40
+++++++++++++DISCARDED ABOUT TO BE CLEAR8
+++++++++++++DISCARDED CLEAR CALLED8
+end of round preparations done
+>>>>>>>40
+>>>>>>> PRIOR TO REMOVE40
+>>>>>>> AFTER REMOVE39
+>>>>>>> PRIOR TO REMOVE39
+>>>>>>> AFTER REMOVE38
+>>>>>>> PRIOR TO REMOVE38
+>>>>>>> AFTER REMOVE37
+>>>>>>> PRIOR TO REMOVE37
+>>>>>>> AFTER REMOVE36
+>>>>>>> PRIOR TO REMOVE36
+>>>>>>> AFTER REMOVE35
+>>>>>>> PRIOR TO REMOVE35
+>>>>>>> AFTER REMOVE34
+>>>>>>> PRIOR TO REMOVE34
+>>>>>>> AFTER REMOVE33
+>>>>>>> PRIOR TO REMOVE33
+>>>>>>> AFTER REMOVE32
+>>>>>>> PRIOR TO REMOVE32
+>>>>>>> AFTER REMOVE31
+>>>>>>> PRIOR TO REMOVE31
+>>>>>>> AFTER REMOVE30
+>>>>>>> PRIOR TO REMOVE30
+>>>>>>> AFTER REMOVE29
+>>>>>>> PRIOR TO REMOVE29
+>>>>>>> AFTER REMOVE28
+>>>>>>> PRIOR TO REMOVE28
+>>>>>>> AFTER REMOVE27
+>>>>>>> PRIOR TO REMOVE27
+>>>>>>> AFTER REMOVE26
+>>>>>>> PRIOR TO REMOVE26
+>>>>>>> AFTER REMOVE25
+>>>>>>> PRIOR TO REMOVE25
+>>>>>>> AFTER REMOVE24
+>>>>>>> PRIOR TO REMOVE24
+>>>>>>> AFTER REMOVE23
+>>>>>>> PRIOR TO REMOVE23
+>>>>>>> AFTER REMOVE22
+>>>>>>> PRIOR TO REMOVE22
+>>>>>>> AFTER REMOVE21
+>>>>>>> PRIOR TO REMOVE21
+>>>>>>> AFTER REMOVE20
+========20
+end of populate Factories
+setc current turn
+end of eof
+Factory0: F 
+Factory1: Y Y Y B 
+Factory2: R Y U Y 
+Factory3: L R B L 
+Factory4: U R B R 
+Factory5: B U U B 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       . . || l B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R u l b y 
+5: . . . . . || y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       . . || L b Y r U 
+3:     . . . || U l b y r 
+4:   . . . . || r U l B y 
+5: . . . . . || Y r u L b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: F R B 
+Factory1: Y Y Y B 
+Factory2: R Y U Y 
+Factory3: 
+Factory4: U R B R 
+Factory5: B U U B 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       L L || l B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R u l b y 
+5: . . . . . || y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       . . || L b Y r U 
+3:     . . . || U l b y r 
+4:   . . . . || r U l B y 
+5: . . . . . || Y r u L b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: F R B U B 
+Factory1: Y Y Y B 
+Factory2: R Y U Y 
+Factory3: 
+Factory4: 
+Factory5: B U U B 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       L L || l B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R u l b y 
+5: . . . . . || y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       . . || L b Y r U 
+3:     . . . || U l b y r 
+4:   . . R R || r U l B y 
+5: . . . . . || Y r u L b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: F R B U B B 
+Factory1: 
+Factory2: R Y U Y 
+Factory3: 
+Factory4: 
+Factory5: B U U B 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       L L || l B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R u l b y 
+5: . . Y Y Y || y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       . . || L b Y r U 
+3:     . . . || U l b y r 
+4:   . . R R || r U l B y 
+5: . . . . . || Y r u L b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: F R B U B B U U 
+Factory1: 
+Factory2: R Y U Y 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       L L || l B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R u l b y 
+5: . . Y Y Y || y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       B B || L b Y r U 
+3:     . . . || U l b y r 
+4:   . . R R || r U l B y 
+5: . . . . . || Y r u L b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: F R B U B B U U R U 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       L L || l B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R u l b y 
+5: Y Y Y Y Y || y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       B B || L b Y r U 
+3:     . . . || U l b y r 
+4:   . . R R || r U l B y 
+5: . . . . . || Y r u L b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: B U B B U U U 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       L L || l B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R u l b y 
+5: Y Y Y Y Y || y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       B B || L b Y r U 
+3:     . . . || U l b y r 
+4:   R R R R || r U l B y 
+5: . . . . . || Y r u L b 
+Broken: F 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: B B B 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       L L || l B Y R u 
+3:     . . . || U l B y r 
+4:   U U U U || R u l b y 
+5: Y Y Y Y Y || y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       B B || L b Y r U 
+3:     . . . || U l b y r 
+4:   R R R R || r U l B y 
+5: . . . . . || Y r u L b 
+Broken: F 
+
+It is now Moe's turn. 
+>Turn successful
+start of eof
+adding 3 points for sequential cols
+adding 3 points for sequential rows
+adding 2 for sequential cols and row
+---------------> move to mosaic L
+---------------> discarding L
+adding 1 points for sequential cols
+adding 1 points for sequential rows
+adding 2 for sequential cols and row
+---------------> move to mosaic U
+---------------> discarding U
+---------------> discarding U
+---------------> discarding U
+adding 1 points for sequential cols
+adding 4 points for sequential rows
+adding 2 for sequential cols and row
+---------------> move to mosaic Y
+---------------> discarding Y
+---------------> discarding Y
+---------------> discarding Y
+---------------> discarding Y
+adding 2 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic B
+---------------> discarding B
+adding 0 points for sequential cols
+adding 1 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic B
+---------------> discarding B
+---------------> discarding B
+adding 1 points for sequential cols
+adding 4 points for sequential rows
+adding 2 for sequential cols and row
+---------------> move to mosaic R
+---------------> discarding R
+---------------> discarding R
+---------------> discarding R
+player one broken tiles points lost: 0
+player two broken tiles points lost: 1
+PLAYER ONE END ROUND POINTS:30
+PLAYER TWO END ROUND POINTS:24
+PLAYER ONE POINTS BEFORE SETTING POINTS:11
+PLAYER TWO POINTS BEFORE SETTING POINTS:13
+PLAYER ONE POINTS AFTER SETTING POINTS:30
+PLAYER TWO POINTS AFTER SETTING POINTS:24
+1- Reset points should be 0: 0
+2- Reset points should be 0: 0
+Joe Points: 30
+Moe Points: 24
+End of round. Beginning next round.
+BoxLid: L L L L B B B Y R R R R R R U U Y Y Y Y Y U U L L L L L L R R R B U U U U B B R 
+TileBag: R B R R B Y L B B Y L U Y U L Y Y L L U 
+Moving tiles from player 1 to lid
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD40
+>>>>>>> LID AFTER ADD41
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD41
+>>>>>>> LID AFTER ADD42
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD42
+>>>>>>> LID AFTER ADD43
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD43
+>>>>>>> LID AFTER ADD44
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD44
+>>>>>>> LID AFTER ADD45
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD45
+>>>>>>> LID AFTER ADD46
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD46
+>>>>>>> LID AFTER ADD47
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD47
+>>>>>>> LID AFTER ADD48
+++++++++++++DISCARDED ABOUT TO BE CLEAR8
+++++++++++++DISCARDED CLEAR CALLED8
+Moving tiles from player 2 to lid
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD48
+>>>>>>> LID AFTER ADD49
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD49
+>>>>>>> LID AFTER ADD50
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD50
+>>>>>>> LID AFTER ADD51
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD51
+>>>>>>> LID AFTER ADD52
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD52
+>>>>>>> LID AFTER ADD53
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD53
+>>>>>>> LID AFTER ADD54
+++++++++++++DISCARDED ABOUT TO BE CLEAR6
+++++++++++++DISCARDED CLEAR CALLED6
+end of round preparations done
+>>>>>>>20
+>>>>>>> PRIOR TO REMOVE20
+>>>>>>> AFTER REMOVE19
+>>>>>>> PRIOR TO REMOVE19
+>>>>>>> AFTER REMOVE18
+>>>>>>> PRIOR TO REMOVE18
+>>>>>>> AFTER REMOVE17
+>>>>>>> PRIOR TO REMOVE17
+>>>>>>> AFTER REMOVE16
+>>>>>>> PRIOR TO REMOVE16
+>>>>>>> AFTER REMOVE15
+>>>>>>> PRIOR TO REMOVE15
+>>>>>>> AFTER REMOVE14
+>>>>>>> PRIOR TO REMOVE14
+>>>>>>> AFTER REMOVE13
+>>>>>>> PRIOR TO REMOVE13
+>>>>>>> AFTER REMOVE12
+>>>>>>> PRIOR TO REMOVE12
+>>>>>>> AFTER REMOVE11
+>>>>>>> PRIOR TO REMOVE11
+>>>>>>> AFTER REMOVE10
+>>>>>>> PRIOR TO REMOVE10
+>>>>>>> AFTER REMOVE9
+>>>>>>> PRIOR TO REMOVE9
+>>>>>>> AFTER REMOVE8
+>>>>>>> PRIOR TO REMOVE8
+>>>>>>> AFTER REMOVE7
+>>>>>>> PRIOR TO REMOVE7
+>>>>>>> AFTER REMOVE6
+>>>>>>> PRIOR TO REMOVE6
+>>>>>>> AFTER REMOVE5
+>>>>>>> PRIOR TO REMOVE5
+>>>>>>> AFTER REMOVE4
+>>>>>>> PRIOR TO REMOVE4
+>>>>>>> AFTER REMOVE3
+>>>>>>> PRIOR TO REMOVE3
+>>>>>>> AFTER REMOVE2
+>>>>>>> PRIOR TO REMOVE2
+>>>>>>> AFTER REMOVE1
+>>>>>>> PRIOR TO REMOVE1
+>>>>>>> AFTER REMOVE0
+========0
+end of populate Factories
+setc current turn
+end of eof
+Factory0: F 
+Factory1: R B R R 
+Factory2: B Y L B 
+Factory3: B Y L U 
+Factory4: Y U L Y 
+Factory5: Y L L U 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       . . || L B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R U l b y 
+5: . . . . . || Y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       . . || L B Y r U 
+3:     . . . || U l B y r 
+4:   . . . . || R U l B y 
+5: . . . . . || Y r u L b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: F B 
+Factory1: 
+Factory2: B Y L B 
+Factory3: B Y L U 
+Factory4: Y U L Y 
+Factory5: Y L L U 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       . . || L B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R U l b y 
+5: . . . . . || Y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       . . || L B Y r U 
+3:     R R R || U l B y r 
+4:   . . . . || R U l B y 
+5: . . . . . || Y r u L b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: F B B Y L 
+Factory1: 
+Factory2: B Y L B 
+Factory3: 
+Factory4: Y U L Y 
+Factory5: Y L L U 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       . U || L B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R U l b y 
+5: . . . . . || Y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       . . || L B Y r U 
+3:     R R R || U l B y r 
+4:   . . . . || R U l B y 
+5: . . . . . || Y r u L b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: F B B Y L Y U 
+Factory1: 
+Factory2: B Y L B 
+Factory3: 
+Factory4: Y U L Y 
+Factory5: 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       . U || L B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R U l b y 
+5: . . . . . || Y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       . . || L B Y r U 
+3:     R R R || U l B y r 
+4:   . . L L || R U l B y 
+5: . . . . . || Y r u L b 
+Broken: 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: F B B Y L Y U Y L Y 
+Factory1: 
+Factory2: B Y L B 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       U U || L B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R U l b y 
+5: . . . . . || Y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B y r U l 
+2:       . . || L B Y r U 
+3:     R R R || U l B y r 
+4:   . . L L || R U l B y 
+5: . . . . . || Y r u L b 
+Broken: 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: B B L U L 
+Factory1: 
+Factory2: B Y L B 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       U U || L B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R U l b y 
+5: . . . . . || Y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         Y || B y r U l 
+2:       . . || L B Y r U 
+3:     R R R || U l B y r 
+4:   . . L L || R U l B y 
+5: . . . . . || Y r u L b 
+Broken: F Y Y Y 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: B B L U L Y L 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       U U || L B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R U l b y 
+5: . . . B B || Y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         Y || B y r U l 
+2:       . . || L B Y r U 
+3:     R R R || U l B y r 
+4:   . . L L || R U l B y 
+5: . . . . . || Y r u L b 
+Broken: F Y Y Y 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: B B U Y 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       U U || L B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R U l b y 
+5: . . . B B || Y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         Y || B y r U l 
+2:       . . || L B Y r U 
+3:     R R R || U l B y r 
+4:   L L L L || R U l B y 
+5: . . . . . || Y r u L b 
+Broken: F Y Y Y L 
+
+It is now Joe's turn. 
+>Turn successful
+Factory0: U Y 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       U U || L B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R U l b y 
+5: . B B B B || Y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         Y || B y r U l 
+2:       . . || L B Y r U 
+3:     R R R || U l B y r 
+4:   L L L L || R U l B y 
+5: . . . . . || Y r u L b 
+Broken: F Y Y Y L 
+
+It is now Moe's turn. 
+>Turn successful
+Factory0: Y 
+Factory1: 
+Factory2: 
+Factory3: 
+Factory4: 
+Factory5: 
+
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       U U || L B Y R u 
+3:     . . . || U l B y r 
+4:   . . . . || R U l b y 
+5: . B B B B || Y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         Y || B y r U l 
+2:       . . || L B Y r U 
+3:     R R R || U l B y r 
+4:   L L L L || R U l B y 
+5: . . . . U || Y r u L b 
+Broken: F Y Y Y L 
+
+It is now Joe's turn. 
+>Turn successful
+start of eof
+adding 4 points for sequential cols
+adding 0 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic U
+---------------> discarding U
+adding 1 points for sequential cols
+adding 1 points for sequential rows
+adding 2 for sequential cols and row
+---------------> move to mosaic Y
+adding 0 points for sequential cols
+adding 1 points for sequential rows
+adding 1 for sequential cols or row
+---------------> move to mosaic R
+---------------> discarding R
+---------------> discarding R
+adding 3 points for sequential cols
+adding 2 points for sequential rows
+adding 2 for sequential cols and row
+---------------> move to mosaic L
+---------------> discarding L
+---------------> discarding L
+---------------> discarding L
+player one broken tiles points lost: 0
+player two broken tiles points lost: 8
+PLAYER ONE END ROUND POINTS:35
+PLAYER TWO END ROUND POINTS:29
+PLAYER ONE POINTS BEFORE SETTING POINTS:30
+PLAYER TWO POINTS BEFORE SETTING POINTS:24
+PLAYER ONE POINTS AFTER SETTING POINTS:35
+PLAYER TWO POINTS AFTER SETTING POINTS:29
+1- Reset points should be 0: 0
+2- Reset points should be 0: 0
+Joe Points: 35
+Moe Points: 29
+End of round. Beginning next round.
+BoxLid: R R R B B B Y Y Y Y U U U L L L L L B B B Y R R R R R R U U Y Y Y Y Y U U L L L L L L R R R B U U U U B B R 
+TileBag: 
+Moving tiles from player 1 to lid
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD54
+>>>>>>> LID AFTER ADD55
+++++++++++++DISCARDED ABOUT TO BE CLEAR1
+++++++++++++DISCARDED CLEAR CALLED1
+Moving tiles from player 2 to lid
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD55
+>>>>>>> LID AFTER ADD56
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD56
+>>>>>>> LID AFTER ADD57
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD57
+>>>>>>> LID AFTER ADD58
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD58
+>>>>>>> LID AFTER ADD59
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD59
+>>>>>>> LID AFTER ADD60
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD60
+>>>>>>> LID AFTER ADD61
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD61
+>>>>>>> LID AFTER ADD62
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD62
+>>>>>>> LID AFTER ADD63
+Boxlid add be getting called brother g homie
+>>>>>>> LID PRIOR TO ADD63
+>>>>>>> LID AFTER ADD64
+++++++++++++DISCARDED ABOUT TO BE CLEAR9
+++++++++++++DISCARDED CLEAR CALLED9
+end of round preparations done
+>>>>>>>0
+REFILLING BAG
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE64
+>>>>>>> LID AFTER REMOVE63
+>>>>>>> PRIOR TO ADD0
+>>>>>>> AFTER ADD1
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE63
+>>>>>>> LID AFTER REMOVE62
+>>>>>>> PRIOR TO ADD1
+>>>>>>> AFTER ADD2
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE62
+>>>>>>> LID AFTER REMOVE61
+>>>>>>> PRIOR TO ADD2
+>>>>>>> AFTER ADD3
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE61
+>>>>>>> LID AFTER REMOVE60
+>>>>>>> PRIOR TO ADD3
+>>>>>>> AFTER ADD4
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE60
+>>>>>>> LID AFTER REMOVE59
+>>>>>>> PRIOR TO ADD4
+>>>>>>> AFTER ADD5
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE59
+>>>>>>> LID AFTER REMOVE58
+>>>>>>> PRIOR TO ADD5
+>>>>>>> AFTER ADD6
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE58
+>>>>>>> LID AFTER REMOVE57
+>>>>>>> PRIOR TO ADD6
+>>>>>>> AFTER ADD7
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE57
+>>>>>>> LID AFTER REMOVE56
+>>>>>>> PRIOR TO ADD7
+>>>>>>> AFTER ADD8
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE56
+>>>>>>> LID AFTER REMOVE55
+>>>>>>> PRIOR TO ADD8
+>>>>>>> AFTER ADD9
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE55
+>>>>>>> LID AFTER REMOVE54
+>>>>>>> PRIOR TO ADD9
+>>>>>>> AFTER ADD10
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE54
+>>>>>>> LID AFTER REMOVE53
+>>>>>>> PRIOR TO ADD10
+>>>>>>> AFTER ADD11
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE53
+>>>>>>> LID AFTER REMOVE52
+>>>>>>> PRIOR TO ADD11
+>>>>>>> AFTER ADD12
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE52
+>>>>>>> LID AFTER REMOVE51
+>>>>>>> PRIOR TO ADD12
+>>>>>>> AFTER ADD13
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE51
+>>>>>>> LID AFTER REMOVE50
+>>>>>>> PRIOR TO ADD13
+>>>>>>> AFTER ADD14
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE50
+>>>>>>> LID AFTER REMOVE49
+>>>>>>> PRIOR TO ADD14
+>>>>>>> AFTER ADD15
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE49
+>>>>>>> LID AFTER REMOVE48
+>>>>>>> PRIOR TO ADD15
+>>>>>>> AFTER ADD16
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE48
+>>>>>>> LID AFTER REMOVE47
+>>>>>>> PRIOR TO ADD16
+>>>>>>> AFTER ADD17
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE47
+>>>>>>> LID AFTER REMOVE46
+>>>>>>> PRIOR TO ADD17
+>>>>>>> AFTER ADD18
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE46
+>>>>>>> LID AFTER REMOVE45
+>>>>>>> PRIOR TO ADD18
+>>>>>>> AFTER ADD19
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE45
+>>>>>>> LID AFTER REMOVE44
+>>>>>>> PRIOR TO ADD19
+>>>>>>> AFTER ADD20
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE44
+>>>>>>> LID AFTER REMOVE43
+>>>>>>> PRIOR TO ADD20
+>>>>>>> AFTER ADD21
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE43
+>>>>>>> LID AFTER REMOVE42
+>>>>>>> PRIOR TO ADD21
+>>>>>>> AFTER ADD22
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE42
+>>>>>>> LID AFTER REMOVE41
+>>>>>>> PRIOR TO ADD22
+>>>>>>> AFTER ADD23
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE41
+>>>>>>> LID AFTER REMOVE40
+>>>>>>> PRIOR TO ADD23
+>>>>>>> AFTER ADD24
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE40
+>>>>>>> LID AFTER REMOVE39
+>>>>>>> PRIOR TO ADD24
+>>>>>>> AFTER ADD25
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE39
+>>>>>>> LID AFTER REMOVE38
+>>>>>>> PRIOR TO ADD25
+>>>>>>> AFTER ADD26
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE38
+>>>>>>> LID AFTER REMOVE37
+>>>>>>> PRIOR TO ADD26
+>>>>>>> AFTER ADD27
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE37
+>>>>>>> LID AFTER REMOVE36
+>>>>>>> PRIOR TO ADD27
+>>>>>>> AFTER ADD28
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE36
+>>>>>>> LID AFTER REMOVE35
+>>>>>>> PRIOR TO ADD28
+>>>>>>> AFTER ADD29
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE35
+>>>>>>> LID AFTER REMOVE34
+>>>>>>> PRIOR TO ADD29
+>>>>>>> AFTER ADD30
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE34
+>>>>>>> LID AFTER REMOVE33
+>>>>>>> PRIOR TO ADD30
+>>>>>>> AFTER ADD31
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE33
+>>>>>>> LID AFTER REMOVE32
+>>>>>>> PRIOR TO ADD31
+>>>>>>> AFTER ADD32
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE32
+>>>>>>> LID AFTER REMOVE31
+>>>>>>> PRIOR TO ADD32
+>>>>>>> AFTER ADD33
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE31
+>>>>>>> LID AFTER REMOVE30
+>>>>>>> PRIOR TO ADD33
+>>>>>>> AFTER ADD34
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE30
+>>>>>>> LID AFTER REMOVE29
+>>>>>>> PRIOR TO ADD34
+>>>>>>> AFTER ADD35
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE29
+>>>>>>> LID AFTER REMOVE28
+>>>>>>> PRIOR TO ADD35
+>>>>>>> AFTER ADD36
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE28
+>>>>>>> LID AFTER REMOVE27
+>>>>>>> PRIOR TO ADD36
+>>>>>>> AFTER ADD37
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE27
+>>>>>>> LID AFTER REMOVE26
+>>>>>>> PRIOR TO ADD37
+>>>>>>> AFTER ADD38
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE26
+>>>>>>> LID AFTER REMOVE25
+>>>>>>> PRIOR TO ADD38
+>>>>>>> AFTER ADD39
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE25
+>>>>>>> LID AFTER REMOVE24
+>>>>>>> PRIOR TO ADD39
+>>>>>>> AFTER ADD40
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE24
+>>>>>>> LID AFTER REMOVE23
+>>>>>>> PRIOR TO ADD40
+>>>>>>> AFTER ADD41
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE23
+>>>>>>> LID AFTER REMOVE22
+>>>>>>> PRIOR TO ADD41
+>>>>>>> AFTER ADD42
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE22
+>>>>>>> LID AFTER REMOVE21
+>>>>>>> PRIOR TO ADD42
+>>>>>>> AFTER ADD43
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE21
+>>>>>>> LID AFTER REMOVE20
+>>>>>>> PRIOR TO ADD43
+>>>>>>> AFTER ADD44
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE20
+>>>>>>> LID AFTER REMOVE19
+>>>>>>> PRIOR TO ADD44
+>>>>>>> AFTER ADD45
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE19
+>>>>>>> LID AFTER REMOVE18
+>>>>>>> PRIOR TO ADD45
+>>>>>>> AFTER ADD46
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE18
+>>>>>>> LID AFTER REMOVE17
+>>>>>>> PRIOR TO ADD46
+>>>>>>> AFTER ADD47
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE17
+>>>>>>> LID AFTER REMOVE16
+>>>>>>> PRIOR TO ADD47
+>>>>>>> AFTER ADD48
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE16
+>>>>>>> LID AFTER REMOVE15
+>>>>>>> PRIOR TO ADD48
+>>>>>>> AFTER ADD49
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE15
+>>>>>>> LID AFTER REMOVE14
+>>>>>>> PRIOR TO ADD49
+>>>>>>> AFTER ADD50
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE14
+>>>>>>> LID AFTER REMOVE13
+>>>>>>> PRIOR TO ADD50
+>>>>>>> AFTER ADD51
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE13
+>>>>>>> LID AFTER REMOVE12
+>>>>>>> PRIOR TO ADD51
+>>>>>>> AFTER ADD52
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE12
+>>>>>>> LID AFTER REMOVE11
+>>>>>>> PRIOR TO ADD52
+>>>>>>> AFTER ADD53
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE11
+>>>>>>> LID AFTER REMOVE10
+>>>>>>> PRIOR TO ADD53
+>>>>>>> AFTER ADD54
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE10
+>>>>>>> LID AFTER REMOVE9
+>>>>>>> PRIOR TO ADD54
+>>>>>>> AFTER ADD55
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE9
+>>>>>>> LID AFTER REMOVE8
+>>>>>>> PRIOR TO ADD55
+>>>>>>> AFTER ADD56
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE8
+>>>>>>> LID AFTER REMOVE7
+>>>>>>> PRIOR TO ADD56
+>>>>>>> AFTER ADD57
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE7
+>>>>>>> LID AFTER REMOVE6
+>>>>>>> PRIOR TO ADD57
+>>>>>>> AFTER ADD58
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE6
+>>>>>>> LID AFTER REMOVE5
+>>>>>>> PRIOR TO ADD58
+>>>>>>> AFTER ADD59
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE5
+>>>>>>> LID AFTER REMOVE4
+>>>>>>> PRIOR TO ADD59
+>>>>>>> AFTER ADD60
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE4
+>>>>>>> LID AFTER REMOVE3
+>>>>>>> PRIOR TO ADD60
+>>>>>>> AFTER ADD61
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE3
+>>>>>>> LID AFTER REMOVE2
+>>>>>>> PRIOR TO ADD61
+>>>>>>> AFTER ADD62
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE2
+>>>>>>> LID AFTER REMOVE1
+>>>>>>> PRIOR TO ADD62
+>>>>>>> AFTER ADD63
+Boxlid get and remove first tile be getting called brother g homie
+>>>>>>> LID PRIOR TO REMOVE1
+>>>>>>> LID AFTER REMOVE0
+>>>>>>> PRIOR TO ADD63
+>>>>>>> AFTER ADD64
+>>>>>>> PRIOR TO REMOVE64
+>>>>>>> AFTER REMOVE63
+>>>>>>> PRIOR TO REMOVE63
+>>>>>>> AFTER REMOVE62
+>>>>>>> PRIOR TO REMOVE62
+>>>>>>> AFTER REMOVE61
+>>>>>>> PRIOR TO REMOVE61
+>>>>>>> AFTER REMOVE60
+>>>>>>> PRIOR TO REMOVE60
+>>>>>>> AFTER REMOVE59
+>>>>>>> PRIOR TO REMOVE59
+>>>>>>> AFTER REMOVE58
+>>>>>>> PRIOR TO REMOVE58
+>>>>>>> AFTER REMOVE57
+>>>>>>> PRIOR TO REMOVE57
+>>>>>>> AFTER REMOVE56
+>>>>>>> PRIOR TO REMOVE56
+>>>>>>> AFTER REMOVE55
+>>>>>>> PRIOR TO REMOVE55
+>>>>>>> AFTER REMOVE54
+>>>>>>> PRIOR TO REMOVE54
+>>>>>>> AFTER REMOVE53
+>>>>>>> PRIOR TO REMOVE53
+>>>>>>> AFTER REMOVE52
+>>>>>>> PRIOR TO REMOVE52
+>>>>>>> AFTER REMOVE51
+>>>>>>> PRIOR TO REMOVE51
+>>>>>>> AFTER REMOVE50
+>>>>>>> PRIOR TO REMOVE50
+>>>>>>> AFTER REMOVE49
+>>>>>>> PRIOR TO REMOVE49
+>>>>>>> AFTER REMOVE48
+>>>>>>> PRIOR TO REMOVE48
+>>>>>>> AFTER REMOVE47
+>>>>>>> PRIOR TO REMOVE47
+>>>>>>> AFTER REMOVE46
+>>>>>>> PRIOR TO REMOVE46
+>>>>>>> AFTER REMOVE45
+========45
+end of populate Factories
+setc current turn
+end of eof
+start of win condition
+Mosaic for Joe
+1:         . || B Y r u l 
+2:       . . || L B Y R U 
+3:     . . Y || U l B y r 
+4:   . . . . || R U l b y 
+5: . B B B B || Y R u L b 
+Broken: 
+
+Mosaic for Moe
+1:         . || B Y r U l 
+2:       . . || L B Y r U 
+3:     . . . || U l B y R 
+4:   . . . . || R U L B y 
+5: . . . . U || Y r u L b 
+Broken: 
+
+End game points =9
+player one end game points: 9
+End game points =7
+player two end game points: 7
+Joe Points: 44
+Moe Points: 36
+End of game.
+Winner is Joe
+end of win condition
+Menu
+----
+1. New Game
+2. Load Game
+3. Credits (Show Student Information)
+4. Quit
+
+>Goodbye

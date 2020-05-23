@@ -1,0 +1,1 @@
+This test was designed to test whether any remaining tiles go to "Broken Tiles" automatically when the mosaic storage row is filled up with that colour. It will also test to see if remaining, unchosen factory tiles go into the central factory (factory 0).

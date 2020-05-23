@@ -1,0 +1,68 @@
+1
+turn 1 Y 4
+turn 4 U 2
+turn 5 B 1
+turn 2 L 3
+turn 3 Y 4
+turn 0 L 3
+turn 0 Y 4
+turn 0 R 4
+turn 0 B 2
+turn 0 U 1
+
+points: 2, 0
+
+turn 2 R 4
+turn 1 B 3
+turn 0 L 1
+turn 0 U 1
+turn 3 Y 2
+turn 5 Y 2
+turn 0 U 3
+turn 4 Y 2
+turn 0 U 3
+turn 0 B 3
+turn 0 L 5
+turn 0 R 4
+
+points are 6, 6
+
+turn 1 B 1
+turn 2 L 1
+turn 0 Y 2
+turn 3 R 2
+turn 4 Y 3
+turn 0 L 3
+turn 5 L 5
+turn 0 U 5
+turn 0 Y 4
+turn 0 R 4
+
+points should be 17, 5
+
+turn 1 Y 4
+turn 4 Y 1
+turn 5 Y 4
+turn 0 U 2
+turn 2 R 1
+turn 3 U 5
+turn 0 L 5
+turn 0 R 3
+turn 0 B 3
+turn 0 U 5
+
+points should be 27, 16
+
+turn 1 R 1
+turn 5 Y 1
+turn 2 R 5
+turn 3 B 2
+turn 4 B 4
+turn 0 U 5
+turn 0 B 4
+turn 0 R 3
+turn 0 Y 3
+
+points should be 38, 26
+
+seed: 2

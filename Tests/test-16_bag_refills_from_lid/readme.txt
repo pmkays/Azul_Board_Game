@@ -1,0 +1,1 @@
+This test was designed to test whether the bag is refilled properly from the lid when it is out of tiles. 
