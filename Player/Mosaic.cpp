@@ -221,11 +221,11 @@ void Mosaic::incrementColorCounter(Type tileType){
 int Mosaic::getColourColumn(unsigned const int row, unsigned const int colour) const {
     int toReturn = -1;
     if (row >= 0 && row < dimensions && colour >= 0 && colour < dimensions) {
-    //     if(dimensions == 5){
+        if(dimensions == 5){
             toReturn = colourColumns[row][colour];
-        // } else if (dimensions == 6){
-        //     toReturn = colourColumnsExtra[row][colour];
-        // }
+        } else if (dimensions == 6){
+            toReturn = extraColourColumns[row][colour];
+        }
     } 
     return toReturn;
 }
