@@ -282,33 +282,32 @@ void GameEngineIO::saveGame(std::string fileName) {
             outFile << gameEngine->getFactory(i)->toSave() << std::endl;
         }
 
-        if(modeSelection == 3){
+        if(modeSelection != 1){
              //save mosaics 
-            for(int i = 0; i < MAX_ROWS; i++){
+            for(unsigned int i = 0; i < dimensions; i++){
                 outFile << playerOne->getMosaicStorage()->getMosaic()->rowToSaveGrey(i) << std::endl;
             }
 
-            for(int i = 0; i < MAX_ROWS; i++){
+            for(unsigned int i = 0; i < dimensions; i++){
                 outFile << playerTwo->getMosaicStorage()->getMosaic()->rowToSaveGrey(i) << std::endl;
             }
-
         }else{
             //save mosaics 
-            for(int i = 0; i < MAX_ROWS; i++){
+            for(unsigned int i = 0; i < dimensions; i++){
                 outFile << playerOne->getMosaicStorage()->getMosaic()->rowToSave(i) << std::endl;
             }
 
-            for(int i = 0; i < MAX_ROWS; i++){
+            for(unsigned int i = 0; i < dimensions; i++){
                 outFile << playerTwo->getMosaicStorage()->getMosaic()->rowToSave(i) << std::endl;
             }
         }
 
         //save storage areas
-        for(int i = 0; i < MAX_ROWS; i++){
+        for(unsigned int i = 0; i < dimensions; i++){
             outFile << playerOne->getMosaicStorage()->rowToSave(i) << std::endl;
         }
 
-        for(int i = 0; i < MAX_ROWS; i++){
+        for(unsigned int i = 0; i < dimensions; i++){
             outFile << playerTwo->getMosaicStorage()->rowToSave(i) << std::endl;
         }
 

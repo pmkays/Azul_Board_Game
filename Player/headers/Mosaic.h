@@ -50,6 +50,7 @@ public:
     std::string rowToString(int index) const;
     std::string rowToSave(int index) const;
     std::string rowToSaveGrey(int index) const;
+    std::string Mosaic::rowToSaveEnhancements(int index) const;
    
 private:
     std::shared_ptr<Tile>** grid;

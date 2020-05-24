@@ -311,7 +311,7 @@ std::string Mosaic::rowToSave(int index) const {
     return string;
 }
 
-std::string Mosaic::rowToSaveGrey(int index) const {
+std::string Mosaic::rowToSaveEnhancements(int index) const {
     std::string string;
     int convertedDimensions = dimensions;
     for(int i = 0; i< convertedDimensions; ++i){
@@ -325,7 +325,6 @@ std::string Mosaic::rowToSaveGrey(int index) const {
     }
     return string;
 }
-
 
 int Mosaic::calculateEndGamePoints() {
     unsigned int endGamePoints = 0;

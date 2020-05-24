@@ -29,7 +29,7 @@ private:
     GameEngine* gameEngine;
     std::string gameInfo[36];
     bool readError;
-    int dimensions;
+    unsigned int dimensions;
     int modeSelection;  
 };
 
