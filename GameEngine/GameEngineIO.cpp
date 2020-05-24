@@ -35,18 +35,24 @@ void GameEngineIO::loadGame(std::string fileName) {
 
     ifs.close();
 
-
+    
     //load the individual components from the file
     loadPlayers();
+    std::cout<<"Loading factories"<<std::endl;
     loadFactories();
 
     Player* players[] = {gameEngine->getPlayerOne(), gameEngine->getPlayerTwo()};
+    std::cout<<"Loading mosaics"<<std::endl;
     loadMosaics(players);
+    std::cout<<"Loading storage rows"<<std::endl;
     loadStorageArea(players);
+    std::cout<<"Loading broken tiles"<<std::endl;
     loadBrokenTiles(players);
-
+    std::cout<<"Loading bag"<<std::endl;
     loadBag();
+    std::cout<<"Loading lid"<<std::endl;
     loadLid();
+    std::cout<<"Loading seed"<<std::endl;
     loadSeed();
 
     if(readError){
@@ -60,12 +66,11 @@ void GameEngineIO::loadPlayers(){
     if (gameInfo[0] == gameInfo[1]) {
         throw "Both players cannot have the same name.";
     }
-
     // Load Player 1 Name into game
-    gameEngine->setPlayerOne(gameInfo[0]);
+    gameEngine->setPlayerOne(gameInfo[0], dimensions);
 
     // Load Player 2 Name into game
-    gameEngine->setPlayerTwo(gameInfo[1]);
+    gameEngine->setPlayerTwo(gameInfo[1], dimensions);
 
     // Load Player 1 Points into game
     std::stringstream player1Points(gameInfo[2]);
@@ -81,7 +86,6 @@ void GameEngineIO::loadPlayers(){
 
     // Load Next Turn info into game
     gameEngine->setCurrentTurn(gameInfo[4]);
-
 }
 
 void GameEngineIO::loadFactories(){
@@ -114,17 +118,21 @@ void GameEngineIO::loadFactories(){
 void GameEngineIO::loadMosaics(Player* players[]){
     // Load Player 1 and 2 Mosaics into game 
     for (unsigned int playerNum = 0; playerNum < NUM_PLAYERS; ++playerNum) {
+        unsigned int indexIncrement;
+        if(modeSelection != 2){
+            indexIncrement = 11 + playerNum*5;
+        } else{
+            indexIncrement = 11 + playerNum*6;
+        }
 
-        unsigned int indexIncrement = 11 + playerNum*5;
-
-        for (unsigned int row = 0; row < MAX_ROWS; ++row) {
+        for (unsigned int row = 0; row < dimensions; ++row) {
             unsigned int mosaicRowIndex = row+indexIncrement;
 
             std::stringstream playerMosaicStream(gameInfo[mosaicRowIndex]); // 11 to 15 and then 16 to 20
             char toAdd;
             playerMosaicStream >> toAdd;
 
-            for (unsigned int col = 0; col < MAX_COLS; ++col) {
+            for (unsigned int col = 0; col < dimensions; ++col) {
                 if (playerMosaicStream.good()) {
                     Type tileType = Type::NONE;
                     if (gameEngine->changeType(tileType, toAdd)) {
@@ -147,14 +155,18 @@ void GameEngineIO::loadStorageArea(Player* players[]){
      // Load Player 1 and 2 MosaicStorages into game. 
 
     for (unsigned int playerNum = 0; playerNum < NUM_PLAYERS; ++playerNum) {
+        unsigned int indexIncrement = 0; 
+        if(modeSelection != 2){
+            indexIncrement = 21 + playerNum*5; 
+        } else{
+            indexIncrement = 23 + playerNum*6; 
+        }
 
-        unsigned int indexIncrement = 21 + playerNum*5; 
-
-        for (unsigned int row = 0; row < MAX_ROWS; ++row) {
+        for (unsigned int row = 0; row < dimensions; ++row) {
 
             unsigned int mosaicRowIndex = row+indexIncrement;
             std::stringstream mosaicStorageStream(gameInfo[mosaicRowIndex]); // 21 to 25 and then 26 to 30
-
+            std::cout<<"Line for storage area" << gameInfo[mosaicRowIndex]<< std::endl;
             char toAdd;
             mosaicStorageStream >> toAdd;
 
@@ -162,9 +174,11 @@ void GameEngineIO::loadStorageArea(Player* players[]){
                 Type tileType = Type::NONE;
                 if (gameEngine->changeType(tileType, toAdd)) {
                     std::shared_ptr<Tile> tile = std::make_shared<Tile>(tileType);
-
+                    std::cout<<"made a new tile: "<< tile->getColourType()<<std::endl;
                     if (players[playerNum]->getMosaicStorage()->isValidAdd(tileType, row)) {
+                        std::cout<<"trying to add tile to mosaic storage"<<std::endl;
                         players[playerNum]->getMosaicStorage()->addTile(tile, row);
+                        std::cout<<"successfully added tile"<<std::endl;
                     } else {
                         readError = true;
                         tile = nullptr;
@@ -181,7 +195,12 @@ void GameEngineIO::loadBrokenTiles(Player* players[]){
 
     for (unsigned int playerNum = 0; playerNum < NUM_PLAYERS; ++playerNum) {
 
-        unsigned int brokenTilesIndex = playerNum+31;
+        unsigned int brokenTilesIndex = 0;
+        if(modeSelection != 2){
+            brokenTilesIndex = playerNum+31;
+        }else{
+            brokenTilesIndex = playerNum+35;
+        }
         std::stringstream brokenTileStream(gameInfo[brokenTilesIndex]); // 31 and 32
         char toAdd;
         brokenTileStream >> toAdd;
@@ -204,8 +223,14 @@ void GameEngineIO::loadBrokenTiles(Player* players[]){
 
 void GameEngineIO::loadLid(){
     
+    std::string toConvert = "";
+    if(modeSelection!=2){
+        toConvert = gameInfo[33];
+    } else{
+        toConvert = gameInfo[37];
+    }
     // Load Box Lid Tiles into  game
-    std::stringstream boxLidStream(gameInfo[33]);
+    std::stringstream boxLidStream(toConvert);
     // Going to need to traverse the vector backwards since our box lid only has an add to front method
     std::vector<char> tilesToAdd;
     char toAdd;
@@ -231,8 +256,14 @@ void GameEngineIO::loadLid(){
 }
 
 void GameEngineIO::loadBag(){
+    std::string toConvert = "";
+    if(modeSelection!=2){
+        toConvert = gameInfo[34];
+    } else{
+        toConvert = gameInfo[38];
+    }
     // Load Bag Tiles into game
-    std::stringstream tileBagStream(gameInfo[34]);
+    std::stringstream tileBagStream(toConvert);
     char toAdd;
     std::vector<char> tilesToAdd;
     // Going to need to traverse the vector backwards since our tile bag only has an add to front method
@@ -258,7 +289,13 @@ void GameEngineIO::loadBag(){
 
 void GameEngineIO::loadSeed(){
     int seed;
-    std::stringstream seedStream(gameInfo[35]);
+    std::string toConvert = "";
+    if(modeSelection!=2){
+        toConvert = gameInfo[35];
+    } else{
+        toConvert = gameInfo[39];
+    }
+    std::stringstream seedStream(toConvert);
     seedStream >> seed;
     gameEngine->setSeed(seed);
 }
@@ -285,11 +322,11 @@ void GameEngineIO::saveGame(std::string fileName) {
         if(modeSelection != 1){
              //save mosaics 
             for(unsigned int i = 0; i < dimensions; i++){
-                outFile << playerOne->getMosaicStorage()->getMosaic()->rowToSaveGrey(i) << std::endl;
+                outFile << playerOne->getMosaicStorage()->getMosaic()->rowToSaveEnhancements(i) << std::endl;
             }
 
             for(unsigned int i = 0; i < dimensions; i++){
-                outFile << playerTwo->getMosaicStorage()->getMosaic()->rowToSaveGrey(i) << std::endl;
+                outFile << playerTwo->getMosaicStorage()->getMosaic()->rowToSaveEnhancements(i) << std::endl;
             }
         }else{
             //save mosaics 

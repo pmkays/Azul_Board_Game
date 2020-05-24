@@ -78,12 +78,11 @@ bool MosaicStorage::isValidAdd(Type type, unsigned const int row) {
     bool valid = false;
     int column = mosaic->getColourColumn(row, type);
     Type rowType = getRowType(row);
-    
     if(type == rowType || rowType == Type::NONE){
         if (!isRowFull(row) && mosaic->isSpaceFree(row, column)) {
             valid = true;
         }
-    }   
+    }
     return valid;
 }
 

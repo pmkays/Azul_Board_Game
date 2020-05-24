@@ -58,12 +58,10 @@ GameEngine::~GameEngine() {
 }
 
 //setters
-void GameEngine::setPlayerOne(std::string player){
-    unsigned int dimensions = 5;
+void GameEngine::setPlayerOne(std::string player, unsigned int dimensions){
     this->playerOne = new Player(player , dimensions);
 }
-void GameEngine::setPlayerTwo(std::string player){
-    unsigned int dimensions = 5;
+void GameEngine::setPlayerTwo(std::string player, unsigned int dimensions){
     this->playerTwo = new Player(player, dimensions);
 }
 
@@ -665,6 +663,7 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop, int m
     
     this->dimensions = dimensions;
     this->modeSelection = modeSelection;
+    gec->setDimensions(dimensions);
 
     while(!endOfCommands && !std::cin.eof() && !winConditionMet()){
         while(!endOfCommands && !endOfRoundConditionMet()){

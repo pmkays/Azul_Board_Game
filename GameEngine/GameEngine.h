@@ -86,8 +86,8 @@ public:
     int getSeed() const;
 
     //Setters
-    void setPlayerOne(std::string player);
-    void setPlayerTwo(std::string player);
+    void setPlayerOne(std::string player, unsigned int dimensions);
+    void setPlayerTwo(std::string player, unsigned int dimensions);
     void setSeed(int seed);
     void setCurrentTurn(std::string playerName);
     void setPlayerStartingNextRound(std::string playerName);
