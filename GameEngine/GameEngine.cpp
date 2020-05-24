@@ -401,7 +401,6 @@ void GameEngine::endOfRoundPreparations(){
     if(modeSelection != 3){
         movePlayerTilesToMosaic();
     } else{
-        std::cout<<"Attempting to move tiles to grey board"<<std::endl;
         moveTilesToMosaicForGreyBoard(playerOne);
         moveTilesToMosaicForGreyBoard(playerTwo);     
     }
@@ -416,7 +415,7 @@ void GameEngine::moveTilesToMosaicForGreyBoard(Player* player){
     for(unsigned int row = 0;  row < dimensions; row++){
         unsigned int column = 0; 
         std::string receivedInput = "" ; 
-
+        gec->playerBoardUpdate(player);
         if(!player->getMosaicStorage()->rowIsIncomplete(row)){
             bool exitCondition = false;
             while(!exitCondition){
@@ -424,11 +423,10 @@ void GameEngine::moveTilesToMosaicForGreyBoard(Player* player){
                 receivedInput =  input.getString();
                 exitCondition = validateColumnPlacement(receivedInput, row, column, player);
             }
-
-            if(validateColumnPlacement(receivedInput, row, column, player)){
-                player->getMosaicStorage()->movePlayerTilesToMosaicManually(row, column - 1);
-            } else if (receivedInput == "B"){
+            if (receivedInput == "B"){
                 player->getMosaicStorage()->moveTilesFromStorageRowToBroken(row);
+            }else if (validateColumnPlacement(receivedInput, row, column, player)){
+                player->getMosaicStorage()->movePlayerTilesToMosaicManually(row, column - 1);
             }
         }
     }
@@ -457,6 +455,8 @@ bool GameEngine::validateColumnPlacement(const std::string input, unsigned int r
                     success = false;
                 }
             }
+        }else if (input != "B"){
+            success = false;
         } 
     }
     return success;

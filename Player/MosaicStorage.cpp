@@ -105,12 +105,10 @@ void MosaicStorage::movePlayerTilesToMosaicManually(unsigned int row, unsigned i
         std::shared_ptr<Tile>* tiles = getRow(row);
         for(int i = 0; i < (convertedRow + 1); ++i){
             if(i == 0){
-                std::cout<<"Try to add a tile to mosaic in the specified position"<<std::endl;
                 this->mosaic->addTile(tiles[i], row, column);
                 grid[row][i] = nullptr;
             }
             else{
-                std::cout<<"Trying to remove the other tiles to discarded tiles"<<std::endl;
                 this->discardedTiles.push_back(tiles[i]);
                 grid[row][i] = nullptr;
             }
@@ -119,10 +117,11 @@ void MosaicStorage::movePlayerTilesToMosaicManually(unsigned int row, unsigned i
 }
 
 void MosaicStorage::moveTilesFromStorageRowToBroken(unsigned int row){
-    if(isRowFull(row) & !this->mosaic->hasFreeSpace(row)){
+    if(isRowFull(row)){
         std::shared_ptr<Tile>* tiles = getRow(row);
         for(unsigned int i = 0; i < dimensions; ++i){
             if(tiles[i] != nullptr){
+                std::cout<<"Adding 1 tile to broken tiles..."<<std::endl;
                 this->brokenTiles->addTile(tiles[i]);
                 grid[row][i] = nullptr;
             }
