@@ -33,7 +33,7 @@ public:
 
     //Gameplay Conditions
     void newGame(const std::string player1Name, const std::string player2Name, int modeSelection);
-    void gameplayLoop(bool& eof, bool& continueMenuLoop);
+    void gameplayLoop(bool& eof, bool& continueMenuLoop, int modeSelection);
     bool winConditionMet();
     bool endOfRoundConditionMet();
     void endOfRoundPreparations();

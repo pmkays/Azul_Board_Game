@@ -65,20 +65,20 @@ bool Menu::runSelection(unsigned const int selection, int modeSelection) {
         std::cout << "Welcome " << playerOneName << " and " << playerTwoName << "!" << std::endl;
 
         this->gameEngine->newGame(playerOneName, playerTwoName, modeSelection);
-        this->gameEngine->gameplayLoop(eof, continueMenuLoop);
+        this->gameEngine->gameplayLoop(eof, continueMenuLoop, modeSelection);
         
 
     } else if (selection == OPTIONS::LOAD_GAME) { 
         std::string file = input.getString();
 
-        GameEngineIO* gameEngineIO = new GameEngineIO(this->gameEngine);
+        GameEngineIO* gameEngineIO = new GameEngineIO(this->gameEngine, modeSelection);
         try{
             gameEngineIO->loadGame(file);
             // this->gameEngine->loadGame(file);
 
             std::cout << "Azul game successfully loaded" << std::endl;
 
-            this->gameEngine->gameplayLoop(eof, continueMenuLoop); 
+            this->gameEngine->gameplayLoop(eof, continueMenuLoop, modeSelection); 
         }catch(const char* e){
             std::cerr<< e << std::endl;
         }

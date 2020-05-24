@@ -135,7 +135,6 @@ int GameEngine::getSeed() const {
 //gameplay
 
 void GameEngine::newGame(const std::string player1Name, const std::string player2Name, int modeSelection) {
-    std::cout<<"In new game" << std::endl;
     unsigned int dimensions = 0;
     if(modeSelection != 2){
         dimensions = 5;
@@ -216,7 +215,7 @@ int GameEngine::playerTurn(std::string playerTurnCommand){
             toReturn = Error_Message::INVALID_COMMAND;
         }
     } else if (commands[0] == "save") {
-        GameEngineIO* geIO = new GameEngineIO(this);
+        GameEngineIO* geIO = new GameEngineIO(this, modeSelection);
         geIO->saveGame(commands[1]);
         toReturn = Error_Message::SAVED;
         delete geIO;
@@ -654,8 +653,19 @@ std::string GameEngine::interpretPlayerTurn(const int result){
 }
 
 //loop enables the game to keep playing until someone wins or someone quits
-void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop) {
+void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop, int modeSelection) {
     Input input;
+    unsigned int dimensions = 0;
+    if(modeSelection != 2){
+        dimensions = 5;
+    }  
+    else{
+        dimensions = 6;
+    }
+    
+    this->dimensions = dimensions;
+    this->modeSelection = modeSelection;
+
     while(!endOfCommands && !std::cin.eof() && !winConditionMet()){
         while(!endOfCommands && !endOfRoundConditionMet()){
 
@@ -697,7 +707,7 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop) {
 
         // When testing, we save the game before it ends to see the end of game save file
         if (testing) {
-            GameEngineIO* geIO = new GameEngineIO(this);
+            GameEngineIO* geIO = new GameEngineIO(this, modeSelection);
             geIO->saveGame("actualoutcome.save");
             delete geIO;
         }

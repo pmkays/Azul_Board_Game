@@ -10,7 +10,7 @@
 class GameEngine;
 class GameEngineIO {
 public:
-    GameEngineIO(GameEngine* engine);
+    GameEngineIO(GameEngine* engine, int modeSelection);
     ~GameEngineIO();
 
     void loadGame(std::string fileName);
@@ -28,7 +28,9 @@ public:
 private:
     GameEngine* gameEngine;
     std::string gameInfo[36];
-    bool readError;  
+    bool readError;
+    int dimensions;
+    int modeSelection;  
 };
 
 #endif //GAMEENGINEIO_H

@@ -2,9 +2,15 @@
 #include "GameEngineIO.h"
 
 
-GameEngineIO::GameEngineIO(GameEngine* engine){
+GameEngineIO::GameEngineIO(GameEngine* engine, int modeSelection){
     this->gameEngine = engine;
     this->readError = false;
+    this->modeSelection = modeSelection;
+    if(modeSelection == 2){
+        this->dimensions = 6;
+    } else{
+        this->dimensions = 5;
+    }
 }
 GameEngineIO::~GameEngineIO(){}
 
@@ -276,13 +282,25 @@ void GameEngineIO::saveGame(std::string fileName) {
             outFile << gameEngine->getFactory(i)->toSave() << std::endl;
         }
 
-        //save mosaics 
-        for(int i = 0; i < MAX_ROWS; i++){
-            outFile << playerOne->getMosaicStorage()->getMosaic()->rowToSave(i) << std::endl;
-        }
+        if(modeSelection == 3){
+             //save mosaics 
+            for(int i = 0; i < MAX_ROWS; i++){
+                outFile << playerOne->getMosaicStorage()->getMosaic()->rowToSaveGrey(i) << std::endl;
+            }
 
-        for(int i = 0; i < MAX_ROWS; i++){
-            outFile << playerTwo->getMosaicStorage()->getMosaic()->rowToSave(i) << std::endl;
+            for(int i = 0; i < MAX_ROWS; i++){
+                outFile << playerTwo->getMosaicStorage()->getMosaic()->rowToSaveGrey(i) << std::endl;
+            }
+
+        }else{
+            //save mosaics 
+            for(int i = 0; i < MAX_ROWS; i++){
+                outFile << playerOne->getMosaicStorage()->getMosaic()->rowToSave(i) << std::endl;
+            }
+
+            for(int i = 0; i < MAX_ROWS; i++){
+                outFile << playerTwo->getMosaicStorage()->getMosaic()->rowToSave(i) << std::endl;
+            }
         }
 
         //save storage areas

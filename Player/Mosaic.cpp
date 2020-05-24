@@ -311,6 +311,22 @@ std::string Mosaic::rowToSave(int index) const {
     return string;
 }
 
+std::string Mosaic::rowToSaveGrey(int index) const {
+    std::string string;
+    int convertedDimensions = dimensions;
+    for(int i = 0; i< convertedDimensions; ++i){
+        if(this->grid[index][i] != nullptr){
+            string += grid[index][i]->getColourType();
+            string += " ";
+        }else{
+            string += ".";
+            string += " ";
+        }      
+    }
+    return string;
+}
+
+
 int Mosaic::calculateEndGamePoints() {
     unsigned int endGamePoints = 0;
 

@@ -49,6 +49,7 @@ public:
     std::string templateRowToString(int index) const;
     std::string rowToString(int index) const;
     std::string rowToSave(int index) const;
+    std::string rowToSaveGrey(int index) const;
    
 private:
     std::shared_ptr<Tile>** grid;
