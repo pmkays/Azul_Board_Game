@@ -31,6 +31,8 @@ public:
 
     void setDimensions(unsigned int dimensions);
 
+    void promptColumnPlacement(unsigned int row, Player* player);
+
 private:
     int dimensions;
 

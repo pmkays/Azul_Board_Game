@@ -28,6 +28,8 @@ public:
     void endOfRoundMove();
     void moveToMosaic(std::shared_ptr<Tile> tile, unsigned const int row);
     void moveToDiscardedTiles(std::shared_ptr<Tile>* tiles);
+    void movePlayerTilesToMosaicManually(unsigned int row, unsigned int column);
+    void moveTilesFromStorageRowToBroken(unsigned int row);
 
     //Broken Tile Methods
     std::vector<std::shared_ptr<Tile>>* getDiscardedTiles();
@@ -40,9 +42,7 @@ public:
     bool isRowFull(unsigned const int row);
     bool isValidAdd(Type type, unsigned const int row);
     bool isValidAddForGrey(Type type, unsigned const int row);
-    bool alreadyExistsInRow(unsigned const int row, Type type);
-    bool alreadyExistsInColumn(unsigned const int column, Type type);
-
+    bool rowIsIncomplete(unsigned const int row);
 
     //Printers
     std::string rowToString(const int index) const;

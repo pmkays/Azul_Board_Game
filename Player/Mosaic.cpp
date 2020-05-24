@@ -73,6 +73,41 @@ bool Mosaic::findFullCol(unsigned const int col) const {
     return colIsFull;
 }
 
+bool Mosaic::hasFreeSpace(unsigned const int row){
+    bool free = false;
+    for(unsigned int column = 0; column < dimensions; column++){
+        if(grid[row][column] == nullptr){
+            free = true;
+        }
+    }
+    return free;
+}
+
+bool Mosaic::alreadyExistsInRow(unsigned const int row, Type type){
+    bool exists = false;
+    for(unsigned int column = 0; column < dimensions; column++){
+        if(grid[row][column] != nullptr){
+            if(grid[row][column]->getType() == type){
+                exists = true;
+            }
+        }
+    }
+    return exists;
+}
+
+bool Mosaic::alreadyExistsInColumn(unsigned const int column, Type type){
+    bool exists = false;
+    for(unsigned int row = 0; row < dimensions; row++){
+        if(grid[row][column] != nullptr){
+            if(grid[row][column]->getType() == type){
+                exists = true;
+            }
+        }
+    }
+    return exists;
+}
+
+
 unsigned int Mosaic::noOfFiveColours() const {
     unsigned int timesGotAll5Colours = 0;
 
@@ -199,7 +234,7 @@ bool Mosaic::addTile(std::shared_ptr<Tile> tile, unsigned int row, unsigned int 
             added = true;
         }
     }
-
+    std::cout<<"Added a tile"<<std::endl;
     return added;
 }
 

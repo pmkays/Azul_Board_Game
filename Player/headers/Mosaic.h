@@ -41,6 +41,9 @@ public:
     unsigned int numFullCols() const;
     unsigned int noOfFiveColours() const;
     void resetPoints();
+    bool alreadyExistsInRow(unsigned const int row, Type type);
+    bool alreadyExistsInColumn(unsigned const int column, Type type);
+    bool hasFreeSpace(unsigned const int row);
 
     //Printers
     std::string templateRowToString(int index) const;

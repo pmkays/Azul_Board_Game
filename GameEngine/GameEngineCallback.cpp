@@ -92,3 +92,7 @@ void GameEngineCallback::boardComponentUpdate(Factory** factory) const {
 
     std::cout << outputString << std::endl;
 }
+
+void GameEngineCallback::promptColumnPlacement(unsigned int row, Player* player){
+    std::cout <<player->getName() << ": For row " << row << ", please select what column you would like to place your tile."<<std::endl; 
+}

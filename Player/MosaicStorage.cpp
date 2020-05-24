@@ -64,6 +64,16 @@ bool MosaicStorage::isRowFull(unsigned const int row) {
     return isFull;
 }
 
+bool MosaicStorage::rowIsIncomplete(unsigned const int row) {
+    bool hasSpace = false;
+    for(unsigned int column = 0; column <= row; column++){
+        if(grid[row][column] == nullptr){
+            hasSpace = true;
+        }
+    }
+    return hasSpace;
+}
+
 bool MosaicStorage::isValidAdd(Type type, unsigned const int row) {
     bool valid = false;
     int column = mosaic->getColourColumn(row, type);
@@ -77,28 +87,47 @@ bool MosaicStorage::isValidAdd(Type type, unsigned const int row) {
     return valid;
 }
 
-bool MosaicStorage::alreadyExistsInRow(unsigned const int row, Type type){
-    bool exists = false;
-    for(int column = 0; column < dimensions; column++){
-        if(grid[row][column] != nullptr){
-            if(grid[row][column]->getType() == type){
-                exists = true;
+//difference between normal one vs grey one is we can't check for the validity of the column yet, only row.
+bool MosaicStorage::isValidAddForGrey(Type type, unsigned const int row) {
+    bool valid = false;
+    Type rowType = getRowType(row);
+    
+    if(type == rowType || rowType == Type::NONE){
+        if (!isRowFull(row) && mosaic->hasFreeSpace(row) && !mosaic->alreadyExistsInRow(row, type)) {
+            valid = true;
+        }
+    }   
+    return valid;
+}
+void MosaicStorage::movePlayerTilesToMosaicManually(unsigned int row, unsigned int column){
+    int convertedRow = row;
+    if(isRowFull(row)){
+        std::shared_ptr<Tile>* tiles = getRow(row);
+        for(int i = 0; i < (convertedRow + 1); ++i){
+            if(i == 0){
+                std::cout<<"Try to add a tile to mosaic in the specified position"<<std::endl;
+                this->mosaic->addTile(tiles[i], row, column);
+                grid[row][i] = nullptr;
+            }
+            else{
+                std::cout<<"Trying to remove the other tiles to discarded tiles"<<std::endl;
+                this->discardedTiles.push_back(tiles[i]);
+                grid[row][i] = nullptr;
             }
         }
     }
-    return exists;
 }
 
-bool MosaicStorage::alreadyExistsInColumn(unsigned const int column, Type type){
-    bool exists = false;
-    for(int row = 0; row < dimensions; row++){
-        if(grid[row][column] != nullptr){
-            if(grid[row][column]->getType() == type){
-                exists = true;
+void MosaicStorage::moveTilesFromStorageRowToBroken(unsigned int row){
+    if(isRowFull(row) & !this->mosaic->hasFreeSpace(row)){
+        std::shared_ptr<Tile>* tiles = getRow(row);
+        for(unsigned int i = 0; i < dimensions; ++i){
+            if(tiles[i] != nullptr){
+                this->brokenTiles->addTile(tiles[i]);
+                grid[row][i] = nullptr;
             }
         }
     }
-    return exists;
 }
 
 //we move the broken tiles to discarded tiles so we can later move them to the box lid
@@ -174,6 +203,7 @@ void MosaicStorage::moveToMosaic(std::shared_ptr<Tile> tile, unsigned const int 
     int column = mosaic->getColourColumn(row, tile->getType());
     mosaic->addTile(tile, row, column);
 }
+
 
 void MosaicStorage::moveToDiscardedTiles(std::shared_ptr<Tile>* tiles) {
     unsigned int i = 0;

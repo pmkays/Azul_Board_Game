@@ -137,14 +137,15 @@ int GameEngine::getSeed() const {
 void GameEngine::newGame(const std::string player1Name, const std::string player2Name, int modeSelection) {
     std::cout<<"In new game" << std::endl;
     unsigned int dimensions = 0;
-    if(modeSelection == 1){
+    if(modeSelection != 2){
         dimensions = 5;
     }  
-    else if(modeSelection == 2){
+    else{
         dimensions = 6;
     }
     
     this->dimensions = dimensions;
+    this->modeSelection = modeSelection;
 
     playerOne = new Player(player1Name, dimensions);
     playerTwo = new Player(player2Name, dimensions);
@@ -397,26 +398,91 @@ void GameEngine::movePlayerTilesToMosaic(){
 }
 
 void GameEngine::endOfRoundPreparations(){
-    movePlayerTilesToMosaic();
+    if(modeSelection != 3){
+        movePlayerTilesToMosaic();
+    } else{
+        std::cout<<"Attempting to move tiles to grey board"<<std::endl;
+        moveTilesToMosaicForGreyBoard(playerOne);
+        moveTilesToMosaicForGreyBoard(playerTwo);     
+    }
     calculatePointsPerRound();
     moveTilesToLid(playerOne);
     moveTilesToLid(playerTwo);
 }
 
+void GameEngine::moveTilesToMosaicForGreyBoard(Player* player){
+    Input input;
+
+    for(unsigned int row = 0;  row < dimensions; row++){
+        unsigned int column = 0; 
+        std::string receivedInput = "" ; 
+
+        if(!player->getMosaicStorage()->rowIsIncomplete(row)){
+            bool exitCondition = false;
+            while(!exitCondition){
+                gec->promptColumnPlacement(row + 1, player);
+                receivedInput =  input.getString();
+                exitCondition = validateColumnPlacement(receivedInput, row, column, player);
+            }
+
+            if(validateColumnPlacement(receivedInput, row, column, player)){
+                player->getMosaicStorage()->movePlayerTilesToMosaicManually(row, column - 1);
+            } else if (receivedInput == "B"){
+                player->getMosaicStorage()->moveTilesFromStorageRowToBroken(row);
+            }
+        }
+    }
+}
+
+bool GameEngine::validateColumnPlacement(const std::string input, unsigned int row, unsigned int& column, Player* player){
+    bool success = false;
+
+    if(input.length() == 1){
+        success = true;
+        if (inputIsInt(input)) {
+            std::stringstream columnNoAsString(input);
+            columnNoAsString >> column;
+
+            if(column < 1 || column > dimensions){
+                success = false;
+            }else{
+                if(!player->getMosaicStorage()->getMosaic()->isSpaceFree(row, column - 1)){
+                    std::cout << "A TILE ALREADY EXISTS HERE" << std::endl;   
+                    success = false;
+                }
+
+                Type storageRowType = player->getMosaicStorage()->getRowType(row);
+                if(player->getMosaicStorage()->getMosaic()->alreadyExistsInColumn(column - 1, storageRowType)){
+                    std::cout <<"THIS COLOUR ALREADY EXISTS IN THIS COLUMN"<<std::endl;
+                    success = false;
+                }
+            }
+        } 
+    }
+    return success;
+}
+
+
+
 bool GameEngine::moveTilesFromFactory(Player* player, unsigned int factoryNumber, unsigned int row, const Type type, const bool toBroken) {
     bool turnSuccess = true;
-    if (toBroken)
+    if (toBroken){
 
         //need to take into consideration wanting to move tiles to broken tiles manually
         moveTilesToBrokenTiles(player, factoryNumber, type);
-        
-    else if (player->getMosaicStorage()->isValidAdd(type, row))
+    }    
+    else if (modeSelection != 3 && player->getMosaicStorage()->isValidAdd(type, row)){
+
         //player has chosen to put the tiles from the factory somewhere in their mosaic storage
         moveTilesToMosaicStorage(player, factoryNumber, row, type);
-        
-    else
+    }
+    else if(modeSelection == 3 && player->getMosaicStorage()->isValidAddForGrey(type, row)){
+        moveTilesToMosaicStorage(player, factoryNumber, row, type);
+    }    
+    else{
         //no turns have been taken 
         turnSuccess = false;
+    }
     return turnSuccess;
 }
 

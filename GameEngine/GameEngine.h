@@ -54,6 +54,7 @@ public:
     bool tileExistsInFactory(Type tileType, int factoryNo);
     bool centralFactoryOnlyHasFirstTile();
     bool inputIsInt(const std::string input);
+    bool validateColumnPlacement(const std::string input, unsigned int row, unsigned int& column, Player* player);
 
     //Moving of tiles
     bool moveTilesFromFactory(Player* player, unsigned const int factoryNumber, unsigned const int row, const Type type, const bool toBroken);
@@ -62,6 +63,7 @@ public:
     void moveTilesToBrokenTiles(Player* player, unsigned const int factoryNumber, const Type type);
     void moveTilesToLid(Player* player);
     void movePlayerTilesToMosaic();
+    void moveTilesToMosaicForGreyBoard(Player* player);
 
     //Component Utilities
     void populateFactories();
@@ -101,7 +103,10 @@ private:
     GameEngineCallback* gec;
     int seed;
     std::string gameInfo[36];
+
+    //major enhancement 
     unsigned int dimensions;
+    int modeSelection;
 
     // For testing purposes
     bool testing;
