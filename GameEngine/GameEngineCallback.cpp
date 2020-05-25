@@ -55,6 +55,14 @@ void GameEngineCallback::playerEndOfRoundResult(Player* playerOne, Player* playe
     std::cout<< "\n=====End of round - Beginning next round!=====\n" << std::endl;
 }
 
+void GameEngineCallback::playerEndOfRoundResult(Player* player) const {
+    std::cout << player->getName() << " Points: " << player->getPoints() << std::endl;
+}
+
+void GameEngineCallback::endOfRoundStatement() const{
+    std::cout<< "\n=====End of round - Beginning next round!=====\n" << std::endl;
+}
+
 void GameEngineCallback::playerEndOfGameResult(Player* playerOne, Player* playerTwo) const {
     std::cout << playerOne->getName() << " Points: " << playerOne->getPoints() << std::endl;
     std::cout << playerTwo->getName() << " Points: " << playerTwo->getPoints() << std::endl;
@@ -64,6 +72,19 @@ void GameEngineCallback::playerEndOfGameResult(Player* playerOne, Player* player
     } else {
         std::cout << "Winner is " << playerTwo->getName() << "!\n" << std::endl;
     }
+}
+
+void GameEngineCallback::playerEndOfGameResult(Player** players, int numberOfPlayers) const {
+    std::cout<< "\n=================End of Game=================" << std::endl;
+    int max = 0;
+    std::string winner; 
+    for(int i = 0; i < numberOfPlayers; i++){
+        if(players[i]->getPoints() > max){
+            max = players[i]->getPoints();
+            winner = players[i]->getName();
+        }
+    }
+    std::cout << "Winner is " << winner << "!\n" << std::endl;
 }
 
 void GameEngineCallback::boardComponentUpdate(Factory** factory) const {

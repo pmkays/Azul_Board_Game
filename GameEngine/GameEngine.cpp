@@ -30,6 +30,7 @@ void GameEngine::commonGameEngine(){
     this->playerOne = nullptr;
     this->playerTwo = nullptr;
     this->dimensions = 0;
+    this->numberOfPlayers = 2;
 }
 
 GameEngine::~GameEngine() {
@@ -78,10 +79,19 @@ void GameEngine::setCurrentTurn(std::string playerName){
 }
 
 void GameEngine::swapCurrentTurn(){
-    if(this->currentTurn == this->playerOne->getName())
-        this->currentTurn = this->playerTwo->getName();
-    else
-        this->currentTurn = this->playerOne->getName();
+    std::string turn; 
+    for(int i = 0; i < numberOfPlayers; i++){
+        if(i == numberOfPlayers - 1){
+            if(this->currentTurn == players[i]->getName()){
+                turn = players[0]->getName();
+            }
+        }else{
+            if(this->currentTurn == players[i]->getName()){
+                turn = players[i+1]->getName();
+            }
+        }
+    }
+    this->currentTurn = turn; 
 }
 
 
@@ -111,13 +121,18 @@ std::string GameEngine::getPlayerStartingNextRound() const {
 }
 
 Player* GameEngine::getCurrentPlayer() const {
-    Player* toReturn;
-    if(this->playerOne->getName() == this->currentTurn){
-        toReturn = playerOne;
-    }else{
-        toReturn = playerTwo;
-    }
+    Player* toReturn = nullptr;
+    // if(this->playerOne->getName() == this->currentTurn){
+    //     toReturn = playerOne;
+    // }else{
+    //     toReturn = playerTwo;
+    // }
 
+    for(int i = 0; i < numberOfPlayers; i++){
+        if(this->players[i]->getName() == this->currentTurn){
+            toReturn = players[i];
+        }
+    }
     return toReturn;
 }
 
@@ -132,7 +147,7 @@ int GameEngine::getSeed() const {
 
 //gameplay
 
-void GameEngine::newGame(const std::string player1Name, const std::string player2Name, int modeSelection) {
+void GameEngine::newGame(const std::string player1Name, const std::string player2Name, const std::string player3Name, const std::string player4Name, int modeSelection) {
     unsigned int dimensions = 0;
     if(modeSelection != 2){
         dimensions = 5;
@@ -140,12 +155,44 @@ void GameEngine::newGame(const std::string player1Name, const std::string player
     else{
         dimensions = 6;
     }
+    std::cout<<"Player one name:" << player1Name<<std::endl;
+    std::cout<<"Player two name:" << player2Name<<std::endl;
+    std::cout<<"Player three name:" << player3Name<<std::endl;
+    std::cout<<"Player four name:" << player4Name<<std::endl;
     
     this->dimensions = dimensions;
     this->modeSelection = modeSelection;
 
     playerOne = new Player(player1Name, dimensions);
     playerTwo = new Player(player2Name, dimensions);
+    
+    players[0] = playerOne;
+    players[1] = playerTwo;
+    std::cout<<"Set up player one and two"<<std::endl;
+
+    if(modeSelection == 4){
+        playerThree = new Player(player3Name, dimensions);
+        playerThree->setPoints(0);
+        playerThree->getMosaicStorage()->getMosaic()->resetPoints();
+        players[2] = playerThree;
+    }
+
+    std::cout<<"Set up player three"<<std::endl;
+
+    if(modeSelection == 5){
+        playerFour = new Player(player4Name, dimensions);
+        playerFour->setPoints(0);
+        playerFour->getMosaicStorage()->getMosaic()->resetPoints();
+        players[3] = playerFour;
+    }
+    std::cout<<"Set up player four"<<std::endl;
+
+    if(modeSelection == 4){
+        numberOfPlayers = 3;
+    } else if (modeSelection == 5){
+        numberOfPlayers = 4;
+    }
+
 
     playerOne->setPoints(0);
     playerTwo->setPoints(0);
@@ -157,6 +204,11 @@ void GameEngine::newGame(const std::string player1Name, const std::string player
     populateBagAndShuffle(modeSelection);
     populateFactories();
     gec->setDimensions(dimensions);
+    std::cout<<"Made it to the end of new game"<<std::endl;
+
+    for(int i = 0; i < numberOfPlayers;i++){
+        std::cout<<players[i]->getName()<<std::endl;
+    }
 }
 
 int GameEngine::playerTurn(std::string playerTurnCommand){
@@ -307,14 +359,24 @@ bool GameEngine::centralFactoryOnlyHasFirstTile(){
 
 //must check each round if there is a full row so the game can end
 bool GameEngine::winConditionMet(){
+    std::cout<<"In win condition"<<std::endl;
     bool winConditionMet = false;
 
-    Mosaic* playerOneMosaic = this->playerOne->getMosaicStorage()->getMosaic();
-    Mosaic* playerTwoMosaic = this->playerTwo->getMosaicStorage()->getMosaic();
+    // Mosaic* playerOneMosaic = this->playerOne->getMosaicStorage()->getMosaic();
+    // Mosaic* playerTwoMosaic = this->playerTwo->getMosaicStorage()->getMosaic();
 
-    if(playerOneMosaic->findFullRow() || playerTwoMosaic->findFullRow())
-        winConditionMet = true;
+    // if(playerOneMosaic->findFullRow() || playerTwoMosaic->findFullRow())
+    //     winConditionMet = true;
 
+    // return winConditionMet;
+
+    for(int i = 0; i < numberOfPlayers; i++){
+        Player* player = players[i];
+        Mosaic* playerMosaic = player->getMosaicStorage()->getMosaic();
+        if(playerMosaic->findFullRow()){
+            winConditionMet = true;
+        }
+    }
     return winConditionMet;
 }
 
@@ -343,33 +405,52 @@ bool GameEngine::changeType(Type& tileType, char tileChar){
 
 //calculates the points gained and lost through broken tiles and mosaic 
 void GameEngine::calculatePointsPerRound() {
-    std::shared_ptr<MosaicStorage> playerOneMosaicStorage = playerOne->getMosaicStorage();
-    std::shared_ptr<MosaicStorage> playerTwoMosaicStorage = playerTwo->getMosaicStorage();
 
-    int playerOneLostPoints = playerOneMosaicStorage->getBrokenTiles()->calculatePointsLost();
-    int playerTwoLostPoints = playerTwoMosaicStorage->getBrokenTiles()->calculatePointsLost();
+    for(int i = 0; i <numberOfPlayers; i++){
+        Player* player = players[i];
+        std::shared_ptr<MosaicStorage> playerMosaicStorage = player->getMosaicStorage();
+        int playerLostPoints = playerMosaicStorage->getBrokenTiles()->calculatePointsLost();
+        int playerPointsThisRound = playerMosaicStorage->getMosaic()->getPointsThisRound();
+        int playerEndRoundPoints = (player->getPoints() + playerPointsThisRound)-playerLostPoints;
+        if (playerEndRoundPoints < 0){
+            playerEndRoundPoints = 0;
+        }
+        player->setPoints(playerEndRoundPoints);
+        playerMosaicStorage->getMosaic()->resetPoints();
+        playerMosaicStorage->endOfRoundDiscardBrokenTiles();
+    }
 
-    int playerOnePointsThisRound = playerOneMosaicStorage->getMosaic()->getPointsThisRound();
-    int playerTwoPointsThisRound = playerTwoMosaicStorage->getMosaic()->getPointsThisRound();
+    for(int i = 0; i < numberOfPlayers; i++){
+        gec->playerEndOfRoundResult(players[i]);
+    }
+    gec->endOfRoundStatement();
 
-    int playerOneEndRoundPoints = (playerOne->getPoints() + playerOnePointsThisRound)-playerOneLostPoints;
-    int playerTwoEndRoundPoints = (playerTwo->getPoints() + playerTwoPointsThisRound)-playerTwoLostPoints;
+    // std::shared_ptr<MosaicStorage> playerOneMosaicStorage = playerOne->getMosaicStorage();
+    // std::shared_ptr<MosaicStorage> playerTwoMosaicStorage = playerTwo->getMosaicStorage();
 
-    if (playerTwoEndRoundPoints < 0)
-        playerTwoEndRoundPoints = 0;
-    if (playerOneEndRoundPoints < 0)
-        playerOneEndRoundPoints = 0;
+    // int playerOneLostPoints = playerOneMosaicStorage->getBrokenTiles()->calculatePointsLost();
+    // int playerTwoLostPoints = playerTwoMosaicStorage->getBrokenTiles()->calculatePointsLost();
 
-    playerOne->setPoints(playerOneEndRoundPoints);
-    playerTwo->setPoints(playerTwoEndRoundPoints);
+    // int playerOnePointsThisRound = playerOneMosaicStorage->getMosaic()->getPointsThisRound();
+    // int playerTwoPointsThisRound = playerTwoMosaicStorage->getMosaic()->getPointsThisRound();
 
-    playerOneMosaicStorage->getMosaic()->resetPoints();
-    playerTwoMosaicStorage->getMosaic()->resetPoints();
-    playerOneMosaicStorage->endOfRoundDiscardBrokenTiles();
-    playerTwoMosaicStorage->endOfRoundDiscardBrokenTiles();
+    // int playerOneEndRoundPoints = (playerOne->getPoints() + playerOnePointsThisRound)-playerOneLostPoints;
+    // int playerTwoEndRoundPoints = (playerTwo->getPoints() + playerTwoPointsThisRound)-playerTwoLostPoints;
 
-    gec->playerEndOfRoundResult(playerOne, playerTwo);
+    // if (playerTwoEndRoundPoints < 0)
+    //     playerTwoEndRoundPoints = 0;
+    // if (playerOneEndRoundPoints < 0)
+    //     playerOneEndRoundPoints = 0;
 
+    // playerOne->setPoints(playerOneEndRoundPoints);
+    // playerTwo->setPoints(playerTwoEndRoundPoints);
+
+    // playerOneMosaicStorage->getMosaic()->resetPoints();
+    // playerTwoMosaicStorage->getMosaic()->resetPoints();
+    // playerOneMosaicStorage->endOfRoundDiscardBrokenTiles();
+    // playerTwoMosaicStorage->endOfRoundDiscardBrokenTiles();
+
+    // gec->playerEndOfRoundResult(playerOne, playerTwo);
 }
 
 //terminates the round when there are no more tiles in the factories
@@ -387,11 +468,14 @@ bool GameEngine::endOfRoundConditionMet(){
 }
 
 void GameEngine::movePlayerTilesToMosaic(){
-    std::shared_ptr<MosaicStorage> playerOneMosaicStorage = playerOne->getMosaicStorage();
-    std::shared_ptr<MosaicStorage> playerTwoMosaicStorage = playerTwo->getMosaicStorage();
+    for(int i =0; i < numberOfPlayers; i++){
+        players[i]->getMosaicStorage()->endOfRoundMove();
+    }
+    // std::shared_ptr<MosaicStorage> playerOneMosaicStorage = playerOne->getMosaicStorage();
+    // std::shared_ptr<MosaicStorage> playerTwoMosaicStorage = playerTwo->getMosaicStorage();
 
-    playerOneMosaicStorage->endOfRoundMove();
-    playerTwoMosaicStorage->endOfRoundMove();
+    // playerOneMosaicStorage->endOfRoundMove();
+    // playerTwoMosaicStorage->endOfRoundMove();
 }
 
 void GameEngine::endOfRoundPreparations(){
@@ -652,6 +736,7 @@ std::string GameEngine::interpretPlayerTurn(const int result){
 
 //loop enables the game to keep playing until someone wins or someone quits
 void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop, int modeSelection) {
+    std::cout<<"In gameplay loop"<<std::endl;
     Input input;
     unsigned int dimensions = 0;
     if(modeSelection != 2){
@@ -670,8 +755,11 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop, int m
 
             //output relevant information to players
             gec->boardComponentUpdate(factory);
-            gec->playerBoardUpdate(playerOne);
-            gec->playerBoardUpdate(playerTwo);
+            // gec->playerBoardUpdate(playerOne);
+            // gec->playerBoardUpdate(playerTwo);
+            for(int i = 0; i < numberOfPlayers; i++){
+                gec->playerBoardUpdate(players[i]);
+            }
             gec->playerTurnUpdate(currentTurn);
 
             std::string playerCommand = "";
@@ -717,13 +805,24 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop, int m
 }
 
 void GameEngine::calculateEndGamePoints() {
-    int playerOneAdditionalPoints = playerOne->getMosaicStorage()->getMosaic()->calculateEndGamePoints();
-    int playerTwoAdditionalPoints = playerTwo->getMosaicStorage()->getMosaic()->calculateEndGamePoints();
 
-    playerOne->setPoints(playerOne->getPoints() + playerOneAdditionalPoints);
-    playerTwo->setPoints(playerTwo->getPoints() + playerTwoAdditionalPoints);
+    for(int i = 0; i < numberOfPlayers; i++){
+        Player* player = players[i];
+        int playerAdditionalPoints = player->getMosaicStorage()->getMosaic()->calculateEndGamePoints(); 
+        player->setPoints(player->getPoints() + playerAdditionalPoints);
+    }
+    // int playerOneAdditionalPoints = playerOne->getMosaicStorage()->getMosaic()->calculateEndGamePoints();
+    // int playerTwoAdditionalPoints = playerTwo->getMosaicStorage()->getMosaic()->calculateEndGamePoints();
 
-    gec->playerEndOfGameResult(playerOne, playerTwo);
+    // playerOne->setPoints(playerOne->getPoints() + playerOneAdditionalPoints);
+    // playerTwo->setPoints(playerTwo->getPoints() + playerTwoAdditionalPoints);
+
+    for(int i = 0; i < numberOfPlayers; i++){
+        gec->playerEndOfRoundResult(players[i]);
+    }
+    gec->playerEndOfGameResult(players, numberOfPlayers);
+    
+    // gec->playerEndOfGameResult(playerOne, playerTwo);
 }
 
 void GameEngine::resetGame(){
@@ -735,6 +834,14 @@ void GameEngine::resetGame(){
     if(playerTwo != nullptr){
         delete playerTwo;
         playerTwo = nullptr; 
+    }
+    if(playerThree != nullptr){
+        delete playerThree;
+        playerThree = nullptr; 
+    }
+    if(playerFour != nullptr){
+        delete playerFour;
+        playerFour = nullptr; 
     } 
     
     //don't delete components as they get instantiated with GE

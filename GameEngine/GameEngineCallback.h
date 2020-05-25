@@ -22,9 +22,13 @@ public:
 
     // Prints results of the end of round (board + points)
     void playerEndOfRoundResult(Player* playerOne, Player* playerTwo) const;
+    void playerEndOfRoundResult(Player* player) const;
+    void endOfRoundStatement() const;
 
     // Prints results of the end of game (board + points + winner)
     void playerEndOfGameResult(Player* playerOne, Player* playerTwo) const;
+    void playerEndOfGameResult(Player** players, int numberOfPlayers) const;
+
 
     // Prints board components (factories)
     void boardComponentUpdate(Factory** factory) const;

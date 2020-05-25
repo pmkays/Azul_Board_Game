@@ -32,7 +32,7 @@ public:
     void commonGameEngine();
 
     //Gameplay Conditions
-    void newGame(const std::string player1Name, const std::string player2Name, int modeSelection);
+    void newGame(const std::string player1Name, const std::string player2Name, const std::string player3Name, const std::string player4Name, int modeSelection);
     void gameplayLoop(bool& eof, bool& continueMenuLoop, int modeSelection);
     bool winConditionMet();
     bool endOfRoundConditionMet();
@@ -95,6 +95,10 @@ public:
 private:
     Player* playerOne;
     Player* playerTwo;
+    Player* playerThree;
+    Player* playerFour;
+    Player* players[4];
+    int numberOfPlayers;
     Factory* factory[6];
     LinkedList* bag;
     LinkedList* boxLid;
