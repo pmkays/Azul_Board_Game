@@ -30,7 +30,7 @@ private:
     std::string gameInfo[40];
     bool readError;
     unsigned int dimensions;
-    int modeSelection;  
+    int modeSelection;
 };
 
 #endif //GAMEENGINEIO_H

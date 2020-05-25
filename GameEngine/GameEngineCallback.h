@@ -31,7 +31,7 @@ public:
 
 
     // Prints board components (factories)
-    void boardComponentUpdate(Factory** factory) const;
+    void boardComponentUpdate(Factory** factory, int numberOfFactories, int numberOfCentralFactories) const;
 
     void setDimensions(unsigned int dimensions);
 
