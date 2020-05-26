@@ -148,6 +148,86 @@ int GameEngine::getSeed() const {
 }
 
 
+
+//enhancement getters
+int GameEngine::getDimensions(){
+    return this->dimensions;
+}
+
+int GameEngine::getModeSelection(){
+    return this->modeSelection;
+}
+
+Player* GameEngine::getPlayerThree(){
+    return this->playerThree;
+}
+
+Player* GameEngine::getPlayerFour(){
+    return this->playerFour;
+}
+
+Player** GameEngine::getPlayers(){
+    return this->players;
+}
+
+int GameEngine::getNumberOfPlayers(){
+    return this->numberOfPlayers;
+}
+
+int GameEngine::getNumberOfFactories(){
+    return this->numberOfFactories;
+}
+
+int GameEngine::getNumberOfCentralFactories(){
+    return this->numberOfCentralFactories;
+}
+
+
+
+
+//enhancement setters
+void GameEngine::setDimensions(int dimensions){
+    this->dimensions = dimensions;
+}
+
+void GameEngine::setModeSelection(int modeSelection){
+    this->modeSelection = modeSelection;
+}
+
+void GameEngine::setPlayerThree(std::string playerThree, unsigned int dimensions){
+    this->playerThree = new Player(playerThree, dimensions);
+}
+
+void GameEngine::setPlayerFour(std::string playerFour, unsigned int dimensions){
+    this->playerFour = new Player(playerFour, dimensions);
+}
+
+void GameEngine::setPlayers(){
+    players[0] = this->playerOne;
+    players[1] = this->playerTwo;
+
+    if(modeSelection == 4 || modeSelection == 5){
+        players[2] = this->playerThree;
+    } 
+
+    if(modeSelection == 5){
+        players[3] = this->playerFour;
+    }
+}
+
+void GameEngine::setNumberOfPlayers(int numberOfPlayers){
+    this->numberOfPlayers = numberOfPlayers;
+}
+
+void GameEngine::setNumberOfFactories(int numberOfFactories){
+    this->numberOfFactories = numberOfFactories;
+}
+
+void GameEngine::setNumberOfCentralFactories(int numberOfCentralFactories){
+    this->numberOfCentralFactories = numberOfCentralFactories;
+}
+
+
 //gameplay
 
 void GameEngine::newGame(const std::string player1Name, const std::string player2Name, const std::string player3Name, const std::string player4Name, int numberOfCentralFactories, int modeSelection) {
@@ -270,7 +350,12 @@ int GameEngine::playerTurn(std::string playerTurnCommand){
         }
     } else if (commands[0] == "save") {
         GameEngineIO* geIO = new GameEngineIO(this, modeSelection);
-        geIO->saveGame(commands[1]);
+        if(modeSelection == 1){
+            geIO->saveGame(commands[1]);
+        }
+        else{
+          geIO->saveEnhancements(commands[1]);      
+        }        
         toReturn = Error_Message::SAVED;
         delete geIO;
     } else {

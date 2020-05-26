@@ -24,6 +24,13 @@ public:
     void loadBag();
     void loadLid();
     void loadSeed();
+
+    void readEnhancements(std::string fileName);
+    void saveEnhancements(std::string fileName);
+    int convertToInt(std::string toConvert);
+    void readPlayerDetails(Player* player);
+    std::string removeSpaces(std::string string);
+
     
 private:
     GameEngine* gameEngine;
@@ -31,6 +38,7 @@ private:
     bool readError;
     unsigned int dimensions;
     int modeSelection;
+    std::vector<std::string> gameInformation;
 };
 
 #endif //GAMEENGINEIO_H

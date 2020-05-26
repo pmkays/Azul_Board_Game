@@ -94,6 +94,26 @@ public:
     void setCurrentTurn(std::string playerName);
     void setPlayerStartingNextRound(std::string playerName);
 
+    //enhancement getters
+    int getDimensions();
+    int getModeSelection();
+    Player* getPlayerThree();
+    Player* getPlayerFour();
+    Player** getPlayers();
+    int getNumberOfPlayers();
+    int getNumberOfFactories();
+    int getNumberOfCentralFactories();
+
+    //enhancement setters
+    void setDimensions(int dimensions);
+    void setModeSelection(int modeSelection);
+    void setPlayerThree(std::string playerThree, unsigned int dimensions);
+    void setPlayerFour(std::string playerFour, unsigned int dimensions);
+    void setPlayers();
+    void setNumberOfPlayers(int numberOfPlayers);
+    void setNumberOfFactories(int numberOfFactories);
+    void setNumberOfCentralFactories(int numberOfCentralFactories);
+
 private:
     Player* playerOne;
     Player* playerTwo;
