@@ -55,6 +55,14 @@ void GameEngineCallback::playerEndOfRoundResult(Player* playerOne, Player* playe
     std::cout<< "\n=====End of round - Beginning next round!=====\n" << std::endl;
 }
 
+void GameEngineCallback::playerEndOfRoundResult(Player* player) const {
+    std::cout << player->getName() << " Points: " << player->getPoints() << std::endl;
+}
+
+void GameEngineCallback::endOfRoundStatement() const{
+    std::cout<< "\n=====End of round - Beginning next round!=====\n" << std::endl;
+}
+
 void GameEngineCallback::playerEndOfGameResult(Player* playerOne, Player* playerTwo) const {
     std::cout << playerOne->getName() << " Points: " << playerOne->getPoints() << std::endl;
     std::cout << playerTwo->getName() << " Points: " << playerTwo->getPoints() << std::endl;
@@ -66,20 +74,25 @@ void GameEngineCallback::playerEndOfGameResult(Player* playerOne, Player* player
     }
 }
 
-void GameEngineCallback::boardComponentUpdate(Factory** factory) const {
+void GameEngineCallback::playerEndOfGameResult(Player** players, int numberOfPlayers) const {
+    std::cout<< "\n=================End of Game=================" << std::endl;
+    int max = 0;
+    std::string winner = ""; 
+    for(int i = 0; i < numberOfPlayers; i++){
+        if(players[i]->getPoints() > max){
+            max = players[i]->getPoints();
+            winner = players[i]->getName();
+        }
+    }
+    std::cout << "Winner: " << winner << "!\n" << std::endl;
+}
+
+void GameEngineCallback::boardComponentUpdate(Factory** factory, int numberOfFactories, int numberOfCentralFactories) const {
     std::cout<< "--------------------Next Turn------------------\n" << std::endl;
-    std::vector<std::shared_ptr<Tile>> tilesOfCenter = factory[0]->getAllTiles();
+
     std::string outputString = "";
 
-    outputString += "Factory 0: ";
-    int size = tilesOfCenter.size();
-    for(int j = 0; j < size; ++j){
-        outputString.push_back(tilesOfCenter[j]->getColourType());
-        outputString += " ";
-    }
-    outputString += "\n";
-
-    for(int i = 1; i < 6; i++){
+    for(int i = 0; i < numberOfFactories; i++){
         std::vector<std::shared_ptr<Tile>> tiles = factory[i]->getAllTiles();
         outputString += "Factory " + std::to_string(i) += ": ";
         int size = tiles.size();

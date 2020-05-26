@@ -32,7 +32,7 @@ public:
     void commonGameEngine();
 
     //Gameplay Conditions
-    void newGame(const std::string player1Name, const std::string player2Name, int modeSelection);
+    void newGame(const std::string player1Name, const std::string player2Name, const std::string player3Name, const std::string player4Name, int numberOfCentralFactories, int modeSelection);
     void gameplayLoop(bool& eof, bool& continueMenuLoop, int modeSelection);
     bool winConditionMet();
     bool endOfRoundConditionMet();
@@ -51,19 +51,21 @@ public:
     bool checkCommand1(const std::string input, int& factoryNo);
     bool checkCommand2(const std::string input, Type& tileType);
     bool checkCommand3(const std::string input, int& storageRow);
+    bool checkCommand4(const std::string input, int factoryNo, int& centralFactoryNumber);
     bool tileExistsInFactory(Type tileType, int factoryNo);
     bool centralFactoryOnlyHasFirstTile();
     bool inputIsInt(const std::string input);
     bool validateColumnPlacement(const std::string input, unsigned int row, unsigned int& column, Player* player);
 
     //Moving of tiles
-    bool moveTilesFromFactory(Player* player, unsigned const int factoryNumber, unsigned const int row, const Type type, const bool toBroken);
+    bool moveTilesFromFactory(Player* player, unsigned const int factoryNumber, unsigned const int row, const Type type, const bool toBroken, int centralFactoryNumber);
     void returnFactoryTilesByColour(Type type);
-    void moveTilesToMosaicStorage(Player* player, unsigned const int factoryNumber, unsigned const int row, const Type type);
-    void moveTilesToBrokenTiles(Player* player, unsigned const int factoryNumber, const Type type);
+    void moveTilesToMosaicStorage(Player* player, unsigned const int factoryNumber, unsigned const int row, const Type type, int centralFactoryNumber);
+    void moveTilesToBrokenTiles(Player* player, unsigned const int factoryNumber, const Type type, int centralFactoryNumber);
     void moveTilesToLid(Player* player);
     void movePlayerTilesToMosaic();
     void moveTilesToMosaicForGreyBoard(Player* player);
+    void removeOtherFirstPlayerTile();
 
     //Component Utilities
     void populateFactories();
@@ -95,7 +97,7 @@ public:
 private:
     Player* playerOne;
     Player* playerTwo;
-    Factory* factory[6];
+    Factory* factory[11];
     LinkedList* bag;
     LinkedList* boxLid;
     std::string currentTurn;
@@ -107,6 +109,13 @@ private:
     //major enhancement 
     unsigned int dimensions;
     int modeSelection;
+    Player* playerThree;
+    Player* playerFour;
+    Player* players[4];
+    int numberOfPlayers;
+    int numberOfFactories;
+    int numberOfCentralFactories;
+    int runOutOfTiles;  
 
     // For testing purposes
     bool testing;

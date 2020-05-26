@@ -41,6 +41,8 @@ void Menu::runGamePlayType() {
     std::cout << "1. Original" << std::endl;
     std::cout << "2. 6 x 6 Orange" << std::endl;
     std::cout << "3. Grey Mosaic" << std::endl;
+    std::cout << "4. Original - 3 players" << std::endl;
+    std::cout << "5. Original - 4 players" << std::endl;
 }
 
 bool Menu::runSelection(unsigned const int selection, int modeSelection) {
@@ -52,6 +54,17 @@ bool Menu::runSelection(unsigned const int selection, int modeSelection) {
     Input input;
 
     if (selection == OPTIONS::NEW_GAME) {
+        int numberOfCentralFactories = -1;
+        if(modeSelection == 1 || modeSelection == 4 || modeSelection == 5){
+            bool continueLoop = true;
+            while(continueLoop){
+                std::cout<< "Amount of central factories (1 or 2):"<< std::endl;
+                numberOfCentralFactories = input.getInt();
+                if(numberOfCentralFactories != 0){
+                    continueLoop = false;
+                }
+            }
+        }
 
         std::cout << "Please enter player one name:" << std::endl;
         std::string playerOneName = input.getString();
@@ -62,9 +75,21 @@ bool Menu::runSelection(unsigned const int selection, int modeSelection) {
             throw "Both players cannot have the same name.";
         }
 
+        std::string playerThreeName = "";
+        std::string playerFourName = "";
+        if(modeSelection == 4 || modeSelection == 5){
+            std::cout << "Please enter player three name:" << std::endl;
+            playerThreeName = input.getString();
+        }
+
+        if(modeSelection == 5){
+            std::cout << "Please enter player four name:" << std::endl;
+            playerFourName = input.getString();
+        }
+
         std::cout << "Welcome " << playerOneName << " and " << playerTwoName << "!" << std::endl;
 
-        this->gameEngine->newGame(playerOneName, playerTwoName, modeSelection);
+        this->gameEngine->newGame(playerOneName, playerTwoName, playerThreeName, playerFourName, numberOfCentralFactories, modeSelection);
         this->gameEngine->gameplayLoop(eof, continueMenuLoop, modeSelection);
         
 
