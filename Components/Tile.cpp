@@ -1,4 +1,5 @@
 #include "headers/Tile.h"
+#include <iostream>
 
 Tile::Tile(const Type type) {
     this->type = type;
@@ -36,6 +37,7 @@ char Tile::getColourType() const{
 //this version is called straightaway when we want dots to be of a specific colour as per mosaic guidelines
 std::string Tile::getAnsiDisplay(char colour, char symbol) const{
     std::string toReturn = ""; 
+    std::string toInsert = "";
     if(colour == 'R'){
         toReturn += "\u001b[41;1m";
     }else if (colour == 'Y'){
@@ -56,14 +58,39 @@ std::string Tile::getAnsiDisplay(char colour, char symbol) const{
     toReturn += " ";
     toReturn += symbol;
     toReturn += " \u001b[0m";
-
     return toReturn;
 }
 
 //this version is called by regular tiles with assigned colours
 std::string Tile::getAnsiDisplay() const{
     char colour = getColourType();
+    std::string unicode = determineUnicode();
     return getAnsiDisplay(colour, colour);
+}
+
+std::string Tile::determineUnicode() const{
+    std::string unicode;
+    if(type == Type::RED)
+        unicode = "\u0444";
+    else if(type == Type::YELLOW)
+        unicode = "\u0444";
+    else if(type == Type::DARK_BLUE)
+        unicode = "\u2638";
+    else if(type == Type::LIGHT_BLUE)
+        unicode = "\u0444";
+    else if(type == Type::BLACK)
+        unicode = "\u2602";
+    else if(type == Type::FIRST_PLAYER)
+        unicode = "\u0444";
+    else if(type == Type::ORANGE)
+        unicode = "\u0444";
+    else if(type == Type::NONE)
+        unicode = "."; 
+    return unicode;
+}
+
+std::string Tile::getUnicode(){
+    return this->unicode;
 }
 
 

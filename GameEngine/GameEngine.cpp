@@ -898,9 +898,10 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop, int m
             gec->boardComponentUpdate(factory, numberOfFactories, numberOfCentralFactories);
             // gec->playerBoardUpdate(playerOne);
             // gec->playerBoardUpdate(playerTwo);
-            for(int i = 0; i < numberOfPlayers; i++){
-                gec->playerBoardUpdate(players[i]);
-            }
+            // for(int i = 0; i < numberOfPlayers; i++){
+            //     gec->playerBoardUpdate(players[i]);
+            // }
+            gec->playerBoardUpdateAfterTurn(players, numberOfPlayers);
             gec->playerTurnUpdate(currentTurn);
 
             std::string playerCommand = "";
@@ -929,8 +930,9 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop, int m
 
     //loop breaks so we can finalise scores and decide on winner
     if (winConditionMet()) {
-        gec->playerBoardUpdate(playerOne);
-        gec->playerBoardUpdate(playerTwo);
+        for(int i = 0; i < numberOfPlayers; i++){
+            gec->playerBoardUpdate(players[i]);
+        }
         calculateEndGamePoints();
 
         // When testing, we save the game before it ends to see the end of game save file

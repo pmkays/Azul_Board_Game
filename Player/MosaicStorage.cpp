@@ -10,7 +10,7 @@ MosaicStorage::MosaicStorage(unsigned int dimensions) {
     }
 
     this->mosaic = new Mosaic(dimensions);
-    this->brokenTiles = new BrokenTiles();
+    this->brokenTiles = new BrokenTiles(dimensions);
     this->dimensions = dimensions;
 }
 

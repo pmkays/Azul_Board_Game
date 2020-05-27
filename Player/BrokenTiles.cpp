@@ -1,8 +1,17 @@
 #include "headers/BrokenTiles.h"
 #include <iostream>
 
-BrokenTiles::BrokenTiles() {
+BrokenTiles::BrokenTiles(unsigned int dimensions) {
+    if(dimensions == 5){
+        this->maxSize = 7;
+    } else {
+        this->maxSize = 8;
+    }
     this->size = 0;
+
+    for(int i = 0; i < maxSize; i++){
+        tiles[i] = nullptr;
+    }
 }
 
 BrokenTiles::~BrokenTiles() {
@@ -50,16 +59,14 @@ void BrokenTiles::addTile(std::shared_ptr<Tile> tile) {
 
 std::string BrokenTiles::toString() {
     std::string string = "Broken: ";
-    for(int i = 0; i < this->size; i++){
+    for(int i = 0; i < maxSize; i++){
         if(tiles[i] == nullptr){
-            string += ".";
-        } else{
-                    
-        string += tiles[i]->getColourType();
+            Tile tile(Type::NONE);
+            string += tile.getAnsiDisplay();
+        } else{                 
+            string += tiles[i]->getAnsiDisplay();
         }
-        string += " ";
     }
-
     return string;
 }
 

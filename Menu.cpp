@@ -25,7 +25,7 @@ void Menu::printWelcome() {
 
 void Menu::runMenu() {
     std::cout << "----" << std::endl;
-    std::cout << "Menu" << std::endl;
+    std::cout << "Menu \x1b[48;5;202;1m \u0444 \u001b[0m" << std::endl;
     std::cout << "----" << std::endl;
     std::cout << "1. New Game" << std::endl;
     std::cout << "2. Load Game" << std::endl;

@@ -13,6 +13,7 @@ public:
 
     // Prints board of a player
     void playerBoardUpdate(Player* player) const;
+    void playerBoardUpdateAfterTurn(Player** players, int numberOfPlayers) const;
 
     // Prints whose turn is it now
     void playerTurnUpdate(const std::string playerName) const;
