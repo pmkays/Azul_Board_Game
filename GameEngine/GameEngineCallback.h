@@ -42,7 +42,7 @@ public:
 private:
     int dimensions;
     int modeSelection;
-
+    std::string factoryHelper(Factory* factory, int index, std::string formatter) const;
 };
 
 #endif // GAMEENGINECALLBACK_H

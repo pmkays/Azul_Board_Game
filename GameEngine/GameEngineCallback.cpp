@@ -132,16 +132,33 @@ void GameEngineCallback::boardComponentUpdate(Factory** factory, int numberOfFac
     for(int i  =  0; i < numberOfCentralFactories; i++){
         outputString += "[Central] Factory " + std::to_string(i) += ": " +factory[i]->displayColouredTiles() + "\n";
     }
+
     outputString += "\n";
+
     for(int i = numberOfCentralFactories; i < numberOfFactories; i+=2){
-        outputString += "Factory " + std::to_string(i) += ": " +factory[i]->displayColouredTiles() + "\t\t";
+        outputString += factoryHelper(factory[i], i, "\t\t");
         if(i + 1 < numberOfFactories){
-            outputString += "Factory " + std::to_string(i+1) += ": " +factory[i+1]->displayColouredTiles() + "\n";
+            outputString += factoryHelper(factory[i+1], i+1, "\n");
         }else{
             outputString+="\n";
         }
     }
+
     std::cout << outputString << std::endl;
+}
+
+std::string GameEngineCallback::factoryHelper(Factory* factory, int index, std::string formatter) const{
+    std::string outputString ="";
+    outputString +=  "Factory " + std::to_string(index) += ": ";
+    if(factory->getAllTiles().size() != 0){
+        outputString += factory->displayColouredTiles() + formatter;
+    }else{
+        for(int i = 0; i < dimensions - 1; i++){
+            outputString += "   ";
+        }
+        outputString += formatter;
+    }
+    return outputString;
 }
 
 void GameEngineCallback::promptColumnPlacement(unsigned int row, Player* player){
