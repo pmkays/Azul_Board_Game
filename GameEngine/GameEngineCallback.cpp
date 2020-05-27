@@ -12,27 +12,31 @@ void GameEngineCallback::setDimensions(unsigned int dimensions){
     this->dimensions = dimensions;
 }
 
+void GameEngineCallback::setModeSelection(int modeSelection){
+    this->modeSelection = modeSelection;
+}
+
 void GameEngineCallback::playerBoardUpdate(Player* player) const {
     std::string outputString;
     std::shared_ptr<MosaicStorage> mStorage = player->getMosaicStorage();
     Mosaic* mosaic = player->getMosaicStorage()->getMosaic();
 
     outputString = "Mosaic for " + player->getName() + "\n"
-        + mStorage->rowToString(0) + mosaic->rowToString(0) + "\t\t " + mosaic->templateRowToString(0) + "\n";
+        + mStorage->rowToString(0) + mosaic->rowToString(0, modeSelection) + "\t\t " + mosaic->templateRowToString(0) + "\n";
         if(dimensions == 6){
-            outputString += mStorage->rowToString(1) + mosaic->rowToString(1) + "  TEMPLATE " + mosaic->templateRowToString(1) + "\n";
-            outputString += mStorage->rowToString(2) + mosaic->rowToString(2) + "  -------> " + mosaic->templateRowToString(2) + "\n";
+            outputString += mStorage->rowToString(1) + mosaic->rowToString(1, modeSelection) + "  TEMPLATE " + mosaic->templateRowToString(1) + "\n";
+            outputString += mStorage->rowToString(2) + mosaic->rowToString(2, modeSelection) + "  -------> " + mosaic->templateRowToString(2) + "\n";
         } else{
-            outputString += mStorage->rowToString(1) + mosaic->rowToString(1) + "  TEMPLATE\t " + mosaic->templateRowToString(1) + "\n";
-            outputString += mStorage->rowToString(2) + mosaic->rowToString(2) + "  ------->\t " + mosaic->templateRowToString(2) + "\n";
+            outputString += mStorage->rowToString(1) + mosaic->rowToString(1, modeSelection) + "  TEMPLATE\t " + mosaic->templateRowToString(1) + "\n";
+            outputString += mStorage->rowToString(2) + mosaic->rowToString(2, modeSelection) + "  ------->\t " + mosaic->templateRowToString(2) + "\n";
         }
 
-        outputString += mStorage->rowToString(3) + mosaic->rowToString(3) + "\t\t " + mosaic->templateRowToString(3) + "\n"
-        + mStorage->rowToString(4) + mosaic->rowToString(4) + "\t\t " + mosaic->templateRowToString(4) + "\n";
+        outputString += mStorage->rowToString(3) + mosaic->rowToString(3, modeSelection) + "\t\t " + mosaic->templateRowToString(3) + "\n"
+        + mStorage->rowToString(4) + mosaic->rowToString(4, modeSelection) + "\t\t " + mosaic->templateRowToString(4) + "\n";
 
         if(dimensions == 6)
         {
-            outputString += mStorage->rowToString(5) + mosaic->rowToString(5) + "\t\t " + mosaic->templateRowToString(5) + "\n";
+            outputString += mStorage->rowToString(5) + mosaic->rowToString(5, modeSelection) + "\t\t " + mosaic->templateRowToString(5) + "\n";
         }
     
     outputString += player->getMosaicStorage()->getBrokenTiles()->toString() + "\n";
@@ -93,16 +97,8 @@ void GameEngineCallback::boardComponentUpdate(Factory** factory, int numberOfFac
     std::string outputString = "";
 
     for(int i = 0; i < numberOfFactories; i++){
-        std::vector<std::shared_ptr<Tile>> tiles = factory[i]->getAllTiles();
-        outputString += "Factory " + std::to_string(i) += ": ";
-        int size = tiles.size();
-        for(int j = 0; j < size; ++j){
-            outputString.push_back(tiles[j]->getColourType());
-            outputString += " ";
-        }
-        outputString += "\n";
+        outputString += "Factory " + std::to_string(i) += ": " +factory[i]->displayColouredTiles() + "\n";
     }
-
     std::cout << outputString << std::endl;
 }
 

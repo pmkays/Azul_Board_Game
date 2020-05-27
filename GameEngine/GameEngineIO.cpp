@@ -500,7 +500,7 @@ void GameEngineIO::readEnhancements(std::string fileName){
             std::cout <<"Mosaic: " << player->getMosaicStorage()->getMosaic()->rowToSaveEnhancements(j) << std::endl;
         }
         for(unsigned int j = 0; j < dimensions; j++){
-            std::cout <<"Mosaic: " << player->getMosaicStorage()->rowToSave(j) << std::endl;
+            std::cout <<"storage area: " << player->getMosaicStorage()->rowToSave(j) << std::endl;
         }
         std::cout <<"Broken tiles: " << player->getMosaicStorage()->getBrokenTiles()->toSave() << std::endl;
     }   
@@ -555,9 +555,8 @@ void GameEngineIO::readPlayerDetails(Player * player){
             Type tileType = Type::NONE;
             if (gameEngine->changeType(tileType, storageRow[col])) {
                 std::shared_ptr<Tile> tile = std::make_shared<Tile>(tileType);
-                if (player->getMosaicStorage()->getMosaic()->addTile(tile, row, col)) {
+                player->getMosaicStorage()->addTile(tile, row);
                     tile = nullptr;
-                }
             }
         }
         std::cout << "Storage row "<<row << ": " << player->getMosaicStorage()->getMosaic()->rowToSaveEnhancements(row) << std::endl;

@@ -286,6 +286,7 @@ void GameEngine::newGame(const std::string player1Name, const std::string player
     populateBagAndShuffle(modeSelection);
     populateFactories();
     gec->setDimensions(dimensions);
+    gec->setModeSelection(modeSelection);
     std::cout<<"Made it to the end of new game"<<std::endl;
 
     for(int i = 0; i < numberOfPlayers;i++){
@@ -888,6 +889,7 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop, int m
 
     this->modeSelection = modeSelection;
     gec->setDimensions(dimensions);
+    gec->setModeSelection(modeSelection);
 
     while(!endOfCommands && !std::cin.eof() && !winConditionMet() && !runOutOfTiles){
         while(!endOfCommands && !endOfRoundConditionMet()){

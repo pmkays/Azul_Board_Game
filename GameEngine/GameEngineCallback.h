@@ -34,11 +34,13 @@ public:
     void boardComponentUpdate(Factory** factory, int numberOfFactories, int numberOfCentralFactories) const;
 
     void setDimensions(unsigned int dimensions);
+    void setModeSelection(int modeSelection);
 
     void promptColumnPlacement(unsigned int row, Player* player);
 
 private:
     int dimensions;
+    int modeSelection;
 
 };
 

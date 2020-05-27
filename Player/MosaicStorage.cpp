@@ -233,19 +233,16 @@ std::string MosaicStorage::rowToString(int index) const{
     int convertedDimensions = dimensions;
 
     for(int j = 0; j<convertedDimensions-(index+1);j++){
-            string+= "  ";
+            string+= "   ";
     }
     for(int i = index; i>=0; --i){
-
         if(grid[index][i] != nullptr){
-            string += grid[index][i]->getColourType();
-            string += " ";
+            string += grid[index][i]->getAnsiDisplay();
         }else{
-            string += ". ";
+            Tile tile(Type::NONE);
+            string += tile.getAnsiDisplay();
         }
-
     }
-
     return string;
 }
 

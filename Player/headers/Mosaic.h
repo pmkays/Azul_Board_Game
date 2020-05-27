@@ -13,6 +13,10 @@
 // #define LIGHT_BLUE  3
 // #define BLACK       4
 
+#define RED_BACKGROUND "\u001b[0m"
+#define YELLOW_BACKGROUND "\u001b[43m"
+#define RESET "\u001b[41m"
+
 class Mosaic{
 public:
     Mosaic(unsigned int dimensions);
@@ -47,7 +51,7 @@ public:
 
     //Printers
     std::string templateRowToString(int index) const;
-    std::string rowToString(int index) const;
+    std::string rowToString(int index, int modeSelection) const;
     std::string rowToSave(int index) const;
     std::string rowToSaveGrey(int index) const;
     std::string rowToSaveEnhancements(int index) const;
@@ -95,6 +99,7 @@ private:
         {'R', 'U', 'L', 'B', 'Y'} ,
         {'Y', 'R', 'U', 'L', 'B'} ,
     };
+
     
     const char extraColourGrid[6][6] = {
         {'B', 'Y', 'R', 'U', 'L', 'O'} ,

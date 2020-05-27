@@ -32,6 +32,8 @@ public:
     ~Tile();
     Type getType() const;
     char getColourType() const;
+    std::string getAnsiDisplay(char colour, char symbol) const;
+    std::string getAnsiDisplay() const;
     
 private:
     Type type;  

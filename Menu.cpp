@@ -100,12 +100,11 @@ bool Menu::runSelection(unsigned const int selection, int modeSelection) {
         try{
             if(modeSelection == 1){
                 gameEngineIO->loadGame(file);
-                this->gameEngine->gameplayLoop(eof, continueMenuLoop, modeSelection); 
             }else{
                 gameEngineIO->readEnhancements(file);
             }
             // this->gameEngine->loadGame(file);
-
+            this->gameEngine->gameplayLoop(eof, continueMenuLoop, modeSelection); 
             std::cout << "Azul game successfully loaded" << std::endl;
 
         }catch(const char* e){
