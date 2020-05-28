@@ -23,6 +23,15 @@ enum Error_Message{
     INVALID_MOVE
 };
 
+// enum Mode {
+//     INVALID,
+//     ORIGINAL,
+//     ORANGE_BOARD,
+//     GREY,
+//     THREE_PLAYER,
+//     FOUR_PLAYER
+// };
+
 class GameEngineIO;
 class GameEngine{
 public:
@@ -33,7 +42,7 @@ public:
 
     //Gameplay Conditions
     void newGame(const std::string player1Name, const std::string player2Name, const std::string player3Name, const std::string player4Name, int numberOfCentralFactories, int modeSelection);
-    void gameplayLoop(bool& eof, bool& continueMenuLoop, int modeSelection);
+    void gameplayLoop(bool& eof, bool& continueMenuLoop);
     bool winConditionMet();
     bool endOfRoundConditionMet();
     void endOfRoundPreparations();

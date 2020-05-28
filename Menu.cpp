@@ -99,8 +99,9 @@ bool Menu::runSelection(unsigned const int selection, int modeSelection) {
     Input input;
 
     if (selection == OPTIONS::NEW_GAME) {
+        playerNames.clear();
         int numberOfCentralFactories = -1;
-        if(modeSelection == MODE::ORIGINAL || modeSelection == MODE::THREE_PLAYER || modeSelection == MODE::FOUR_PLAYER){
+        if(modeSelection == Mode::ORIGINAL || modeSelection == Mode::THREE_PLAYER || modeSelection == Mode::FOUR_PLAYER){
             numberOfCentralFactories = promptCentralFactoryAmount(); 
         }
         std::string playerOneName, playerTwoName, playerThreeName, playerFourName = "";
@@ -108,11 +109,11 @@ bool Menu::runSelection(unsigned const int selection, int modeSelection) {
         promptNames("one", playerOneName);
         promptNames("two", playerTwoName);
 
-        if(modeSelection == MODE::THREE_PLAYER || modeSelection == MODE::FOUR_PLAYER){
+        if(modeSelection == Mode::THREE_PLAYER || modeSelection == Mode::FOUR_PLAYER){
             promptNames("three", playerThreeName);
         }
 
-        if(modeSelection == MODE::FOUR_PLAYER){
+        if(modeSelection == Mode::FOUR_PLAYER){
             promptNames("four", playerFourName);
         }
 
@@ -120,14 +121,14 @@ bool Menu::runSelection(unsigned const int selection, int modeSelection) {
         printWelcomeMessage();
 
         this->gameEngine->newGame(playerOneName, playerTwoName, playerThreeName, playerFourName, numberOfCentralFactories, modeSelection);
-        this->gameEngine->gameplayLoop(eof, continueMenuLoop, modeSelection);
+        this->gameEngine->gameplayLoop(eof, continueMenuLoop);
     } else if (selection == OPTIONS::LOAD_GAME) { 
         std::string file = input.getString();
 
         GameEngineIO* gameEngineIO = new GameEngineIO(this->gameEngine, modeSelection);
         try{
-            gameEngineIO->readEnhancements(file);
-            this->gameEngine->gameplayLoop(eof, continueMenuLoop, modeSelection); 
+            gameEngineIO->loadGame(file);
+            this->gameEngine->gameplayLoop(eof, continueMenuLoop); 
 
         }catch(const char* e){
             std::cerr<< e << std::endl;

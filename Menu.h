@@ -15,15 +15,6 @@ enum OPTIONS {
     HELP = 100
 };
 
-enum MODE {
-    NO_OPTION,
-    ORIGINAL,
-    ORANGE,
-    GREY,
-    THREE_PLAYER,
-    FOUR_PLAYER
-};
-
 class Menu {
 public:
     // Constructor

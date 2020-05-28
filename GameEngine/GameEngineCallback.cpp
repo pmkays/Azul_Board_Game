@@ -55,7 +55,7 @@ void GameEngineCallback::playerBoardUpdateAfterTurn(Player** players, int number
     std::string outputString;
     for(int i = 0; i < numberOfPlayers; i+=2){
         outputString += "Mosaic for: " + players[i]->getName() + "\t\t\t\t";
-        if(modeSelection == 2){
+        if(modeSelection == Mode::ORANGE_BOARD){
             outputString += "\t";
         }
         if(i+1 < numberOfPlayers){
@@ -170,7 +170,7 @@ void GameEngineCallback::promptColumnPlacement(unsigned int row, Player* player)
 }
 
 void GameEngineCallback::gameplayHelp(int numberOfCentralFactories){
-    if (modeSelection == 3){
+    if (modeSelection == Mode::GREY){
         greyBoardHelp();
     } else{
         if(numberOfCentralFactories == 1){

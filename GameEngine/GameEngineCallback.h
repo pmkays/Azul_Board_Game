@@ -5,7 +5,14 @@
 #include <string>
 #include "../Player/headers/Player.h"
 #include "../Components/headers/Factory.h"
-
+enum Mode {
+    INVALID,
+    ORIGINAL,
+    ORANGE_BOARD,
+    GREY,
+    THREE_PLAYER,
+    FOUR_PLAYER
+};
 class GameEngineCallback{
 public:
     GameEngineCallback();
