@@ -55,6 +55,9 @@ void GameEngineCallback::playerBoardUpdateAfterTurn(Player** players, int number
     std::string outputString;
     for(int i = 0; i < numberOfPlayers; i+=2){
         outputString += "Mosaic for: " + players[i]->getName() + "\t\t\t\t";
+        if(modeSelection == 2){
+            outputString += "\t";
+        }
         if(i+1 < numberOfPlayers){
             outputString += "Mosaic for: " + players[i+1]->getName() + "\n";
         }else{
@@ -71,8 +74,10 @@ void GameEngineCallback::playerBoardUpdateAfterTurn(Player** players, int number
         outputString += players[i]->getMosaicStorage()->getBrokenTiles()->toString() + "\t\t";
         if(i+1 < numberOfPlayers){
             outputString += players[i+1]->getMosaicStorage()->getBrokenTiles()->toString() + "\n\n";
+            // outputString += "       -|1||1||2||2||2||3||3||4|\t\t       -|1||1||2||2||2||3||3||4| " ;
         }else{
             outputString += "\n\n";
+            // outputString += "\t -1|-1|-2|-2|-2|-3|-3 \n\n";
         }
     }
     std::cout << outputString <<std::endl;
@@ -143,13 +148,12 @@ void GameEngineCallback::boardComponentUpdate(Factory** factory, int numberOfFac
             outputString+="\n";
         }
     }
-
     std::cout << outputString << std::endl;
 }
 
 std::string GameEngineCallback::factoryHelper(Factory* factory, int index, std::string formatter) const{
     std::string outputString ="";
-    outputString +=  "Factory " + std::to_string(index) += ": ";
+    outputString +=  "Factory " + std::to_string(index) + ": ";
     if(factory->getAllTiles().size() != 0){
         outputString += factory->displayColouredTiles() + formatter;
     }else{
@@ -163,4 +167,42 @@ std::string GameEngineCallback::factoryHelper(Factory* factory, int index, std::
 
 void GameEngineCallback::promptColumnPlacement(unsigned int row, Player* player){
     std::cout <<player->getName() << ": For row " << row << ", please select what column you would like to place your tile."<<std::endl; 
+}
+
+void GameEngineCallback::gameplayHelp(int numberOfCentralFactories){
+    if (modeSelection == 3){
+        greyBoardHelp();
+    } else{
+        if(numberOfCentralFactories == 1){
+            generalTurnHelp();
+            helpFooter(); 
+        }else{
+            twoCFHelp();
+        }
+    }
+}
+
+void GameEngineCallback::greyBoardHelp(){
+    generalTurnHelp(); 
+    std::cout << "Once the round has finished, you will be prompted to select which mosaic column you would like to move a tile to from a full storage row. \n"
+              << "Tip: Be careful and make sure you don't run into a dead end!\n"<< std::endl;
+    helpFooter();
+}
+
+
+void GameEngineCallback::twoCFHelp(){
+     std::cout << "To take turns, type the following command in this structure: 'turn {factory number} {tile} {storage row} {central factory number}'.\n"
+              << "For example: 'turn 5 U 2 1' means: take the U tiles from factory 5, place them into storage row 2, and place the remaining tiles in central factory 1.\n"
+              << "Alternatively, you can choose to place tiles in your broken row voluntarily by typing 'B' instead of a storage row number\n" << std::endl;
+    helpFooter();
+}
+void GameEngineCallback::generalTurnHelp(){
+    std::cout << "To take turns, type the following command in this structure: 'turn {factory number} {tile} {storage row}'.\n"
+              << "For example: 'turn 5 U 2' means: take the U tiles from factory 5 and place them into storage row 2.\n"
+              << "Alternatively, you can choose to place tiles in your broken row voluntarily by typing 'B' instead of a storage row number\n" << std::endl;
+}
+void GameEngineCallback::helpFooter(){
+    std::cout << "If you would like to save the game, type the following command in this structure: 'save {file name}'. \n"
+             << "For more game-specific rules and how-to-play guides, please visit: https://www.ultraboardgames.com/azul/game-rules.php\n\n" << std::endl;
+
 }

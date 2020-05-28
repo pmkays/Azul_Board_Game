@@ -47,9 +47,11 @@ std::string Tile::getAnsiDisplay(char colour, char symbol) const{
     }else if (colour == 'L'){
         toReturn += "\x1b[48;5;39;1m";
     }else if (colour == 'U'){
-        toReturn += "\u001b[40;1m";
+        toReturn += "\x1b[48;5;234;1m";
     } else if (colour == 'O'){
         toReturn += "\x1b[48;5;202;1m";
+    } else if (colour == 'F'){
+        toReturn += "\x1b[48;5;12;1m";
     } else if (colour == 'X'){
         toReturn += "\x1b[48;5;240;1m";
         symbol = '.';

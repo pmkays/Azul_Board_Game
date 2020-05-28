@@ -38,6 +38,13 @@ public:
     void setModeSelection(int modeSelection);
 
     void promptColumnPlacement(unsigned int row, Player* player);
+    
+    void gameplayHelp(int numberOfCentralFactories);
+    void greyBoardHelp();
+    void orangeHelp();
+    void twoCFHelp();
+    void generalTurnHelp(); 
+    void helpFooter();
 
 private:
     int dimensions;

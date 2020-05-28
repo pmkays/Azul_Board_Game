@@ -34,9 +34,13 @@ int main(int argc, char** argv) {
         while(continueModeLoop){
             menu->runGamePlayType();
             modeSelection = input.getInt();
-            if(modeSelection != 0){
-                continueModeLoop = false;
+            std::cout <<"mode selection: " << modeSelection << std::endl;
+            if(modeSelection == 100){
+                menu->runGamePlayTypeHelp();
             }
+            else if(modeSelection != 0){
+                continueModeLoop = false;
+            } 
         }
         
         unsigned int selection = OPTIONS::NO_OPTION;

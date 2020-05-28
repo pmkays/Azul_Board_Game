@@ -351,12 +351,13 @@ int GameEngine::playerTurn(std::string playerTurnCommand){
         }
     } else if (commands[0] == "save") {
         GameEngineIO* geIO = new GameEngineIO(this, modeSelection);
-        if(modeSelection == 1){
-            geIO->saveGame(commands[1]);
-        }
-        else{
-          geIO->saveEnhancements(commands[1]);      
-        }        
+        geIO->saveEnhancements(commands[1]);
+        // if(modeSelection == 1){
+        //     geIO->saveGame(commands[1]);
+        // }
+        // else{
+        //   geIO->saveEnhancements(commands[1]);      
+        // }        
         toReturn = Error_Message::SAVED;
         delete geIO;
     } else {
@@ -696,21 +697,21 @@ bool GameEngine::moveTilesFromFactory(Player* player, unsigned int factoryNumber
 
 void GameEngine::moveTilesToMosaicStorage(Player* player, unsigned const int factoryNumber, unsigned const int row, const Type type, int centralFactoryNumber){
 std::vector<std::shared_ptr<Tile>> allTiles =  factory[factoryNumber]->getCopiedTilesAndRemove();
-        int size = allTiles.size();
-        for(int i = 0; i < size; i++){
-            std::shared_ptr<Tile> tileToAdd = allTiles[i];
-            if(tileToAdd->getType() == Type::FIRST_PLAYER){
-                //automatically move the first player tile to the broken tiles
-                player->getMosaicStorage()->getBrokenTiles()->addTile(tileToAdd);
-                this->setPlayerStartingNextRound(player->getName());
-                removeOtherFirstPlayerTile();
-            } else if(allTiles[i]->getType() == type){
-                player->getMosaicStorage()->addTile(tileToAdd, row);
-            } else{
-                //add the remaining unchosen tiles to central factory
-                factory[centralFactoryNumber]->addTile(tileToAdd);
-            }  
-        }
+    int size = allTiles.size();
+    for(int i = 0; i < size; i++){
+        std::shared_ptr<Tile> tileToAdd = allTiles[i];
+        if(tileToAdd->getType() == Type::FIRST_PLAYER){
+            //automatically move the first player tile to the broken tiles
+            player->getMosaicStorage()->getBrokenTiles()->addTile(tileToAdd);
+            this->setPlayerStartingNextRound(player->getName());
+            removeOtherFirstPlayerTile();
+        } else if(allTiles[i]->getType() == type){
+            player->getMosaicStorage()->addTile(tileToAdd, row);
+        } else{
+            //add the remaining unchosen tiles to central factory
+            factory[centralFactoryNumber]->addTile(tileToAdd);
+        }  
+    }
 }
 
 void GameEngine::removeOtherFirstPlayerTile(){
@@ -719,7 +720,7 @@ void GameEngine::removeOtherFirstPlayerTile(){
             std::vector<std::shared_ptr<Tile>> allTiles =  factory[i]->getCopiedTilesAndRemove();
             for(unsigned int j = 0; j < allTiles.size(); j++){
                 if(allTiles[j]->getType() != Type::FIRST_PLAYER){
-                    factory[j]->addTile(allTiles[j]);
+                    factory[i]->addTile(allTiles[j]);
                 }
             }
         }
@@ -908,8 +909,12 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop, int m
             int turnResult = 0;
             while(!endOfCommands && !std::cin.eof() && (turnResult != 1)){
                 playerCommand = input.getString();
-                turnResult = playerTurn(playerCommand);
-                gec->playerTurnResult(interpretPlayerTurn(turnResult));
+                if(playerCommand == "help"){
+                    gec->gameplayHelp(numberOfCentralFactories);
+                }else{
+                    turnResult = playerTurn(playerCommand);
+                    gec->playerTurnResult(interpretPlayerTurn(turnResult));
+                }
             }
             // This only runs for io redirection; program automatically exits if the eof is reached
             if(std::cin.eof()){
@@ -938,7 +943,7 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop, int m
         // When testing, we save the game before it ends to see the end of game save file
         if (testing) {
             GameEngineIO* geIO = new GameEngineIO(this, modeSelection);
-            geIO->saveGame("actualoutcome.save");
+            geIO->saveEnhancements("actualoutcome.save");
             delete geIO;
         }
 

@@ -266,7 +266,7 @@ int Mosaic::getColourColumn(unsigned const int row, unsigned const int colour) c
 }
 
 std::string Mosaic::rowToString(int index, int modeSelection) const{
-    std::string string = " || ";
+    std::string string = " > ";
     int convertedDimensions = dimensions;
     for(int i = 0; i< convertedDimensions; ++i){
         if(this->grid[index][i] != nullptr){
