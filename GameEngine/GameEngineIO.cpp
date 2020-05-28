@@ -573,6 +573,9 @@ void GameEngineIO::readPlayerDetails(Player * player){
         }
         else if (gameEngine->changeType(tileType, brokenTiles[i])) {
             std::shared_ptr<Tile> tile = std::make_shared<Tile>(tileType);
+            if(tile->getType() == Type::FIRST_PLAYER){
+                gameEngine->setPlayerStartingNextRound(player->getName());
+            }
             player->getMosaicStorage()->getBrokenTiles()->addTile(tile);
         } else {
             readError = true;
