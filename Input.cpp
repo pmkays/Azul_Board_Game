@@ -27,6 +27,8 @@ int Input::getInt() const {
     if(inputIsInt(inputGiven)){
         std::stringstream inputAsString(inputGiven);
         inputAsString >> intToRead;
+    }else if(inputGiven == "help"){
+        intToRead = 100;
     }else{
         intToRead = 0;
     }

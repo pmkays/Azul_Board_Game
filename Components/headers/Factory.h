@@ -14,6 +14,8 @@ public:
     std::vector<std::shared_ptr<Tile>> getAllTiles() const;
     std::vector<std::shared_ptr<Tile>> getCopiedTilesAndRemove();
     std::string toSave() const;
+    std::string displayColouredTiles() const;
+
 
 private:
     std::vector<std::shared_ptr<Tile>> tiles;

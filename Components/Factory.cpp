@@ -41,3 +41,11 @@ std::string Factory::toSave() const{
     }
     return output;
 }
+
+std::string Factory::displayColouredTiles() const{
+    std::string output;
+    for(unsigned int i = 0; i < tiles.size(); ++i){
+        output += tiles[i]->getAnsiDisplay();
+    }
+    return output;
+}

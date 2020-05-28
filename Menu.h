@@ -12,6 +12,7 @@ enum OPTIONS {
     LOAD_GAME,
     CREDITS,
     QUIT,
+    HELP = 100
 };
 
 class Menu {
@@ -25,7 +26,12 @@ public:
     // Print the menu.
     void runMenu();
 
+    //choose mode done during enhancements
     void runGamePlayType();
+
+    void runGamePlayTypeHelp();
+
+    void runMenuSelectionHelp();
 
     // Print Welcome Message.
     void printWelcome();

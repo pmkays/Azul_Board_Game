@@ -35,9 +35,9 @@ void Menu::runMenu() {
 }
 
 void Menu::runGamePlayType() {
-    std::cout << "----" << std::endl;
+    std::cout << "-----------------------" << std::endl;
     std::cout << "Please select game mode" << std::endl;
-    std::cout << "----" << std::endl;
+    std::cout << "-----------------------" << std::endl;
     std::cout << "1. Original" << std::endl;
     std::cout << "2. 6 x 6 Orange" << std::endl;
     std::cout << "3. Grey Mosaic" << std::endl;
@@ -60,7 +60,7 @@ bool Menu::runSelection(unsigned const int selection, int modeSelection) {
             while(continueLoop){
                 std::cout<< "Amount of central factories (1 or 2):"<< std::endl;
                 numberOfCentralFactories = input.getInt();
-                if(numberOfCentralFactories != 0){
+                if(numberOfCentralFactories > 0 && numberOfCentralFactories <= 2){
                     continueLoop = false;
                 }
             }
@@ -98,14 +98,8 @@ bool Menu::runSelection(unsigned const int selection, int modeSelection) {
 
         GameEngineIO* gameEngineIO = new GameEngineIO(this->gameEngine, modeSelection);
         try{
-            if(modeSelection == 1){
-                gameEngineIO->loadGame(file);
-                this->gameEngine->gameplayLoop(eof, continueMenuLoop, modeSelection); 
-            }else{
-                gameEngineIO->readEnhancements(file);
-            }
-            // this->gameEngine->loadGame(file);
-
+            gameEngineIO->readEnhancements(file);
+            this->gameEngine->gameplayLoop(eof, continueMenuLoop, modeSelection); 
             std::cout << "Azul game successfully loaded" << std::endl;
 
         }catch(const char* e){
@@ -121,7 +115,9 @@ bool Menu::runSelection(unsigned const int selection, int modeSelection) {
         std::cout << "------------------------" << std::endl << std::endl;
     } else if (selection == OPTIONS::QUIT) {
         std::cout << "Goodbye" << std::endl;
-    } else {
+    } else if(selection == OPTIONS::HELP){
+        runMenuSelectionHelp();
+    }else {
         std::cout << "Please enter a valid number." << std::endl;
     }
 
@@ -132,6 +128,59 @@ void Menu::printCredits(const std::string name, const std::string studentID) {
     std::cout << "Name: " << name << std::endl;
     std::cout << "Student ID: " << studentID << std::endl;
     std::cout << "Email: " << studentID << "@student.rmit.edu.au" << std::endl << std::endl;
+}
+
+void Menu::runGamePlayTypeHelp(){
+    std::cout << "----" << std::endl;
+    std::cout << "Help" << std::endl;
+    std::cout << "----" << std::endl;
+
+    bool continueLoop = true;
+    while(continueLoop){
+        std::cout << "\nWhich game mode would you like to find out more about? Press 6 to exit Help.\n" << std::endl;
+        int mode = input.getInt(); 
+        if(mode == 1){
+            std::cout << "\nThis is the classic and well-loved version of Azul with two players. Start here if you're new to the game! " 
+                      << " P.S. For an extra challenge, play with 2 central factories.\n" << std::endl;
+        } else if (mode == 2){
+            std::cout << "This is a two-player advanced mode with an extra orange tile and 6 storage and mosaic rows. "
+                      << " Play this for an extra challenge!\n" << std::endl;
+        } else if (mode == 3){
+            std::cout << "\nThis is a two-player advanced mode with a grey mosaic that doesn't have any designated coloured tile placements. "
+                      << " Play this for an extra challenge!\n" << std::endl;
+        } else if (mode == 4){
+            std::cout << "\nThis is the classic and well-loved version of Azul with three players. Play this if you want to have an Azul party! "
+                      << " P.S. For an extra challenge, play with 2 central factories.\n" << std::endl;
+        }else if (mode == 5){
+            std::cout << "\nThis is the classic and well-loved version of Azul with four players. Play this if you want to have an Azul party! "
+                      <<" P.S. For an extra challenge, play with 2 central factories.\n" << std::endl;
+        }else if (mode == 6){
+            continueLoop = false;
+        }
+    }   
+}
+
+void Menu::runMenuSelectionHelp(){
+    std::cout << "----" << std::endl;
+    std::cout << "Help" << std::endl;
+    std::cout << "----" << std::endl;
+    bool continueLoop = true;
+    while(continueLoop){
+        std::cout << "\nWhich menu option would you like to find out more about? Press 5 to exit Help. \n" << std::endl;
+        int mode = input.getInt(); 
+        if(mode == 1){
+            std::cout << "\nStart a brand new game. Enter . Have fun!\n" << std::endl;
+        } else if (mode == 2){
+            std::cout << "Use a saved file to continue a past game. Games can be saved by typing 'save' at any time during the game. "
+                      <<" Make sure you specify the file name when both loading and saving the file.\n" << std::endl;
+        } else if (mode == 3){
+            std::cout << "\nCheck out who made this awesome program!\n" << std::endl;
+        } else if (mode == 4){
+            std::cout << "\nExit the game. We'll be sad to see you go :( \n" << std::endl;
+        }else if (mode == 5){
+            continueLoop = false;
+        }
+    }  
 }
 
 

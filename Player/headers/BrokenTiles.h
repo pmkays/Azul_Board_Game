@@ -6,7 +6,7 @@
 
 class BrokenTiles{
 public:
-    BrokenTiles();
+    BrokenTiles(unsigned int dimensions);
     ~BrokenTiles();
 
     //Getters
@@ -27,6 +27,7 @@ public:
 private:
     std::shared_ptr<Tile> tiles[8];
     int size;
+    int maxSize;
 };
 
 #endif // BROKENTILES_H

@@ -265,19 +265,24 @@ int Mosaic::getColourColumn(unsigned const int row, unsigned const int colour) c
     return toReturn;
 }
 
-std::string Mosaic::rowToString(int index) const{
-    std::string string = "|| ";
+std::string Mosaic::rowToString(int index, int modeSelection) const{
+    std::string string = " > ";
     int convertedDimensions = dimensions;
     for(int i = 0; i< convertedDimensions; ++i){
         if(this->grid[index][i] != nullptr){
-            string += grid[index][i]->getColourType();
-            string += " ";
-        }else{
-            string += ". ";
+                string += grid[index][i]->getAnsiDisplay();
         }
-       
+        else{
+            Tile tile(Type::NONE);
+            if(modeSelection == 3){
+                string += tile.getAnsiDisplay();
+            }else if(dimensions == 5){
+                string += tile.getAnsiDisplay(colourGrid[index][i], '.');
+            }else if (dimensions == 6){     
+                string += tile.getAnsiDisplay(extraColourGrid[index][i], '.');
+            }
+        }
     }
-
     return string;
 }
 

@@ -124,7 +124,6 @@ private:
     std::string playerStartingNextRound;
     GameEngineCallback* gec;
     int seed;
-    std::string gameInfo[36];
 
     //major enhancement 
     unsigned int dimensions;

@@ -13,6 +13,7 @@ public:
 
     // Prints board of a player
     void playerBoardUpdate(Player* player) const;
+    void playerBoardUpdateAfterTurn(Player** players, int numberOfPlayers) const;
 
     // Prints whose turn is it now
     void playerTurnUpdate(const std::string playerName) const;
@@ -34,12 +35,21 @@ public:
     void boardComponentUpdate(Factory** factory, int numberOfFactories, int numberOfCentralFactories) const;
 
     void setDimensions(unsigned int dimensions);
+    void setModeSelection(int modeSelection);
 
     void promptColumnPlacement(unsigned int row, Player* player);
+    
+    void gameplayHelp(int numberOfCentralFactories);
+    void greyBoardHelp();
+    void orangeHelp();
+    void twoCFHelp();
+    void generalTurnHelp(); 
+    void helpFooter();
 
 private:
     int dimensions;
-
+    int modeSelection;
+    std::string factoryHelper(Factory* factory, int index, std::string formatter) const;
 };
 
 #endif // GAMEENGINECALLBACK_H
