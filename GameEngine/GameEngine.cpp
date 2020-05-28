@@ -292,7 +292,7 @@ int GameEngine::playerTurn(std::string playerTurnCommand){
     std::stringstream commandLine(playerTurnCommand);
     std::string commandPart;
 
-    //0 = "turn", 1 = factory num, 2 = Tile, 3 = storage row
+    //0 = "turn", 1 = factory num, 2 = Tile, 3 = storage row, 4 = cf if required
     std::string commands[5];
     int counter = 0;
     while (commandLine.good() || counter < 5) {
@@ -358,7 +358,6 @@ int GameEngine::playerTurn(std::string playerTurnCommand){
 //check if input is int and valid
 bool GameEngine::checkCommand1(const std::string input, int& factoryNo){
     bool success = inputIsInt(input);
-    // int convertedDimensions = dimensions;
 
     if(success){
         std::stringstream factoryNoAsString(input);
@@ -404,6 +403,7 @@ bool GameEngine::checkCommand3(const std::string input, int& storageRow){
     return success;
 }
 
+//check if central factory is convertible to int and perform necessary logic to validate
 bool GameEngine::checkCommand4(const std::string input, int factoryNo, int& centralFactoryNumber){
     bool success = false;
     std::cout<<"command 4: "<< input << std::endl;
@@ -559,6 +559,7 @@ void GameEngine::endOfRoundPreparations(){
     if(modeSelection != Mode::GREY){
         movePlayerTilesToMosaic();
     } else{
+        //grey mode is only two players
         moveTilesToMosaicForGreyBoard(playerOne);
         moveTilesToMosaicForGreyBoard(playerTwo);     
     }
@@ -576,16 +577,21 @@ void GameEngine::moveTilesToMosaicForGreyBoard(Player* player){
         unsigned int column = 0; 
         std::string receivedInput = "" ; 
         gec->playerBoardUpdate(player);
+        
+        //only move the tile if the row is complete
         if(!player->getMosaicStorage()->rowIsIncomplete(row)){
             bool exitCondition = false;
             while(!exitCondition){
+                //ask users where they want to move their tile, must +1 as display starts at 1 not 0
                 gec->promptColumnPlacement(row + 1, player);
                 receivedInput =  input.getString();
                 exitCondition = validateColumnPlacement(receivedInput, row, column, player);
             }
+            //only exit the loop once the column has been validated
             if (receivedInput == "B"){
                 player->getMosaicStorage()->moveTilesFromStorageRowToBroken(row);
             }else if (validateColumnPlacement(receivedInput, row, column, player)){
+                //must pass in -1 as display starts at 1 but logic starts at 0
                 player->getMosaicStorage()->movePlayerTilesToMosaicManually(row, column - 1);
             }
         }
@@ -604,12 +610,14 @@ bool GameEngine::validateColumnPlacement(const std::string input, unsigned int r
             if(column < 1 || column > dimensions){
                 success = false;
             }else{
+                //check to see whether a tile already exists in this spot
                 if(!player->getMosaicStorage()->getMosaic()->isSpaceFree(row, column - 1)){
                     std::cout << "A TILE ALREADY EXISTS HERE" << std::endl;   
                     success = false;
                 }
 
                 Type storageRowType = player->getMosaicStorage()->getRowType(row);
+                //check to see whether a tile exists in column; must pass in -1 as display starts at 1 but logic starts at 0
                 if(player->getMosaicStorage()->getMosaic()->alreadyExistsInColumn(column - 1, storageRowType)){
                     std::cout <<"THIS COLOUR ALREADY EXISTS IN THIS COLUMN"<<std::endl;
                     success = false;
@@ -637,6 +645,7 @@ bool GameEngine::moveTilesFromFactory(Player* player, unsigned int factoryNumber
         moveTilesToMosaicStorage(player, factoryNumber, row, type, centralFactoryNumber);
     }
     else if(modeSelection == Mode::GREY && player->getMosaicStorage()->isValidAddForGrey(type, row)){
+        //adding to a grey board requires different validation as we are not colour-constrained in the mosaic
         moveTilesToMosaicStorage(player, factoryNumber, row, type, centralFactoryNumber);
     }    
     else{
@@ -679,29 +688,29 @@ void GameEngine::removeOtherFirstPlayerTile(){
 }
 
 void GameEngine::moveTilesToBrokenTiles(Player* player, unsigned const int factoryNumber, const Type type, int centralFactoryNumber){
-    int maxBrokenTiles = 0;
-    if(dimensions == 5){
-        maxBrokenTiles = 7;
-    } else{
+    //orange mode means this is prone to change so we must check it 
+    int maxBrokenTiles = 7;
+    if(modeSelection == Mode::ORANGE_BOARD){
         maxBrokenTiles = 8;
     }
+
     std::vector<std::shared_ptr<Tile>> allTiles =  factory[factoryNumber]->getCopiedTilesAndRemove();
     std::shared_ptr<MosaicStorage> mosaicStorage = player->getMosaicStorage();
     BrokenTiles* brokenTiles = mosaicStorage->getBrokenTiles();
-    
-        int size = allTiles.size();
-        for (int i = 0; i < size; ++i) {
-            std::shared_ptr<Tile> tileToAdd = allTiles[i];
-            if (allTiles[i]->getType() == type) {
-                //make sure that the player can only have a max of 7 tiles; the rest go to the box lid if the max is reached
-                if(brokenTiles->getSize() < maxBrokenTiles)
-                    brokenTiles->addTile(tileToAdd);
-                else 
-                    mosaicStorage->addTileToDiscardedTiles(tileToAdd);
-            } else {
-                factory[centralFactoryNumber]->addTile(tileToAdd);
-            }
+
+    int size = allTiles.size();
+    for (int i = 0; i < size; ++i) {
+        std::shared_ptr<Tile> tileToAdd = allTiles[i];
+        if (allTiles[i]->getType() == type) {
+            //if max is hit the rest of the tiles go to the box lid if the max is reached
+            if(brokenTiles->getSize() < maxBrokenTiles)
+                brokenTiles->addTile(tileToAdd);
+            else 
+                mosaicStorage->addTileToDiscardedTiles(tileToAdd);
+        } else {
+            factory[centralFactoryNumber]->addTile(tileToAdd);
         }
+    }
 }
 
 //called at the end of each round to get rid of no longer usable tiles
@@ -740,6 +749,7 @@ void GameEngine::populateFactories(){
                 factory[i]->addTile(bag->getAndRemoveFirstTile());
             } else {
                 refillBag();
+                //if after trying to refill the bag still leads to an empty bag then all tiles are in play and game ends
                 if (bag->getSize() == 0) {
                     runOutOfTiles = true;
                 } else {
@@ -805,15 +815,6 @@ void GameEngine::addTilesByColourToBag(const Type type, std::vector<std::shared_
     }
 }
 
-/*
-*Interpret the following integers as:
-* 0: invalid command
-* 1: successful turn
-* 2: saved game
-* 3: error due to nothing in central factory
-* 4: colour not in factory
-* 5: invalid moves
-*/
 std::string GameEngine::interpretPlayerTurn(const int result){
     std::string toReturn;
     if(result == Error_Message::INVALID_COMMAND)
@@ -873,7 +874,7 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop) {
     }
 
     //loop breaks so we can finalise scores and decide on winner
-    if (winConditionMet()) {
+    if (winConditionMet() || runOutOfTiles) {
         for(int i = 0; i < numberOfPlayers; i++){
             gec->playerBoardUpdate(players[i]);
         }
@@ -892,7 +893,6 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop) {
 }
 
 void GameEngine::calculateEndGamePoints() {
-
     for(int i = 0; i < numberOfPlayers; i++){
         Player* player = players[i];
         int playerAdditionalPoints = player->getMosaicStorage()->getMosaic()->calculateEndGamePoints(); 
