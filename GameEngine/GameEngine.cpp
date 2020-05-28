@@ -615,8 +615,12 @@ void GameEngine::endOfRoundPreparations(){
         moveTilesToMosaicForGreyBoard(playerTwo);     
     }
     calculatePointsPerRound();
-    moveTilesToLid(playerOne);
-    moveTilesToLid(playerTwo);
+
+    for(int i = 0; i <numberOfPlayers; i++){
+        moveTilesToLid(players[i]);
+    }
+    // moveTilesToLid(playerOne);
+    // moveTilesToLid(playerTwo);
 }
 
 void GameEngine::moveTilesToMosaicForGreyBoard(Player* player){
@@ -757,6 +761,7 @@ void GameEngine::moveTilesToBrokenTiles(Player* player, unsigned const int facto
 //called at the end of each round to get rid of no longer usable tiles
 void GameEngine::moveTilesToLid(Player* player){
     std::vector<std::shared_ptr<Tile>> discarded = *(player->getMosaicStorage()->getDiscardedTiles());
+    std::cout <<"Trying to move tiles to lid; discarded tiles size: "<< discarded.size()<<std::endl;
 
     int discardedSize = discarded.size();
 
@@ -905,6 +910,10 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop, int m
             // }
             gec->playerBoardUpdateAfterTurn(players, numberOfPlayers);
             gec->playerTurnUpdate(currentTurn);
+            std::cout << "Bag: " << bag->toSave() << std::endl;
+            std::cout << "Lid: " << boxLid->toSave() << std::endl;
+            std::cout << "Bag size: " << bag->getSize() << std::endl;
+            std::cout << "Lid size: " << boxLid->getSize() << std::endl;
 
             std::string playerCommand = "";
             int turnResult = 0;
