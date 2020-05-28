@@ -547,6 +547,7 @@ void GameEngineIO::readPlayerDetails(Player * player){
         std::cout << "Loaded mosaic "<<row << ": " << player->getMosaicStorage()->getMosaic()->rowToSaveEnhancements(row) << std::endl;
         gameInformation.erase(gameInformation.begin());
     }
+    player->getMosaicStorage()->getMosaic()->resetPoints();
 
     for (unsigned int row = 0; row < dimensions; ++row) {
         std::string storageRow = removeSpaces(gameInformation.front());

@@ -95,6 +95,7 @@ void GameEngine::swapCurrentTurn(){
         }
     }
     this->currentTurn = turn; 
+    std::cout <<"Current turn" << currentTurn << std::endl;
 }
 
 
