@@ -68,6 +68,7 @@ void GameEngineCallback::playerBoardUpdateAfterTurn(Player** players, int number
         }
 
         //print the storage row and the mosaics
+        std::cout << "GEC dimensions:" << dimensions << std::endl;
         for(int j = 0; j < dimensions; j++){
             outputString += players[i]->getMosaicStorage()->rowToString(j) + players[i]->getMosaicStorage()->getMosaic()->rowToString(j, modeSelection) + "\t";
             if(i+1 < numberOfPlayers){

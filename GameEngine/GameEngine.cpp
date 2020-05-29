@@ -434,6 +434,20 @@ bool GameEngine::checkCommand4(const std::string input, int factoryNo, int& cent
         success = true;
     }
 
+    //if all the tiles are the same in the factory then we shouldn't specify which central factory it goes to
+    bool allTheSame = true;
+    std::vector<std::shared_ptr<Tile>> tiles =  factory[factoryNo]->getAllTiles(); 
+    for(unsigned int i = 0; i < tiles.size(); i++){
+        if(tiles[0]->getType() != tiles[i]->getType()){
+            allTheSame = false;
+        }
+    }
+
+    if(allTheSame){
+        centralFactoryNumber = 0;
+        success = true;
+    }
+
     std::cout<<"converted centralFactoryNumber "<< centralFactoryNumber << std::endl;
 
     std::cout<<"Did command 4 pass: "<< success << std::endl;
@@ -701,7 +715,12 @@ void GameEngine::moveTilesToBrokenTiles(Player* player, unsigned const int facto
     int size = allTiles.size();
     for (int i = 0; i < size; ++i) {
         std::shared_ptr<Tile> tileToAdd = allTiles[i];
-        if (allTiles[i]->getType() == type) {
+        if(tileToAdd->getType() == Type::FIRST_PLAYER){
+            //automatically move the first player tile to the broken tiles
+            brokenTiles->addTile(tileToAdd);
+            this->setPlayerStartingNextRound(player->getName());
+            removeOtherFirstPlayerTile();
+        } else if (allTiles[i]->getType() == type) {
             //if max is hit the rest of the tiles go to the box lid if the max is reached
             if(brokenTiles->getSize() < maxBrokenTiles)
                 brokenTiles->addTile(tileToAdd);
@@ -736,6 +755,7 @@ void GameEngine::refillBag() {
 }
 
 void GameEngine::populateFactories(){
+    bool tileAddedToFactory = false;
     for(int i = 0; i < numberOfCentralFactories; i++){
         factory[i]->addTile(std::make_shared<Tile>(Type::FIRST_PLAYER));
     }
@@ -747,16 +767,18 @@ void GameEngine::populateFactories(){
         for(int j = 0; j < convertedDimensions-1; ++j){
             if (bag->getSize() > 0) {
                 factory[i]->addTile(bag->getAndRemoveFirstTile());
+                tileAddedToFactory = true;
             } else {
                 refillBag();
                 //if after trying to refill the bag still leads to an empty bag then all tiles are in play and game ends
-                if (bag->getSize() == 0) {
-                    runOutOfTiles = true;
-                } else {
+                if (bag->getSize() != 0) {
                     factory[i]->addTile(bag->getAndRemoveFirstTile());
                 }
             }
         }
+    }
+    if(!tileAddedToFactory){
+        runOutOfTiles = true;
     }
 }
 
@@ -835,6 +857,8 @@ std::string GameEngine::interpretPlayerTurn(const int result){
 
 //loop enables the game to keep playing until someone wins or someone quits
 void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop) {
+    gec->setDimensions(dimensions);
+    gec->setModeSelection(modeSelection);
     std::cout<<"In gameplay loop"<<std::endl;
     Input input;
     while(!endOfCommands && !std::cin.eof() && !winConditionMet() && !runOutOfTiles){
