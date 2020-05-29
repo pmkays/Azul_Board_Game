@@ -574,7 +574,9 @@ void GameEngine::endOfRoundPreparations(){
         movePlayerTilesToMosaic();
     } else{
         //grey mode is only two players
+        gec->playerBoardUpdate(playerOne);
         moveTilesToMosaicForGreyBoard(playerOne);
+        gec->playerBoardUpdate(playerTwo);
         moveTilesToMosaicForGreyBoard(playerTwo);     
     }
     calculatePointsPerRound();
@@ -590,7 +592,6 @@ void GameEngine::moveTilesToMosaicForGreyBoard(Player* player){
     for(unsigned int row = 0;  row < dimensions; row++){
         unsigned int column = 0; 
         std::string receivedInput = "" ; 
-        gec->playerBoardUpdate(player);
         
         //only move the tile if the row is complete
         if(!player->getMosaicStorage()->rowIsIncomplete(row)){
@@ -604,10 +605,13 @@ void GameEngine::moveTilesToMosaicForGreyBoard(Player* player){
             //only exit the loop once the column has been validated
             if (receivedInput == "B"){
                 player->getMosaicStorage()->moveTilesFromStorageRowToBroken(row);
+                // gec->playerBoardUpdate(player);
             }else if (validateColumnPlacement(receivedInput, row, column, player)){
                 //must pass in -1 as display starts at 1 but logic starts at 0
                 player->getMosaicStorage()->movePlayerTilesToMosaicManually(row, column - 1);
+                // gec->playerBoardUpdate(player);
             }
+            gec->playerBoardUpdate(player);
         }
     }
 }
@@ -906,6 +910,7 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop) {
 
         // When testing, we save the game before it ends to see the end of game save file
         if (testing) {
+            std::cout <<"Seed:" << seed <<std::endl;
             GameEngineIO* geIO = new GameEngineIO(this, modeSelection);
             geIO->saveGame("actualoutcome.save");
             delete geIO;

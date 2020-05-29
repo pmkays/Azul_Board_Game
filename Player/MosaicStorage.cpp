@@ -116,11 +116,16 @@ void MosaicStorage::movePlayerTilesToMosaicManually(unsigned int row, unsigned i
 }
 
 void MosaicStorage::moveTilesFromStorageRowToBroken(unsigned int row){
+    std::cout <<"Passed in row"<< row << std::endl;
     if(isRowFull(row)){
         std::shared_ptr<Tile>* tiles = getRow(row);
-        for(unsigned int i = 0; i < dimensions; ++i){
+        for(unsigned int i = 0; i < row + 1 ; ++i){
+            std::cout<<"printing tile in row: "<<tiles[i]->getColourType()<<std::endl;
+        }
+        for(unsigned int i = 0; i < row + 1 ; ++i){
             if(tiles[i] != nullptr){
                 std::cout<<"Adding 1 tile to broken tiles..."<<std::endl;
+                std::cout<<"Adding tile: "<<tiles[i]->getColourType()<<std::endl;
                 this->brokenTiles->addTile(tiles[i]);
                 grid[row][i] = nullptr;
             }

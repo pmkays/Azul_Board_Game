@@ -56,6 +56,9 @@ void GameEngineIO::loadModeSelection(){
     int modeSelection = convertToInt(gameInformation.front());
     gameEngine->setModeSelection(modeSelection);
     gameInformation.erase(gameInformation.begin());
+    if(modeSelection == Mode::ORANGE_BOARD){
+        gameEngine->setDimensions(6);
+    }
     std::cout<<"Loaded mode Selection: " << gameEngine->getModeSelection() << std::endl;
 }
 
