@@ -903,9 +903,10 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop) {
 
     //loop breaks so we can finalise scores and decide on winner
     if (winConditionMet() || runOutOfTiles) {
-        for(int i = 0; i < numberOfPlayers; i++){
-            gec->playerBoardUpdate(players[i]);
-        }
+        // for(int i = 0; i < numberOfPlayers; i++){
+        //     gec->playerBoardUpdate(players[i]);
+        // }
+        gec->playerBoardUpdateAfterTurn(players, numberOfPlayers);
         calculateEndGamePoints();
 
         // When testing, we save the game before it ends to see the end of game save file

@@ -1,0 +1,2 @@
+Functionality that was changed was mostly due to having the need to incorporate the orange tile which meant an increase to 6 storage and mosaic rows and an extra broken tiles slot. Point calculation was also altered to take into consideration this orange tile. 
+Therefore, the tests written were to check these changes. In my opinion, it would have been redundant to retest functionality that was not altered e.g. movement of tiles, central factory movements etc. 

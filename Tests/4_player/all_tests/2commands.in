@@ -1,0 +1,16 @@
+5
+2 2initialsave.save
+turn 7 R 1
+turn 6 R 1
+turn 5 R 1
+turn 3 R 1
+turn 1 R 2
+turn 2 R 2
+turn 4 U 2
+turn 8 U 2
+turn 9 L 3
+turn 0 L 4
+turn 0 Y 5
+turn 0 U 2
+turn 0 B 5
+save 2actualoutcome.save

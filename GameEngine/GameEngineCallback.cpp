@@ -21,6 +21,7 @@ void GameEngineCallback::playerBoardUpdate(Player* player) const {
     std::shared_ptr<MosaicStorage> mStorage = player->getMosaicStorage();
     Mosaic* mosaic = player->getMosaicStorage()->getMosaic();
 
+    outputString += "Mosaic for: " + player->getName() + "\n";
     for(int i = 0; i < dimensions; i++){
         outputString += mStorage->rowToString(i) + mosaic->rowToString(i, modeSelection) + "\n";
     }

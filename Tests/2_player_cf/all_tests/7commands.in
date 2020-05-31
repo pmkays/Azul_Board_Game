@@ -1,0 +1,60 @@
+1
+2 7initialsave.save
+turn 5 R 1 0
+turn 4 U 1 1
+turn 6 U 2 0
+turn 2 U 2 1
+turn 0 U 3
+turn 0 L 3
+turn 3 L 4 0
+turn 1 B 4
+turn 0 B 5
+turn 0 Y 5
+turn 1 Y B
+turn 4 L 1 0
+turn 6 R 1 1
+turn 3 R 2 0
+turn 2 R 2 1
+turn 1 L 4
+turn 0 L 3
+turn 1 B 5
+turn 5 B 4 1
+turn 0 B 5
+turn 1 Y 5
+turn 0 R B
+turn 5 U 1 0
+turn 6 L 1 1
+turn 3 L 2 0
+turn 2 L 2 1
+turn 0 L 2
+turn 1 R 3
+turn 1 U 3
+turn 0 R 3
+turn 0 U 5
+turn 4 U 4 0
+turn 1 Y B
+turn 1 B 5
+turn 0 B B
+turn 0 Y B
+turn 4 B 1 0
+turn 2 B 1 1
+turn 3 B 2 0
+turn 6 L 2 1
+turn 1 R 3
+turn 5 R 3 1
+turn 1 L 4
+turn 1 U 4
+turn 0 L B
+turn 0 Y B
+turn 0 R B
+turn 5 Y 1 0
+turn 4 Y 1 1
+turn 3 Y 2 0
+turn 6 U 3 1
+turn 2 Y 2 1
+turn 1 R 4
+turn 0 R 4
+turn 1 B 2
+turn 1 L 3
+turn 1 U B
+turn 0 L 3

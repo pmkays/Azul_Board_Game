@@ -1,0 +1,2 @@
+The majority of the functionality remains the same as the original mode with the exception of 3 players. 
+Therefore, in my opinion it would be best to test if a turn, round and mainly full games work, as it would be redundant to retest functionality that was not altered from the original mode e.g. broken tile movements, point scoring, etc. 
