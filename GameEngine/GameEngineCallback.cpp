@@ -28,26 +28,6 @@ void GameEngineCallback::playerBoardUpdate(Player* player) const {
     
     outputString += player->getMosaicStorage()->getBrokenTiles()->toString() + "\n";
 
-    // outputString = "Mosaic for " + player->getName() + "\n"
-    //     + mStorage->rowToString(0) + mosaic->rowToString(0, modeSelection) + "\t\t " + mosaic->templateRowToString(0) + "\n";
-    //     if(dimensions == 6){
-    //         outputString += mStorage->rowToString(1) + mosaic->rowToString(1, modeSelection) + "  TEMPLATE " + mosaic->templateRowToString(1) + "\n";
-    //         outputString += mStorage->rowToString(2) + mosaic->rowToString(2, modeSelection) + "  -------> " + mosaic->templateRowToString(2) + "\n";
-    //     } else{
-    //         outputString += mStorage->rowToString(1) + mosaic->rowToString(1, modeSelection) + "  TEMPLATE\t " + mosaic->templateRowToString(1) + "\n";
-    //         outputString += mStorage->rowToString(2) + mosaic->rowToString(2, modeSelection) + "  ------->\t " + mosaic->templateRowToString(2) + "\n";
-    //     }
-
-    //     outputString += mStorage->rowToString(3) + mosaic->rowToString(3, modeSelection) + "\t\t " + mosaic->templateRowToString(3) + "\n"
-    //     + mStorage->rowToString(4) + mosaic->rowToString(4, modeSelection) + "\t\t " + mosaic->templateRowToString(4) + "\n";
-
-    //     if(dimensions == 6)
-    //     {
-    //         outputString += mStorage->rowToString(5) + mosaic->rowToString(5, modeSelection) + "\t\t " + mosaic->templateRowToString(5) + "\n";
-    //     }
-    
-    // outputString += player->getMosaicStorage()->getBrokenTiles()->toString() + "\n";
-
     std::cout << outputString << std::endl;
 
 }
@@ -69,7 +49,6 @@ void GameEngineCallback::playerBoardUpdateAfterTurn(Player** players, int number
         }
 
         //print the storage row and the mosaics
-        std::cout << "GEC dimensions:" << dimensions << std::endl;
         for(int j = 0; j < dimensions; j++){
             outputString += players[i]->getMosaicStorage()->rowToString(j) + players[i]->getMosaicStorage()->getMosaic()->rowToString(j, modeSelection) + "\t";
             if(i+1 < numberOfPlayers){
@@ -83,10 +62,8 @@ void GameEngineCallback::playerBoardUpdateAfterTurn(Player** players, int number
         outputString += players[i]->getMosaicStorage()->getBrokenTiles()->toString() + "\t\t";
         if(i+1 < numberOfPlayers){
             outputString += players[i+1]->getMosaicStorage()->getBrokenTiles()->toString() + "\n\n";
-            // outputString += "       -|1||1||2||2||2||3||3||4|\t\t       -|1||1||2||2||2||3||3||4| " ;
         }else{
             outputString += "\n\n";
-            // outputString += "\t -1|-1|-2|-2|-2|-3|-3 \n\n";
         }
     }
     std::cout << outputString <<std::endl;

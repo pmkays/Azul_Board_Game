@@ -34,12 +34,9 @@ public:
     char getColourType() const;
     std::string getAnsiDisplay(char colour, char symbol) const;
     std::string getAnsiDisplay() const;
-    std::string getUnicode();
-    std::string determineUnicode() const;
     
 private:
-    Type type;
-    std::string unicode;  
+    Type type; 
 };
 
 #endif // TILE_H

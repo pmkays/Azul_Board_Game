@@ -85,6 +85,7 @@ void GameEngine::setCurrentTurn(std::string playerName){
 void GameEngine::swapCurrentTurn(){
     std::string turn; 
     for(int i = 0; i < numberOfPlayers; i++){
+        //reached the last player so go back to the start
         if(i == numberOfPlayers - 1){
             if(this->currentTurn == players[i]->getName()){
                 turn = players[0]->getName();
@@ -96,7 +97,6 @@ void GameEngine::swapCurrentTurn(){
         }
     }
     this->currentTurn = turn; 
-    std::cout <<"Current turn" << currentTurn << std::endl;
 }
 
 
@@ -248,26 +248,20 @@ void GameEngine::newGame(const std::string player1Name, const std::string player
         this->numberOfFactories = 5 + this->numberOfCentralFactories;
     }
 
-
     playerOne = new Player(player1Name, dimensions);
     playerTwo = new Player(player2Name, dimensions);
-    
     players[0] = playerOne;
     players[1] = playerTwo;
-    std::cout<<"Set up player one and two"<<std::endl;
 
     if(modeSelection == Mode::THREE_PLAYER || modeSelection == Mode::FOUR_PLAYER){
         playerThree = new Player(player3Name, dimensions);
         players[2] = playerThree;
     }
 
-    std::cout<<"Set up player three"<<std::endl;
-
     if(modeSelection == Mode::FOUR_PLAYER){
         playerFour = new Player(player4Name, dimensions);
         players[3] = playerFour;
     }
-    std::cout<<"Set up player four"<<std::endl;
 
     for(int i = 0; i < numberOfPlayers; i++){
         players[i]->setPoints(0);
@@ -280,11 +274,6 @@ void GameEngine::newGame(const std::string player1Name, const std::string player
     populateFactories();
     gec->setDimensions(dimensions);
     gec->setModeSelection(modeSelection);
-    std::cout<<"Made it to the end of new game"<<std::endl;
-
-    for(int i = 0; i < numberOfPlayers;i++){
-        std::cout<<players[i]->getName()<<std::endl;
-    }
 }
 
 int GameEngine::playerTurn(std::string playerTurnCommand){
@@ -312,7 +301,7 @@ int GameEngine::playerTurn(std::string playerTurnCommand){
         int storageRow;
         int centralFactoryNumber;
 
-        //validate the three command arguments first before proceeding
+        //validate the four command arguments first before proceeding
         if(checkCommand1(commands[1], factoryNo) && checkCommand2(commands[2], tileType) 
         && checkCommand3(commands[3],storageRow) && checkCommand4(commands[4], factoryNo, centralFactoryNumber)){
 
@@ -406,7 +395,6 @@ bool GameEngine::checkCommand3(const std::string input, int& storageRow){
 //check if central factory is convertible to int and perform necessary logic to validate
 bool GameEngine::checkCommand4(const std::string input, int factoryNo, int& centralFactoryNumber){
     bool success = false;
-    std::cout<<"command 4: "<< input << std::endl;
     if(input.length() == 1){
         success = true;
         if (inputIsInt(input)) {
@@ -448,10 +436,6 @@ bool GameEngine::checkCommand4(const std::string input, int factoryNo, int& cent
         success = true;
     }
 
-    std::cout<<"converted centralFactoryNumber "<< centralFactoryNumber << std::endl;
-
-    std::cout<<"Did command 4 pass: "<< success << std::endl;
-
     return success;
 }
 
@@ -489,7 +473,6 @@ bool GameEngine::centralFactoryOnlyHasFirstTile(){
 
 //must check each round if there is a full row so the game can end
 bool GameEngine::winConditionMet(){
-    std::cout<<"In win condition"<<std::endl;
     bool winConditionMet = false;
 
     for(int i = 0; i < numberOfPlayers; i++){
@@ -573,11 +556,10 @@ void GameEngine::endOfRoundPreparations(){
     if(modeSelection != Mode::GREY){
         movePlayerTilesToMosaic();
     } else{
-        //grey mode is only two players
-        gec->playerBoardUpdate(playerOne);
-        moveTilesToMosaicForGreyBoard(playerOne);
-        gec->playerBoardUpdate(playerTwo);
-        moveTilesToMosaicForGreyBoard(playerTwo);     
+        for(int i = 0; i < numberOfPlayers; i++){
+            gec->playerBoardUpdate(players[i]);
+            moveTilesToMosaicForGreyBoard(players[i]);
+        }    
     }
     calculatePointsPerRound();
 
@@ -605,11 +587,9 @@ void GameEngine::moveTilesToMosaicForGreyBoard(Player* player){
             //only exit the loop once the column has been validated
             if (receivedInput == "B"){
                 player->getMosaicStorage()->moveTilesFromStorageRowToBroken(row);
-                // gec->playerBoardUpdate(player);
             }else if (validateColumnPlacement(receivedInput, row, column, player)){
                 //must pass in -1 as display starts at 1 but logic starts at 0
                 player->getMosaicStorage()->movePlayerTilesToMosaicManually(row, column - 1);
-                // gec->playerBoardUpdate(player);
             }
             gec->playerBoardUpdate(player);
         }
@@ -630,14 +610,17 @@ bool GameEngine::validateColumnPlacement(const std::string input, unsigned int r
             }else{
                 //check to see whether a tile already exists in this spot
                 if(!player->getMosaicStorage()->getMosaic()->isSpaceFree(row, column - 1)){
-                    std::cout << "A TILE ALREADY EXISTS HERE" << std::endl;   
+                    gec->playerTurnResult("\nA tile already exists here. Please try again\n");  
                     success = false;
                 }
 
                 Type storageRowType = player->getMosaicStorage()->getRowType(row);
                 //check to see whether a tile exists in column; must pass in -1 as display starts at 1 but logic starts at 0
                 if(player->getMosaicStorage()->getMosaic()->alreadyExistsInColumn(column - 1, storageRowType)){
-                    std::cout <<"THIS COLOUR ALREADY EXISTS IN THIS COLUMN"<<std::endl;
+                    if(success){
+                        //if both tile position is taken and colour column is invalid, ensure we only print one error message for the user
+                        gec->playerTurnResult("\nThis colour already exists in this column. Please try again.\n"); 
+                    }
                     success = false;
                 }
             }
@@ -739,8 +722,6 @@ void GameEngine::moveTilesToBrokenTiles(Player* player, unsigned const int facto
 //called at the end of each round to get rid of no longer usable tiles
 void GameEngine::moveTilesToLid(Player* player){
     std::vector<std::shared_ptr<Tile>> discarded = *(player->getMosaicStorage()->getDiscardedTiles());
-    std::cout <<"Trying to move tiles to lid; discarded tiles size: "<< discarded.size()<<std::endl;
-
     int discardedSize = discarded.size();
 
     for(int i = 0; i < discardedSize; i++){
@@ -863,7 +844,6 @@ std::string GameEngine::interpretPlayerTurn(const int result){
 void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop) {
     gec->setDimensions(dimensions);
     gec->setModeSelection(modeSelection);
-    std::cout<<"In gameplay loop"<<std::endl;
     Input input;
     while(!endOfCommands && !std::cin.eof() && !winConditionMet() && !runOutOfTiles){
         while(!endOfCommands && !endOfRoundConditionMet()){
@@ -903,15 +883,11 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop) {
 
     //loop breaks so we can finalise scores and decide on winner
     if (winConditionMet() || runOutOfTiles) {
-        // for(int i = 0; i < numberOfPlayers; i++){
-        //     gec->playerBoardUpdate(players[i]);
-        // }
         gec->playerBoardUpdateAfterTurn(players, numberOfPlayers);
         calculateEndGamePoints();
 
         // When testing, we save the game before it ends to see the end of game save file
         if (testing) {
-            std::cout <<"Seed:" << seed <<std::endl;
             GameEngineIO* geIO = new GameEngineIO(this, modeSelection);
             geIO->saveGame("actualoutcome.save");
             delete geIO;

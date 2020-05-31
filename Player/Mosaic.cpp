@@ -234,7 +234,6 @@ bool Mosaic::addTile(std::shared_ptr<Tile> tile, unsigned int row, unsigned int 
             added = true;
         }
     }
-    std::cout<<"Added a tile"<<std::endl;
     return added;
 }
 

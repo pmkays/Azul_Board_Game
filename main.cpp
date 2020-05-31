@@ -34,7 +34,6 @@ int main(int argc, char** argv) {
         while(continueModeLoop){
             menu->runGamePlayType();
             modeSelection = input.getInt();
-            std::cout <<"mode selection: " << modeSelection << std::endl;
             if(modeSelection == 100){
                 menu->runGamePlayTypeHelp();
             }
