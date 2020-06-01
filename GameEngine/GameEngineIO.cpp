@@ -4,7 +4,6 @@
 
 GameEngineIO::GameEngineIO(GameEngine* engine, int modeSelection){
     this->gameEngine = engine;
-    // this->readError = false;
     this->modeSelection = modeSelection;
     if(modeSelection == 2){
         this->dimensions = 6;
@@ -93,8 +92,6 @@ void GameEngineIO::loadLid(){
         if (gameEngine->changeType(tileType, boxLid[i])) {
             std::shared_ptr<Tile> tile = std::make_shared<Tile>(tileType);
             gameEngine->getBoxLid()->addTileToFront(tile);
-        } else {
-            readError = true;
         }
     }
     gameInformation.erase(gameInformation.begin());
@@ -109,9 +106,7 @@ void GameEngineIO::loadBag(){
         if (gameEngine->changeType(tileType, tileBag[i])) {
             std::shared_ptr<Tile> tile = std::make_shared<Tile>(tileType);
             gameEngine->getTileBag()->addTileToFront(tile);
-        } else {
-            readError = true;
-        }
+        } 
     }
     gameInformation.erase(gameInformation.begin());
 }
@@ -125,8 +120,6 @@ void GameEngineIO::loadFactories(){
                 std::shared_ptr<Tile> tile = std::make_shared<Tile>(tileType);
 
                 gameEngine->getFactory(i)->addTile(tile);
-            } else {
-                readError = true;
             }
         }
         gameInformation.erase(gameInformation.begin());
@@ -227,8 +220,9 @@ int GameEngineIO::convertToInt(std::string toConvert){
 std::string GameEngineIO::removeSpaces(std::string string) { 
     std::string toConvert = string;
     for(unsigned int i=0; i<toConvert.length(); i++){
-        if(toConvert[i] == ' ') 
+        if(toConvert[i] == ' '){
             toConvert.erase(i,1);
+        }
     } 
     return toConvert;
 }

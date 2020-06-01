@@ -13,6 +13,7 @@ enum Mode {
     THREE_PLAYER,
     FOUR_PLAYER
 };
+
 class GameEngineCallback{
 public:
     GameEngineCallback();

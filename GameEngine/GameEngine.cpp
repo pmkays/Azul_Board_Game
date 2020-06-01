@@ -797,6 +797,7 @@ void GameEngine::shuffle(std::vector<std::shared_ptr<Tile>> &bagToShuffle , unsi
     if (seed != 0) {
         engine.seed(seed);
     } else {
+        //user operator() which generates a random value
         seed = std::random_device{}();
         engine.seed(seed);
     }

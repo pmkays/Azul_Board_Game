@@ -42,7 +42,6 @@ public:
 private:
     GameEngine* gameEngine;
     std::string gameInfo[40];
-    bool readError;
     unsigned int dimensions;
     int modeSelection;
     std::vector<std::string> gameInformation;
