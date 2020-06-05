@@ -19,7 +19,7 @@ void GameEngine::commonGameEngine(){
     gec = new GameEngineCallback();
 
 
-    for(int i = 0; i<11; ++i){
+    for(int i = 0; i<NUM_FACTORIES; ++i){
         factory[i] = new Factory();
     }
 
@@ -53,7 +53,7 @@ GameEngine::~GameEngine() {
         }
     }
 
-    for(int i = 0;  i < 11; i++){
+    for(int i = 0;  i < NUM_FACTORIES; i++){
         if(factory[i] != nullptr){
             delete factory[i];
             factory[i] = nullptr;
@@ -610,7 +610,7 @@ bool GameEngine::validateColumnPlacement(const std::string input, unsigned int r
             }else{
                 //check to see whether a tile already exists in this spot
                 if(!player->getMosaicStorage()->getMosaic()->isSpaceFree(row, column - 1)){
-                    gec->playerTurnResult("\nA tile already exists here. Please try again\n");  
+                    gec->playerTurnResult("\n\u001b[31mError: A tile already exists here. Please try again.\u001b[0m\n");  
                     success = false;
                 }
 
@@ -619,7 +619,7 @@ bool GameEngine::validateColumnPlacement(const std::string input, unsigned int r
                 if(player->getMosaicStorage()->getMosaic()->alreadyExistsInColumn(column - 1, storageRowType)){
                     if(success){
                         //if both tile position is taken and colour column is invalid, ensure we only print one error message for the user
-                        gec->playerTurnResult("\nThis colour already exists in this column. Please try again.\n"); 
+                        gec->playerTurnResult("\n\u001b[31mError: This colour already exists in this column. Please try again.\u001b[0m\n"); 
                     }
                     success = false;
                 }
@@ -748,20 +748,21 @@ void GameEngine::populateFactories(){
     int convertedDimensions = dimensions;
     //start at 1 so we don't populate the central factory
     for(int i = numberOfCentralFactories; i < numberOfFactories; i++){
-        //fill each factory with 4 tiles
+        //fill each factory with 4 or 5 tiles depending on game mode
         for(int j = 0; j < convertedDimensions-1; ++j){
             if (bag->getSize() > 0) {
                 factory[i]->addTile(bag->getAndRemoveFirstTile());
                 tileAddedToFactory = true;
             } else {
                 refillBag();
-                //if after trying to refill the bag still leads to an empty bag then all tiles are in play and game ends
+                //must check if still empty in case all tiles are in play
                 if (bag->getSize() != 0) {
                     factory[i]->addTile(bag->getAndRemoveFirstTile());
                 }
             }
         }
     }
+    //if at any point we can't add anymore tiles then we're out of tiles and have to end the game
     if(!tileAddedToFactory){
         runOutOfTiles = true;
     }
@@ -826,17 +827,17 @@ void GameEngine::addTilesByColourToBag(const Type type, std::vector<std::shared_
 std::string GameEngine::interpretPlayerTurn(const int result){
     std::string toReturn;
     if(result == Error_Message::INVALID_COMMAND)
-        toReturn = "Error: Invalid Command.\n";
+        toReturn = "\u001b[31mError: Invalid Command.\u001b[0m\n";
     if(result == Error_Message::SUCCESS)
         toReturn = "Turn Successful.\n";
     if(result == Error_Message::SAVED)
         toReturn = "Saved Game.\n";
     if(result == Error_Message::NO_TILES_IN_CENTRAL)
-        toReturn = "Error: There is no tiles in the central factory!\n";
+        toReturn = "\u001b[31mError: There are no tiles in the central factory!\u001b[0m\n";
     if(result == Error_Message::COLOUR_NOT_IN_FACTORY)
-        toReturn = "Error: The colour specified is not in this factory.\n";
+        toReturn = "\u001b[31mError: The colour specified is not in this factory.\u001b[0m\n";
     if(result == Error_Message::INVALID_MOVE)
-        toReturn = "Error: The move you are trying to make is invalid.\n";
+        toReturn = "\u001b[31mError: The move you are trying to make is invalid.\u001b[0m\n";
 
     return toReturn;
 }
@@ -923,7 +924,7 @@ void GameEngine::resetGame(){
     }
     
     //don't delete components as they get instantiated with GE
-    for(int i = 0; i < 11; i++){
+    for(int i = 0; i < NUM_FACTORIES; i++){
         factory[i]->clear();
     }
     bag->clear();

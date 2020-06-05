@@ -10,9 +10,7 @@
 #include <string>
 #include <sstream>
 
-#define NUM_FACTORIES   6
-#define NUM_PLAYERS     2
-#define MAX_ROWS        5
+#define NUM_FACTORIES   11
 
 enum Error_Message{
     INVALID_COMMAND,
@@ -22,15 +20,6 @@ enum Error_Message{
     COLOUR_NOT_IN_FACTORY,
     INVALID_MOVE
 };
-
-// enum Mode {
-//     INVALID,
-//     ORIGINAL,
-//     ORANGE_BOARD,
-//     GREY,
-//     THREE_PLAYER,
-//     FOUR_PLAYER
-// };
 
 class GameEngineIO;
 class GameEngine{
