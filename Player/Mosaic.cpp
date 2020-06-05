@@ -158,10 +158,8 @@ bool Mosaic::checkSequentialRows(unsigned const int row, unsigned const int col)
     }
 
     sequential =  true;
-
-    int convertedDimensions = dimensions;
     // Check all values after the row
-    for (int i = row+1; i < convertedDimensions; ++i) {
+    for (unsigned int i = row+1; i < dimensions; ++i) {
         if (sequential && grid[i][col] != nullptr) {
             hasSequential = true;
             ++numberOfSequentialTiles;
@@ -192,9 +190,8 @@ bool Mosaic::checkSequentialCols(unsigned const int row, unsigned const int col)
 
     sequential = true;
 
-     int convertedDimensions = dimensions;
     // Check all values after the row
-    for (int i = col+1; i < convertedDimensions; ++i) { 
+    for (unsigned int i = col+1; i < dimensions; ++i) { 
         if (sequential && grid[row][i] != nullptr) {
             hasSequential = true;
             ++numberOfSequentialTiles;
@@ -234,7 +231,6 @@ bool Mosaic::addTile(std::shared_ptr<Tile> tile, unsigned int row, unsigned int 
             added = true;
         }
     }
-    std::cout<<"Added a tile"<<std::endl;
     return added;
 }
 
@@ -267,8 +263,7 @@ int Mosaic::getColourColumn(unsigned const int row, unsigned const int colour) c
 
 std::string Mosaic::rowToString(int index, int modeSelection) const{
     std::string string = " > ";
-    int convertedDimensions = dimensions;
-    for(int i = 0; i< convertedDimensions; ++i){
+    for(unsigned int i = 0; i< dimensions; ++i){
         if(this->grid[index][i] != nullptr){
                 string += grid[index][i]->getAnsiDisplay();
         }
@@ -286,40 +281,9 @@ std::string Mosaic::rowToString(int index, int modeSelection) const{
     return string;
 }
 
-std::string Mosaic::templateRowToString(int index) const {
-    std::string string = "";
-    int dimensionsConverted = dimensions;
-    for(int i = 0; i< dimensionsConverted; ++i){
-        if(dimensions == 5){
-            string += colourGrid[index][i];
-        } else if (dimensions == 6)
-        {
-            string += extraColourGrid[index][i];
-        }
-        string += " ";
-    }
-    return string;
-}
-
-std::string Mosaic::rowToSave(int index) const {
-    std::string string;
-    int convertedDimensions = dimensions;
-    for(int i = 0; i< convertedDimensions; ++i){
-        if(this->grid[index][i] != nullptr){
-            string += grid[index][i]->getColourType();
-            string += " ";
-        }else{
-            string += toSavecolourGrid[index][i];
-            string += " ";
-        }      
-    }
-    return string;
-}
-
 std::string Mosaic::rowToSaveEnhancements(int index) const {
     std::string string;
-    int convertedDimensions = dimensions;
-    for(int i = 0; i< convertedDimensions; ++i){
+    for(unsigned int i = 0; i< dimensions; ++i){
         if(this->grid[index][i] != nullptr){
             string += grid[index][i]->getColourType();
             string += " ";

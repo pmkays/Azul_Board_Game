@@ -19,7 +19,7 @@ void GameEngine::commonGameEngine(){
     gec = new GameEngineCallback();
 
 
-    for(int i = 0; i<11; ++i){
+    for(int i = 0; i<NUM_FACTORIES; ++i){
         factory[i] = new Factory();
     }
 
@@ -30,6 +30,10 @@ void GameEngine::commonGameEngine(){
     this->playerStartingNextRound = "";
     this->playerOne = nullptr;
     this->playerTwo = nullptr;
+    this->playerThree = nullptr;
+    this->playerFour = nullptr;
+
+    //default values for original mode
     this->dimensions = 5;
     this->numberOfPlayers = 2;
     this->numberOfFactories = 6;
@@ -41,18 +45,15 @@ GameEngine::~GameEngine() {
     delete gec;
     delete bag;   
     delete boxLid;
-
-    //must check players first to avoid double free or corruption error 
-    if(playerOne != nullptr){
-        delete playerOne;
-        playerOne = nullptr; 
+    
+    for(int i = 0; i < numberOfPlayers; i++){
+        if(players[i] != nullptr){
+            delete players[i];
+            players[i] = nullptr;
+        }
     }
-    if(playerTwo != nullptr){
-        delete playerTwo;
-        playerTwo = nullptr; 
-    } 
 
-    for(int i = 0;  i < 11; i++){
+    for(int i = 0;  i < NUM_FACTORIES; i++){
         if(factory[i] != nullptr){
             delete factory[i];
             factory[i] = nullptr;
@@ -84,6 +85,7 @@ void GameEngine::setCurrentTurn(std::string playerName){
 void GameEngine::swapCurrentTurn(){
     std::string turn; 
     for(int i = 0; i < numberOfPlayers; i++){
+        //reached the last player so go back to the start
         if(i == numberOfPlayers - 1){
             if(this->currentTurn == players[i]->getName()){
                 turn = players[0]->getName();
@@ -95,7 +97,6 @@ void GameEngine::swapCurrentTurn(){
         }
     }
     this->currentTurn = turn; 
-    std::cout <<"Current turn" << currentTurn << std::endl;
 }
 
 
@@ -126,11 +127,6 @@ std::string GameEngine::getPlayerStartingNextRound() const {
 
 Player* GameEngine::getCurrentPlayer() const {
     Player* toReturn = nullptr;
-    // if(this->playerOne->getName() == this->currentTurn){
-    //     toReturn = playerOne;
-    // }else{
-    //     toReturn = playerTwo;
-    // }
 
     for(int i = 0; i < numberOfPlayers; i++){
         if(this->players[i]->getName() == this->currentTurn){
@@ -207,11 +203,11 @@ void GameEngine::setPlayers(){
     players[0] = this->playerOne;
     players[1] = this->playerTwo;
 
-    if(modeSelection == 4 || modeSelection == 5){
+    if(modeSelection == Mode::THREE_PLAYER || modeSelection == Mode::FOUR_PLAYER){
         players[2] = this->playerThree;
     } 
 
-    if(modeSelection == 5){
+    if(modeSelection == Mode::FOUR_PLAYER){
         players[3] = this->playerFour;
     }
 }
@@ -232,55 +228,45 @@ void GameEngine::setNumberOfCentralFactories(int numberOfCentralFactories){
 //gameplay
 
 void GameEngine::newGame(const std::string player1Name, const std::string player2Name, const std::string player3Name, const std::string player4Name, int numberOfCentralFactories, int modeSelection) {
-    if(modeSelection == 2){
-        this->dimensions = 6;
-    }  
-    if(numberOfCentralFactories == -1){
-        this->numberOfCentralFactories = 1;  
-    } else{
-        this->numberOfCentralFactories = numberOfCentralFactories;  
-    }
     this->modeSelection = modeSelection;
 
-    playerOne = new Player(player1Name, dimensions);
-    playerTwo = new Player(player2Name, dimensions);
-    
-    players[0] = playerOne;
-    players[1] = playerTwo;
-    std::cout<<"Set up player one and two"<<std::endl;
-
-    if(modeSelection == 4 || modeSelection == 5){
-        playerThree = new Player(player3Name, dimensions);
-        playerThree->setPoints(0);
-        playerThree->getMosaicStorage()->getMosaic()->resetPoints();
-        players[2] = playerThree;
-        // this->numberOfCentralFactories = 2;
+    if(modeSelection == Mode::ORANGE_BOARD){
+        this->dimensions = 6;
     }
 
-    std::cout<<"Set up player three"<<std::endl;
+    if(numberOfCentralFactories != -1){
+        this->numberOfCentralFactories = numberOfCentralFactories;  
+    } 
 
-    if(modeSelection == 5){
-        playerFour = new Player(player4Name, dimensions);
-        playerFour->setPoints(0);
-        playerFour->getMosaicStorage()->getMosaic()->resetPoints();
-        players[3] = playerFour;
-    }
-    std::cout<<"Set up player four"<<std::endl;
-
-    if(modeSelection == 4){
+    if(modeSelection == Mode::THREE_PLAYER){
         this->numberOfPlayers = 3;
         this->numberOfFactories = 7 + this->numberOfCentralFactories; 
-    }else if (modeSelection == 5){
+    }else if (modeSelection == Mode::FOUR_PLAYER){
         this->numberOfPlayers = 4;
         this->numberOfFactories = 9 + this->numberOfCentralFactories; 
     }else{
         this->numberOfFactories = 5 + this->numberOfCentralFactories;
     }
 
-    playerOne->setPoints(0);
-    playerTwo->setPoints(0);
-    playerOne->getMosaicStorage()->getMosaic()->resetPoints();
-    playerTwo->getMosaicStorage()->getMosaic()->resetPoints();
+    playerOne = new Player(player1Name, dimensions);
+    playerTwo = new Player(player2Name, dimensions);
+    players[0] = playerOne;
+    players[1] = playerTwo;
+
+    if(modeSelection == Mode::THREE_PLAYER || modeSelection == Mode::FOUR_PLAYER){
+        playerThree = new Player(player3Name, dimensions);
+        players[2] = playerThree;
+    }
+
+    if(modeSelection == Mode::FOUR_PLAYER){
+        playerFour = new Player(player4Name, dimensions);
+        players[3] = playerFour;
+    }
+
+    for(int i = 0; i < numberOfPlayers; i++){
+        players[i]->setPoints(0);
+        players[i]->getMosaicStorage()->getMosaic()->resetPoints();
+    }
     currentTurn = playerOne->getName();
     playerStartingNextRound = "";
 
@@ -288,11 +274,6 @@ void GameEngine::newGame(const std::string player1Name, const std::string player
     populateFactories();
     gec->setDimensions(dimensions);
     gec->setModeSelection(modeSelection);
-    std::cout<<"Made it to the end of new game"<<std::endl;
-
-    for(int i = 0; i < numberOfPlayers;i++){
-        std::cout<<players[i]->getName()<<std::endl;
-    }
 }
 
 int GameEngine::playerTurn(std::string playerTurnCommand){
@@ -300,7 +281,7 @@ int GameEngine::playerTurn(std::string playerTurnCommand){
     std::stringstream commandLine(playerTurnCommand);
     std::string commandPart;
 
-    //0 = "turn", 1 = factory num, 2 = Tile, 3 = storage row
+    //0 = "turn", 1 = factory num, 2 = Tile, 3 = storage row, 4 = cf if required
     std::string commands[5];
     int counter = 0;
     while (commandLine.good() || counter < 5) {
@@ -320,8 +301,9 @@ int GameEngine::playerTurn(std::string playerTurnCommand){
         int storageRow;
         int centralFactoryNumber;
 
-        //validate the three command arguments first before proceeding
-        if(checkCommand1(commands[1], factoryNo) && checkCommand2(commands[2], tileType) && checkCommand3(commands[3],storageRow) && checkCommand4(commands[4], factoryNo, centralFactoryNumber)){
+        //validate the four command arguments first before proceeding
+        if(checkCommand1(commands[1], factoryNo) && checkCommand2(commands[2], tileType) 
+        && checkCommand3(commands[3],storageRow) && checkCommand4(commands[4], factoryNo, centralFactoryNumber)){
 
             if(factoryNo == 0 && centralFactoryOnlyHasFirstTile()){
                toReturn = Error_Message::NO_TILES_IN_CENTRAL;
@@ -352,13 +334,7 @@ int GameEngine::playerTurn(std::string playerTurnCommand){
         }
     } else if (commands[0] == "save") {
         GameEngineIO* geIO = new GameEngineIO(this, modeSelection);
-        geIO->saveEnhancements(commands[1]);
-        // if(modeSelection == 1){
-        //     geIO->saveGame(commands[1]);
-        // }
-        // else{
-        //   geIO->saveEnhancements(commands[1]);      
-        // }        
+        geIO->saveGame(commands[1]);       
         toReturn = Error_Message::SAVED;
         delete geIO;
     } else {
@@ -371,7 +347,6 @@ int GameEngine::playerTurn(std::string playerTurnCommand){
 //check if input is int and valid
 bool GameEngine::checkCommand1(const std::string input, int& factoryNo){
     bool success = inputIsInt(input);
-    // int convertedDimensions = dimensions;
 
     if(success){
         std::stringstream factoryNoAsString(input);
@@ -417,9 +392,9 @@ bool GameEngine::checkCommand3(const std::string input, int& storageRow){
     return success;
 }
 
+//check if central factory is convertible to int and perform necessary logic to validate
 bool GameEngine::checkCommand4(const std::string input, int factoryNo, int& centralFactoryNumber){
     bool success = false;
-    std::cout<<"command 4: "<< input << std::endl;
     if(input.length() == 1){
         success = true;
         if (inputIsInt(input)) {
@@ -447,9 +422,19 @@ bool GameEngine::checkCommand4(const std::string input, int factoryNo, int& cent
         success = true;
     }
 
-    std::cout<<"converted centralFactoryNumber "<< centralFactoryNumber << std::endl;
+    //if all the tiles are the same in the factory then we shouldn't specify which central factory it goes to
+    bool allTheSame = true;
+    std::vector<std::shared_ptr<Tile>> tiles =  factory[factoryNo]->getAllTiles(); 
+    for(unsigned int i = 0; i < tiles.size(); i++){
+        if(tiles[0]->getType() != tiles[i]->getType()){
+            allTheSame = false;
+        }
+    }
 
-    std::cout<<"Did command 4 pass: "<< success << std::endl;
+    if(allTheSame){
+        centralFactoryNumber = 0;
+        success = true;
+    }
 
     return success;
 }
@@ -488,16 +473,7 @@ bool GameEngine::centralFactoryOnlyHasFirstTile(){
 
 //must check each round if there is a full row so the game can end
 bool GameEngine::winConditionMet(){
-    std::cout<<"In win condition"<<std::endl;
     bool winConditionMet = false;
-
-    // Mosaic* playerOneMosaic = this->playerOne->getMosaicStorage()->getMosaic();
-    // Mosaic* playerTwoMosaic = this->playerTwo->getMosaicStorage()->getMosaic();
-
-    // if(playerOneMosaic->findFullRow() || playerTwoMosaic->findFullRow())
-    //     winConditionMet = true;
-
-    // return winConditionMet;
 
     for(int i = 0; i < numberOfPlayers; i++){
         Player* player = players[i];
@@ -554,32 +530,6 @@ void GameEngine::calculatePointsPerRound() {
     }
     gec->endOfRoundStatement();
 
-    // std::shared_ptr<MosaicStorage> playerOneMosaicStorage = playerOne->getMosaicStorage();
-    // std::shared_ptr<MosaicStorage> playerTwoMosaicStorage = playerTwo->getMosaicStorage();
-
-    // int playerOneLostPoints = playerOneMosaicStorage->getBrokenTiles()->calculatePointsLost();
-    // int playerTwoLostPoints = playerTwoMosaicStorage->getBrokenTiles()->calculatePointsLost();
-
-    // int playerOnePointsThisRound = playerOneMosaicStorage->getMosaic()->getPointsThisRound();
-    // int playerTwoPointsThisRound = playerTwoMosaicStorage->getMosaic()->getPointsThisRound();
-
-    // int playerOneEndRoundPoints = (playerOne->getPoints() + playerOnePointsThisRound)-playerOneLostPoints;
-    // int playerTwoEndRoundPoints = (playerTwo->getPoints() + playerTwoPointsThisRound)-playerTwoLostPoints;
-
-    // if (playerTwoEndRoundPoints < 0)
-    //     playerTwoEndRoundPoints = 0;
-    // if (playerOneEndRoundPoints < 0)
-    //     playerOneEndRoundPoints = 0;
-
-    // playerOne->setPoints(playerOneEndRoundPoints);
-    // playerTwo->setPoints(playerTwoEndRoundPoints);
-
-    // playerOneMosaicStorage->getMosaic()->resetPoints();
-    // playerTwoMosaicStorage->getMosaic()->resetPoints();
-    // playerOneMosaicStorage->endOfRoundDiscardBrokenTiles();
-    // playerTwoMosaicStorage->endOfRoundDiscardBrokenTiles();
-
-    // gec->playerEndOfRoundResult(playerOne, playerTwo);
 }
 
 //terminates the round when there are no more tiles in the factories
@@ -600,23 +550,22 @@ void GameEngine::movePlayerTilesToMosaic(){
     for(int i =0; i < numberOfPlayers; i++){
         players[i]->getMosaicStorage()->endOfRoundMove();
     }
-    // std::shared_ptr<MosaicStorage> playerOneMosaicStorage = playerOne->getMosaicStorage();
-    // std::shared_ptr<MosaicStorage> playerTwoMosaicStorage = playerTwo->getMosaicStorage();
-
-    // playerOneMosaicStorage->endOfRoundMove();
-    // playerTwoMosaicStorage->endOfRoundMove();
 }
 
 void GameEngine::endOfRoundPreparations(){
-    if(modeSelection != 3){
+    if(modeSelection != Mode::GREY){
         movePlayerTilesToMosaic();
     } else{
-        moveTilesToMosaicForGreyBoard(playerOne);
-        moveTilesToMosaicForGreyBoard(playerTwo);     
+        for(int i = 0; i < numberOfPlayers; i++){
+            gec->playerBoardUpdate(players[i]);
+            moveTilesToMosaicForGreyBoard(players[i]);
+        }    
     }
     calculatePointsPerRound();
-    moveTilesToLid(playerOne);
-    moveTilesToLid(playerTwo);
+
+    for(int i = 0; i <numberOfPlayers; i++){
+        moveTilesToLid(players[i]);
+    }
 }
 
 void GameEngine::moveTilesToMosaicForGreyBoard(Player* player){
@@ -625,19 +574,24 @@ void GameEngine::moveTilesToMosaicForGreyBoard(Player* player){
     for(unsigned int row = 0;  row < dimensions; row++){
         unsigned int column = 0; 
         std::string receivedInput = "" ; 
-        gec->playerBoardUpdate(player);
+        
+        //only move the tile if the row is complete
         if(!player->getMosaicStorage()->rowIsIncomplete(row)){
             bool exitCondition = false;
             while(!exitCondition){
+                //ask users where they want to move their tile, must +1 as display starts at 1 not 0
                 gec->promptColumnPlacement(row + 1, player);
                 receivedInput =  input.getString();
                 exitCondition = validateColumnPlacement(receivedInput, row, column, player);
             }
+            //only exit the loop once the column has been validated
             if (receivedInput == "B"){
                 player->getMosaicStorage()->moveTilesFromStorageRowToBroken(row);
             }else if (validateColumnPlacement(receivedInput, row, column, player)){
+                //must pass in -1 as display starts at 1 but logic starts at 0
                 player->getMosaicStorage()->movePlayerTilesToMosaicManually(row, column - 1);
             }
+            gec->playerBoardUpdate(player);
         }
     }
 }
@@ -654,14 +608,19 @@ bool GameEngine::validateColumnPlacement(const std::string input, unsigned int r
             if(column < 1 || column > dimensions){
                 success = false;
             }else{
+                //check to see whether a tile already exists in this spot
                 if(!player->getMosaicStorage()->getMosaic()->isSpaceFree(row, column - 1)){
-                    std::cout << "A TILE ALREADY EXISTS HERE" << std::endl;   
+                    gec->playerTurnResult("\n\u001b[31mError: A tile already exists here. Please try again.\u001b[0m\n");  
                     success = false;
                 }
 
                 Type storageRowType = player->getMosaicStorage()->getRowType(row);
+                //check to see whether a tile exists in column; must pass in -1 as display starts at 1 but logic starts at 0
                 if(player->getMosaicStorage()->getMosaic()->alreadyExistsInColumn(column - 1, storageRowType)){
-                    std::cout <<"THIS COLOUR ALREADY EXISTS IN THIS COLUMN"<<std::endl;
+                    if(success){
+                        //if both tile position is taken and colour column is invalid, ensure we only print one error message for the user
+                        gec->playerTurnResult("\n\u001b[31mError: This colour already exists in this column. Please try again.\u001b[0m\n"); 
+                    }
                     success = false;
                 }
             }
@@ -681,12 +640,13 @@ bool GameEngine::moveTilesFromFactory(Player* player, unsigned int factoryNumber
         //need to take into consideration wanting to move tiles to broken tiles manually
         moveTilesToBrokenTiles(player, factoryNumber, type, centralFactoryNumber);
     }    
-    else if (modeSelection != 3 && player->getMosaicStorage()->isValidAdd(type, row)){
+    else if (modeSelection != Mode::GREY && player->getMosaicStorage()->isValidAdd(type, row)){
 
         //player has chosen to put the tiles from the factory somewhere in their mosaic storage
         moveTilesToMosaicStorage(player, factoryNumber, row, type, centralFactoryNumber);
     }
-    else if(modeSelection == 3 && player->getMosaicStorage()->isValidAddForGrey(type, row)){
+    else if(modeSelection == Mode::GREY && player->getMosaicStorage()->isValidAddForGrey(type, row)){
+        //adding to a grey board requires different validation as we are not colour-constrained in the mosaic
         moveTilesToMosaicStorage(player, factoryNumber, row, type, centralFactoryNumber);
     }    
     else{
@@ -729,35 +689,39 @@ void GameEngine::removeOtherFirstPlayerTile(){
 }
 
 void GameEngine::moveTilesToBrokenTiles(Player* player, unsigned const int factoryNumber, const Type type, int centralFactoryNumber){
-    int maxBrokenTiles = 0;
-    if(dimensions == 5){
-        maxBrokenTiles = 7;
-    } else{
+    //orange mode means this is prone to change so we must check it 
+    int maxBrokenTiles = 7;
+    if(modeSelection == Mode::ORANGE_BOARD){
         maxBrokenTiles = 8;
     }
+
     std::vector<std::shared_ptr<Tile>> allTiles =  factory[factoryNumber]->getCopiedTilesAndRemove();
     std::shared_ptr<MosaicStorage> mosaicStorage = player->getMosaicStorage();
     BrokenTiles* brokenTiles = mosaicStorage->getBrokenTiles();
-    
-        int size = allTiles.size();
-        for (int i = 0; i < size; ++i) {
-            std::shared_ptr<Tile> tileToAdd = allTiles[i];
-            if (allTiles[i]->getType() == type) {
-                //make sure that the player can only have a max of 7 tiles; the rest go to the box lid if the max is reached
-                if(brokenTiles->getSize() < maxBrokenTiles)
-                    brokenTiles->addTile(tileToAdd);
-                else 
-                    mosaicStorage->addTileToDiscardedTiles(tileToAdd);
-            } else {
-                factory[centralFactoryNumber]->addTile(tileToAdd);
-            }
+
+    int size = allTiles.size();
+    for (int i = 0; i < size; ++i) {
+        std::shared_ptr<Tile> tileToAdd = allTiles[i];
+        if(tileToAdd->getType() == Type::FIRST_PLAYER){
+            //automatically move the first player tile to the broken tiles
+            brokenTiles->addTile(tileToAdd);
+            this->setPlayerStartingNextRound(player->getName());
+            removeOtherFirstPlayerTile();
+        } else if (allTiles[i]->getType() == type) {
+            //if max is hit the rest of the tiles go to the box lid if the max is reached
+            if(brokenTiles->getSize() < maxBrokenTiles)
+                brokenTiles->addTile(tileToAdd);
+            else 
+                mosaicStorage->addTileToDiscardedTiles(tileToAdd);
+        } else {
+            factory[centralFactoryNumber]->addTile(tileToAdd);
         }
+    }
 }
 
 //called at the end of each round to get rid of no longer usable tiles
 void GameEngine::moveTilesToLid(Player* player){
     std::vector<std::shared_ptr<Tile>> discarded = *(player->getMosaicStorage()->getDiscardedTiles());
-
     int discardedSize = discarded.size();
 
     for(int i = 0; i < discardedSize; i++){
@@ -776,6 +740,7 @@ void GameEngine::refillBag() {
 }
 
 void GameEngine::populateFactories(){
+    bool tileAddedToFactory = false;
     for(int i = 0; i < numberOfCentralFactories; i++){
         factory[i]->addTile(std::make_shared<Tile>(Type::FIRST_PLAYER));
     }
@@ -783,19 +748,23 @@ void GameEngine::populateFactories(){
     int convertedDimensions = dimensions;
     //start at 1 so we don't populate the central factory
     for(int i = numberOfCentralFactories; i < numberOfFactories; i++){
-        //fill each factory with 4 tiles
+        //fill each factory with 4 or 5 tiles depending on game mode
         for(int j = 0; j < convertedDimensions-1; ++j){
             if (bag->getSize() > 0) {
                 factory[i]->addTile(bag->getAndRemoveFirstTile());
+                tileAddedToFactory = true;
             } else {
                 refillBag();
-                if (bag->getSize() == 0) {
-                    runOutOfTiles = true;
-                } else {
+                //must check if still empty in case all tiles are in play
+                if (bag->getSize() != 0) {
                     factory[i]->addTile(bag->getAndRemoveFirstTile());
                 }
             }
         }
+    }
+    //if at any point we can't add anymore tiles then we're out of tiles and have to end the game
+    if(!tileAddedToFactory){
+        runOutOfTiles = true;
     }
 }
 
@@ -807,7 +776,7 @@ void GameEngine::populateBagAndShuffle(int modeSelection){
     GameEngine::addTilesByColourToBag(Type::LIGHT_BLUE, bagToShuffle);
     GameEngine::addTilesByColourToBag(Type::RED, bagToShuffle);
     GameEngine::addTilesByColourToBag(Type::YELLOW, bagToShuffle);
-    if(modeSelection == 2){
+    if(modeSelection == Mode::ORANGE_BOARD){
         GameEngine::addTilesByColourToBag(Type::ORANGE, bagToShuffle);
     }
 
@@ -829,6 +798,7 @@ void GameEngine::shuffle(std::vector<std::shared_ptr<Tile>> &bagToShuffle , unsi
     if (seed != 0) {
         engine.seed(seed);
     } else {
+        //user operator() which generates a random value
         seed = std::random_device{}();
         engine.seed(seed);
     }
@@ -854,55 +824,34 @@ void GameEngine::addTilesByColourToBag(const Type type, std::vector<std::shared_
     }
 }
 
-/*
-*Interpret the following integers as:
-* 0: invalid command
-* 1: successful turn
-* 2: saved game
-* 3: error due to nothing in central factory
-* 4: colour not in factory
-* 5: invalid moves
-*/
 std::string GameEngine::interpretPlayerTurn(const int result){
     std::string toReturn;
     if(result == Error_Message::INVALID_COMMAND)
-        toReturn = "Error: Invalid Command.\n";
+        toReturn = "\u001b[31mError: Invalid Command.\u001b[0m\n";
     if(result == Error_Message::SUCCESS)
         toReturn = "Turn Successful.\n";
     if(result == Error_Message::SAVED)
         toReturn = "Saved Game.\n";
     if(result == Error_Message::NO_TILES_IN_CENTRAL)
-        toReturn = "Error: There is no tiles in the central factory!\n";
+        toReturn = "\u001b[31mError: There are no tiles in the central factory!\u001b[0m\n";
     if(result == Error_Message::COLOUR_NOT_IN_FACTORY)
-        toReturn = "Error: The colour specified is not in this factory.\n";
+        toReturn = "\u001b[31mError: The colour specified is not in this factory.\u001b[0m\n";
     if(result == Error_Message::INVALID_MOVE)
-        toReturn = "Error: The move you are trying to make is invalid.\n";
+        toReturn = "\u001b[31mError: The move you are trying to make is invalid.\u001b[0m\n";
 
     return toReturn;
 }
 
 //loop enables the game to keep playing until someone wins or someone quits
-void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop, int modeSelection) {
-    std::cout<<"In gameplay loop"<<std::endl;
-    Input input;
-    if(modeSelection == 2){
-        this->dimensions = 6;
-    }  
-
-    this->modeSelection = modeSelection;
+void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop) {
     gec->setDimensions(dimensions);
     gec->setModeSelection(modeSelection);
-
+    Input input;
     while(!endOfCommands && !std::cin.eof() && !winConditionMet() && !runOutOfTiles){
         while(!endOfCommands && !endOfRoundConditionMet()){
 
             //output relevant information to players
             gec->boardComponentUpdate(factory, numberOfFactories, numberOfCentralFactories);
-            // gec->playerBoardUpdate(playerOne);
-            // gec->playerBoardUpdate(playerTwo);
-            // for(int i = 0; i < numberOfPlayers; i++){
-            //     gec->playerBoardUpdate(players[i]);
-            // }
             gec->playerBoardUpdateAfterTurn(players, numberOfPlayers);
             gec->playerTurnUpdate(currentTurn);
 
@@ -935,16 +884,14 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop, int m
     }
 
     //loop breaks so we can finalise scores and decide on winner
-    if (winConditionMet()) {
-        for(int i = 0; i < numberOfPlayers; i++){
-            gec->playerBoardUpdate(players[i]);
-        }
+    if (winConditionMet() || runOutOfTiles) {
+        gec->playerBoardUpdateAfterTurn(players, numberOfPlayers);
         calculateEndGamePoints();
 
         // When testing, we save the game before it ends to see the end of game save file
         if (testing) {
             GameEngineIO* geIO = new GameEngineIO(this, modeSelection);
-            geIO->saveEnhancements("actualoutcome.save");
+            geIO->saveGame("actualoutcome.save");
             delete geIO;
         }
 
@@ -954,47 +901,30 @@ void GameEngine::gameplayLoop(bool& endOfCommands, bool& continueMenuLoop, int m
 }
 
 void GameEngine::calculateEndGamePoints() {
-
     for(int i = 0; i < numberOfPlayers; i++){
         Player* player = players[i];
         int playerAdditionalPoints = player->getMosaicStorage()->getMosaic()->calculateEndGamePoints(); 
         player->setPoints(player->getPoints() + playerAdditionalPoints);
     }
-    // int playerOneAdditionalPoints = playerOne->getMosaicStorage()->getMosaic()->calculateEndGamePoints();
-    // int playerTwoAdditionalPoints = playerTwo->getMosaicStorage()->getMosaic()->calculateEndGamePoints();
-
-    // playerOne->setPoints(playerOne->getPoints() + playerOneAdditionalPoints);
-    // playerTwo->setPoints(playerTwo->getPoints() + playerTwoAdditionalPoints);
 
     for(int i = 0; i < numberOfPlayers; i++){
         gec->playerEndOfRoundResult(players[i]);
     }
     gec->playerEndOfGameResult(players, numberOfPlayers);
     
-    // gec->playerEndOfGameResult(playerOne, playerTwo);
 }
 
 void GameEngine::resetGame(){
     // new players are made with each new game instance
-    if(playerOne != nullptr){
-        delete playerOne;
-        playerOne = nullptr; 
+    for(int i = 0; i < numberOfPlayers; i++){
+        if(players[i] != nullptr){
+            delete players[i];
+            players[i] = nullptr;
+        }
     }
-    if(playerTwo != nullptr){
-        delete playerTwo;
-        playerTwo = nullptr; 
-    }
-    if(playerThree != nullptr){
-        delete playerThree;
-        playerThree = nullptr; 
-    }
-    if(playerFour != nullptr){
-        delete playerFour;
-        playerFour = nullptr; 
-    } 
     
     //don't delete components as they get instantiated with GE
-    for(int i = 0; i < 11; i++){
+    for(int i = 0; i < NUM_FACTORIES; i++){
         factory[i]->clear();
     }
     bag->clear();

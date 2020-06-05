@@ -1,0 +1,37 @@
+---------------------------------
+How to run the automatated tests
+---------------------------------
+
+1. If running on core teaching servers - the make command may not work with the tests. 
+
+Compile the program using the following code instead:
+
+g++ -Wall -Werror -std=c++14 -O -o assign2 main.cpp Menu.cpp Input.cpp ./Components/Node.cpp ./Components/Tile.cpp  ./Components/Factory.cpp ./Player/BrokenTiles.cpp ./Player/Mosaic.cpp ./Player/MosaicStorage.cpp ./Player/Player.cpp  ./GameEngine/GameEngine.cpp ./GameEngine/GameEngineCallback.cpp ./GameEngine/GameEngineIO.cpp ./Components/LinkedList.cpp
+
+2. Drag all files in "Tests/m1/updated_m1_tests" into the root (tests needed to be updated to cater for new save-game format)
+
+3. Open terminal and type: bash "run_tests.sh"
+
+-------
+TESTS
+-------
+
+Test 1: Tests one move. Moves a tile from factory to storage.
+Test 2: Tests that one tile is moved correctly from storage to mosaic and player correctly gets 1 point.
+Test 3: Tests the player gets the correct amount of points for getting horizontal sequential tiles.
+Test 4: Tests the player gets the correct amount of points for getting vertical sequential tiles.
+Test 5: Tests the player gets the correct amount of points for getting vertical and horizontal sequential tiles.
+Test 6: Tests the end of game condition is correct.
+Test 7: Tests the end of game row point calculation is correct.
+Test 8: Tests the end of game column point calculation is correct.
+Test 9: Tests the end of game number of tile point calculation is correct.
+Test 10: Tests one full round of gameplay.
+Test 11: Tests the entire system by playing a whole new game to completion THEN loading a save file and playing that save file.
+Test 12: Tests the entire system by loading a game and playing it to completion THEN starting a new game and playing it.
+Test 13: Tests if users can manually move tiles to broken tiles, and if storage rows can leave incomplete tile rows after a new round.  
+Test 14: Tests whether any remaining tiles go into broken tiles automatically when the  mosaic storage row is filled up with that colour. 
+Test 15: Tests whether the first player tile goes into broken tiles correctly when the player chooses tiles from the central factory for the very first time that round. 
+Test 16: Tested if the bag is able to be refilled from the lid when it has run out. This is visible if factories are populated correctly. 
+Test 17: Tested various invalid commands to ensure that there would be no segmentation fault as a result.
+Test 18: Tested various invalid menu commands to ensure that there would be no segmentation fault as a result.
+

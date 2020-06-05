@@ -10,9 +10,7 @@
 #include <string>
 #include <sstream>
 
-#define NUM_FACTORIES   6
-#define NUM_PLAYERS     2
-#define MAX_ROWS        5
+#define NUM_FACTORIES   11
 
 enum Error_Message{
     INVALID_COMMAND,
@@ -33,7 +31,7 @@ public:
 
     //Gameplay Conditions
     void newGame(const std::string player1Name, const std::string player2Name, const std::string player3Name, const std::string player4Name, int numberOfCentralFactories, int modeSelection);
-    void gameplayLoop(bool& eof, bool& continueMenuLoop, int modeSelection);
+    void gameplayLoop(bool& eof, bool& continueMenuLoop);
     bool winConditionMet();
     bool endOfRoundConditionMet();
     void endOfRoundPreparations();

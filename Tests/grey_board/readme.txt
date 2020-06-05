@@ -1,0 +1,2 @@
+Functionality that was changed was mostly due to the need to move tiles manually which brought about extra validation and error handling that needed to be incorporated.
+Therefore, the tests written were to check these changes. In my opinion, it would have been redundant to retest functionality that was not altered e.g. point scoring. 

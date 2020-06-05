@@ -45,6 +45,51 @@ void Menu::runGamePlayType() {
     std::cout << "5. Original - 4 players" << std::endl;
 }
 
+int Menu::promptCentralFactoryAmount(){
+    int numberOfCentralFactories = -1;
+    bool continueLoop = true;
+    while(continueLoop){
+        std::cout<< "Amount of central factories (1 or 2):"<< std::endl;
+        numberOfCentralFactories = input.getInt();
+        if(numberOfCentralFactories > 0 && numberOfCentralFactories <= 2){
+            continueLoop = false;
+        }
+    }
+    return numberOfCentralFactories;
+}
+
+void Menu::promptNames(std::string number, std::string& playerName){
+    std::cout << "Please enter player " << number << " name:" << std::endl;
+    playerName = input.getString();
+    playerNames.push_back(playerName);
+}
+
+void Menu::checkForDuplicateNames(){
+    for(unsigned int i = 0; i < playerNames.size(); i++){
+        for(unsigned int j = i + 1; j < playerNames.size(); j++){
+            if(playerNames[i] == playerNames[j]){
+                playerNames.clear();
+                throw "Please ensure there are no duplicate names!";
+            }
+        }  
+    } 
+}
+
+void Menu::printWelcomeMessage(){
+    std::string welcomeStr = "";
+    welcomeStr += "Welcome ";
+    for(unsigned int i = 0; i < playerNames.size(); i++){
+        welcomeStr += playerNames[i] + " "; 
+    }
+    welcomeStr.erase(welcomeStr.length() - 1, 1);
+    welcomeStr += "!";
+    std::cout << welcomeStr << std::endl;
+}
+
+void Menu::runNewGame(){
+    
+}
+
 bool Menu::runSelection(unsigned const int selection, int modeSelection) {
 
     // Parameters used for io redirection
@@ -54,53 +99,36 @@ bool Menu::runSelection(unsigned const int selection, int modeSelection) {
     Input input;
 
     if (selection == OPTIONS::NEW_GAME) {
+        playerNames.clear();
         int numberOfCentralFactories = -1;
-        if(modeSelection == 1 || modeSelection == 4 || modeSelection == 5){
-            bool continueLoop = true;
-            while(continueLoop){
-                std::cout<< "Amount of central factories (1 or 2):"<< std::endl;
-                numberOfCentralFactories = input.getInt();
-                if(numberOfCentralFactories > 0 && numberOfCentralFactories <= 2){
-                    continueLoop = false;
-                }
-            }
+        if(modeSelection == Mode::ORIGINAL || modeSelection == Mode::THREE_PLAYER || modeSelection == Mode::FOUR_PLAYER){
+            numberOfCentralFactories = promptCentralFactoryAmount(); 
+        }
+        std::string playerOneName, playerTwoName, playerThreeName, playerFourName = "";
+
+        promptNames("one", playerOneName);
+        promptNames("two", playerTwoName);
+
+        if(modeSelection == Mode::THREE_PLAYER || modeSelection == Mode::FOUR_PLAYER){
+            promptNames("three", playerThreeName);
         }
 
-        std::cout << "Please enter player one name:" << std::endl;
-        std::string playerOneName = input.getString();
-        std::cout << "Please enter player two name:" << std::endl;
-        std::string playerTwoName = input.getString();
-
-        if (playerOneName == playerTwoName) {
-            throw "Both players cannot have the same name.";
+        if(modeSelection == Mode::FOUR_PLAYER){
+            promptNames("four", playerFourName);
         }
 
-        std::string playerThreeName = "";
-        std::string playerFourName = "";
-        if(modeSelection == 4 || modeSelection == 5){
-            std::cout << "Please enter player three name:" << std::endl;
-            playerThreeName = input.getString();
-        }
-
-        if(modeSelection == 5){
-            std::cout << "Please enter player four name:" << std::endl;
-            playerFourName = input.getString();
-        }
-
-        std::cout << "Welcome " << playerOneName << " and " << playerTwoName << "!" << std::endl;
+        checkForDuplicateNames();
+        printWelcomeMessage();
 
         this->gameEngine->newGame(playerOneName, playerTwoName, playerThreeName, playerFourName, numberOfCentralFactories, modeSelection);
-        this->gameEngine->gameplayLoop(eof, continueMenuLoop, modeSelection);
-        
-
+        this->gameEngine->gameplayLoop(eof, continueMenuLoop);
     } else if (selection == OPTIONS::LOAD_GAME) { 
         std::string file = input.getString();
 
         GameEngineIO* gameEngineIO = new GameEngineIO(this->gameEngine, modeSelection);
         try{
-            gameEngineIO->readEnhancements(file);
-            this->gameEngine->gameplayLoop(eof, continueMenuLoop, modeSelection); 
-            std::cout << "Azul game successfully loaded" << std::endl;
+            gameEngineIO->loadGame(file);
+            this->gameEngine->gameplayLoop(eof, continueMenuLoop); 
 
         }catch(const char* e){
             std::cerr<< e << std::endl;

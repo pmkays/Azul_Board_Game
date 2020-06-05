@@ -99,10 +99,9 @@ bool MosaicStorage::isValidAddForGrey(Type type, unsigned const int row) {
     return valid;
 }
 void MosaicStorage::movePlayerTilesToMosaicManually(unsigned int row, unsigned int column){
-    int convertedRow = row;
     if(isRowFull(row)){
         std::shared_ptr<Tile>* tiles = getRow(row);
-        for(int i = 0; i < (convertedRow + 1); ++i){
+        for(unsigned int i = 0; i < (row + 1); ++i){
             if(i == 0){
                 this->mosaic->addTile(tiles[i], row, column);
                 grid[row][i] = nullptr;
@@ -118,9 +117,8 @@ void MosaicStorage::movePlayerTilesToMosaicManually(unsigned int row, unsigned i
 void MosaicStorage::moveTilesFromStorageRowToBroken(unsigned int row){
     if(isRowFull(row)){
         std::shared_ptr<Tile>* tiles = getRow(row);
-        for(unsigned int i = 0; i < dimensions; ++i){
+        for(unsigned int i = 0; i < row + 1 ; ++i){
             if(tiles[i] != nullptr){
-                std::cout<<"Adding 1 tile to broken tiles..."<<std::endl;
                 this->brokenTiles->addTile(tiles[i]);
                 grid[row][i] = nullptr;
             }
@@ -147,11 +145,10 @@ void MosaicStorage::endOfRoundDiscardBrokenTiles(){
 
 //moves the tiles to their corresponding mosaic spaces in the mosaics while discarding the rest
 void MosaicStorage::endOfRoundMove(){
-    int convertedDimensions = dimensions;
-    for(int row = 0; row< convertedDimensions; ++row){
+    for(unsigned int row = 0; row< dimensions; ++row){
         if(isRowFull(row)){
             std::shared_ptr<Tile>* tiles = getRow(row);
-            for(int i = 0; i < (row + 1); ++i){
+            for(unsigned int i = 0; i < (row + 1); ++i){
                 if(i == 0){
                     this->moveToMosaic(tiles[i],row);
                     grid[row][i] = nullptr;
@@ -230,9 +227,8 @@ std::vector<std::shared_ptr<Tile>>* MosaicStorage::getDiscardedTiles(){
 
 std::string MosaicStorage::rowToString(int index) const{
     std::string string = std::to_string(index+1) + ": ";
-    int convertedDimensions = dimensions;
 
-    for(int j = 0; j<convertedDimensions-(index+1);j++){
+    for(unsigned int j = 0; j<dimensions-(index+1);j++){
             string+= "   ";
     }
     for(int i = index; i>=0; --i){

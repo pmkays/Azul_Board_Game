@@ -33,6 +33,13 @@ public:
 
     void runMenuSelectionHelp();
 
+    int promptCentralFactoryAmount();
+
+    void promptNames(std::string number, std::string& playerName);
+    void checkForDuplicateNames();
+    void printWelcomeMessage();
+    void runNewGame();
+
     // Print Welcome Message.
     void printWelcome();
 
@@ -44,6 +51,7 @@ private:
     // Input for Menu
     Input input;
     GameEngine* gameEngine;
+    std::vector<std::string> playerNames;
 };
 
 #endif // MENU_H
